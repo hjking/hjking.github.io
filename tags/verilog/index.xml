@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>verilog on HJKing</title>
+    <link>/tags/verilog/</link>
+    <description>Recent content in verilog on HJKing</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 23 Aug 2016 16:01:23 +0800</lastBuildDate>
+    
+	<atom:link href="/tags/verilog/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>使用 Vim 编写 Verilog/SystemVerilog</title>
+      <link>/post/2016-08-23-vim-and-verilog/</link>
+      <pubDate>Tue, 23 Aug 2016 16:01:23 +0800</pubDate>
+      
+      <guid>/post/2016-08-23-vim-and-verilog/</guid>
+      <description>&lt;p&gt;由于 VIM 自身对 Verilog/SystemVerilog 的支持不是很完美，所以需要额外配置一下，本文记录了我在使用过程中一些常用的配置。其中用到了一些第三方插件和网上的代码片段。&lt;/p&gt;
+&lt;h3 id=&#34;语法高亮&#34;&gt;语法高亮&lt;/h3&gt;
+&lt;p&gt;使用插件 &lt;a href=&#34;https://github.com/vhda/verilog_systemverilog.vim&#34;&gt;verilog_systemverilog&lt;/a&gt; 。增加了语法高亮等。&lt;/p&gt;
+&lt;h3 id=&#34;文件浏览&#34;&gt;文件浏览&lt;/h3&gt;
+&lt;p&gt;安装插件&lt;a href=&#34;https://github.com/scrooloose/nerdtree&#34;&gt;nerdtree&lt;/a&gt;，通过运行命令 &lt;code&gt;NERDTree&lt;/code&gt; 可以在VIM中打开文件浏览，方便在文件间切换。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

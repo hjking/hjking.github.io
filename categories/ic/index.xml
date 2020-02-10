@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>IC on HJKing</title>
+    <link>/categories/ic/</link>
+    <description>Recent content in IC on HJKing</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 29 Dec 2016 16:01:23 +0800</lastBuildDate>
+    
+	<atom:link href="/categories/ic/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>自定义 UVM 打印信息的格式</title>
+      <link>/post/2016-12-29-customizing-uvm-message-format/</link>
+      <pubDate>Thu, 29 Dec 2016 16:01:23 +0800</pubDate>
+      
+      <guid>/post/2016-12-29-customizing-uvm-message-format/</guid>
+      <description>默认格式 默认情况下，当我们调用 `uvm_info 宏时，打印信息格式如下: UVM_INFO my_uvm_report.sv(83) @ 0: reporter [top] This is a message from top. UVM_INFO my_uvm_report.sv(68) @ 0: uvm_test_top [my_test] This is a message from my_test. UVM_INFO my_uvm_report.sv(39) @ 0: uvm_test_top.my_env_h [my_env] This is a message from my_env. 自定义格式 通</description>
+    </item>
+    
+  </channel>
+</rss>

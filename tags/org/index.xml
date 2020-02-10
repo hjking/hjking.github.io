@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>org on HJKing</title>
+    <link>/tags/org/</link>
+    <description>Recent content in org on HJKing</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 26 Dec 2014 15:05:02 +0800</lastBuildDate>
+    
+	<atom:link href="/tags/org/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>使用org-trello管理Trello</title>
+      <link>/post/2014-12-26-org-trello/</link>
+      <pubDate>Fri, 26 Dec 2014 15:05:02 +0800</pubDate>
+      
+      <guid>/post/2014-12-26-org-trello/</guid>
+      <description>&lt;p&gt;本文将介绍使用 &lt;code&gt;Emacs&lt;/code&gt; 配合 &lt;code&gt;org-trello&lt;/code&gt; 来管理 &lt;code&gt;Trello&lt;/code&gt;。&lt;/p&gt;
+&lt;h2 id=&#34;链接&#34;&gt;链接&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://orgmode.org/&#34;&gt;org-mode&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://trello.com/&#34;&gt;Trello&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://org-trello.github.io/&#34;&gt;org-trello&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
+&lt;p&gt;使用 &lt;code&gt;package&lt;/code&gt; 包管理插件安装，我将假设你已经配置好了插件仓库 &lt;code&gt;melpa&lt;/code&gt;。在 &lt;em&gt;Emacs&lt;/em&gt; 中 &lt;code&gt;M-x package-install RET org-trello RET&lt;/code&gt; 就可下载 &lt;code&gt;org-trello&lt;/code&gt; 软件包。&lt;/p&gt;
+&lt;h2 id=&#34;配置&#34;&gt;配置&lt;/h2&gt;
+&lt;p&gt;在 &lt;code&gt;init.el&lt;/code&gt; 中添加以下内容：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-emacs-lisp&#34; data-lang=&#34;emacs-lisp&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;require&lt;/span&gt; &lt;span class=&#34;ss&#34;&gt;&amp;#39;org-trello&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;em&gt;注意：&lt;/em&gt; 不建议所有的 org file 都启用 org-trello 模式，利用以下配置使 &lt;code&gt;org-trello&lt;/code&gt; 只对特定文件有效。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-emacs-lisp&#34; data-lang=&#34;emacs-lisp&#34;&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;custom-set-variables&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;org-trello-files&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;/path/to/file0&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;/path/to/file1&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;当打开 &lt;em&gt;file0&lt;/em&gt; 和 &lt;em&gt;file1&lt;/em&gt; 时，&lt;code&gt;org-trello&lt;/code&gt; 才会激活。&lt;/p&gt;
+&lt;h2 id=&#34;使用&#34;&gt;使用&lt;/h2&gt;
+&lt;h3 id=&#34;获取trello授权&#34;&gt;获取Trello授权&lt;/h3&gt;
+&lt;p&gt;为了使 &lt;code&gt;org-trello&lt;/code&gt; 能够访问 &lt;code&gt;Trello&lt;/code&gt;，并能操作 &lt;code&gt;Trello&lt;/code&gt; 的 &lt;code&gt;board&lt;/code&gt; ，需要从 &lt;code&gt;Trello&lt;/code&gt; 获取 &lt;em&gt;consumer-key&lt;/em&gt; 和 &lt;em&gt;access-token&lt;/em&gt;。使用快捷键 &lt;strong&gt;C-c o i&lt;/strong&gt;，或者运行命令 &lt;strong&gt;org-trello/install-key-and-token&lt;/strong&gt; , 此时默认浏览器会打开 &lt;code&gt;Trello&lt;/code&gt; 的相关页面，复制 &lt;em&gt;Key&lt;/em&gt; 部分的字符串，粘贴到 &lt;em&gt;Emacs&lt;/em&gt; 的 &lt;em&gt;minibuffer&lt;/em&gt; ，之后又会打开一个 &lt;code&gt;org-trello&lt;/code&gt; 请求 &lt;code&gt;Trello&lt;/code&gt; 授权的页面，点击 &lt;em&gt;Allow&lt;/em&gt;, 浏览器会跳转至显示 &lt;code&gt;access-token&lt;/code&gt; 页面，复制粘贴到 &lt;code&gt;Emacs&lt;/code&gt; 的 &lt;code&gt;minibuffer&lt;/code&gt;，回车。以上过程至需要执行一次即可。&lt;/p&gt;
+&lt;h3 id=&#34;与trello的board相关联&#34;&gt;与Trello的board相关联&lt;/h3&gt;
+&lt;p&gt;每一个 org 文件都需要与一个 &lt;code&gt;Trello&lt;/code&gt; 的 &lt;code&gt;board&lt;/code&gt; 相关联。&lt;/p&gt;
+&lt;h4 id=&#34;与已有的board相关联&#34;&gt;与已有的board相关联&lt;/h4&gt;
+&lt;p&gt;打开一个 org 文件，执行：&lt;strong&gt;C-c o I&lt;/strong&gt; 或者 &lt;strong&gt;M-x org-trello/install-board-metadata&lt;/strong&gt; ，Emacs会在minibuffer中返回一个已有board的列表，输入你想要同步的board对应的编号即可。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;注意：&lt;/strong&gt; 确保board中的list名称和 &lt;code&gt;org&lt;/code&gt; 中设置的 &lt;code&gt;org-todo-keywords&lt;/code&gt; 保持一致，否则会同步出错。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

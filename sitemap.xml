@@ -1,0 +1,312 @@
+<?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>/ref/</loc>
+    <lastmod>2018-11-28T15:04:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>/ref/emacs/</loc>
+    <lastmod>2018-11-28T15:04:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>/ref/git/</loc>
+    <lastmod>2018-11-28T15:04:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2018-11-28T15:04:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>/ref/ic/</loc>
+    <lastmod>2018-11-28T15:04:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>/ref/orgmode/</loc>
+    <lastmod>2018-11-28T15:04:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>/ref/python/</loc>
+    <lastmod>2018-11-28T15:04:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>/ref/sed/</loc>
+    <lastmod>2018-11-28T15:04:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>/ref/sublime/</loc>
+    <lastmod>2018-11-28T15:04:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>/ref/svn/</loc>
+    <lastmod>2018-11-28T15:04:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>/ref/tools/</loc>
+    <lastmod>2018-11-28T15:04:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>/ref/tc/</loc>
+    <lastmod>2018-11-28T15:04:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>/ref/uvm/</loc>
+    <lastmod>2018-11-28T15:04:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>/ref/vim/</loc>
+    <lastmod>2018-11-28T15:04:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/</loc>
+    <lastmod>2016-12-29T16:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/ic/</loc>
+    <lastmod>2016-12-29T16:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/perl/</loc>
+    <lastmod>2016-12-29T16:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/perl/</loc>
+    <lastmod>2016-12-29T16:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>/post/introduction-to-perl-one-liners/</loc>
+    <lastmod>2016-12-29T16:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <lastmod>2016-12-29T16:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/systemverilog/</loc>
+    <lastmod>2016-12-29T16:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2016-12-29T16:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/uvm/</loc>
+    <lastmod>2016-12-29T16:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>/post/2016-12-29-customizing-uvm-message-format/</loc>
+    <lastmod>2016-12-29T16:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/awk/</loc>
+    <lastmod>2016-09-02T16:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/grep/</loc>
+    <lastmod>2016-09-02T16:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>/post/2016-09-02-grep-awk-sed/</loc>
+    <lastmod>2016-09-02T16:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/linux/</loc>
+    <lastmod>2016-09-02T16:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/sed/</loc>
+    <lastmod>2016-09-02T16:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/ctags/</loc>
+    <lastmod>2016-08-23T16:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/tool/</loc>
+    <lastmod>2016-08-23T16:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/verilog/</loc>
+    <lastmod>2016-08-23T16:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/vim/</loc>
+    <lastmod>2016-08-23T16:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>/post/2016-08-23-vim-and-verilog/</loc>
+    <lastmod>2016-08-23T16:01:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/sublime/</loc>
+    <lastmod>2015-03-02T15:05:02+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>/post/2015-03-02-sublime/</loc>
+    <lastmod>2015-03-02T15:05:02+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/tool/</loc>
+    <lastmod>2015-03-02T15:05:02+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/emacs/</loc>
+    <lastmod>2014-12-26T15:05:02+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/org/</loc>
+    <lastmod>2014-12-26T15:05:02+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/trello/</loc>
+    <lastmod>2014-12-26T15:05:02+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>/post/2014-12-26-org-trello/</loc>
+    <lastmod>2014-12-26T15:05:02+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/gfw/</loc>
+    <lastmod>2014-06-21T15:05:02+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/gfw/</loc>
+    <lastmod>2014-06-21T15:05:02+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>/post/2014-06-21-gfw/</loc>
+    <lastmod>2014-06-21T15:05:02+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+</urlset>

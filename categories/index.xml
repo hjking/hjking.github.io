@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on HJKing</title>
+    <link>/categories/</link>
+    <description>Recent content in Categories on HJKing</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 29 Dec 2016 16:01:23 +0800</lastBuildDate>
+    
+	<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>IC</title>
+      <link>/categories/ic/</link>
+      <pubDate>Thu, 29 Dec 2016 16:01:23 +0800</pubDate>
+      
+      <guid>/categories/ic/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Perl</title>
+      <link>/categories/perl/</link>
+      <pubDate>Thu, 29 Dec 2016 16:01:23 +0800</pubDate>
+      
+      <guid>/categories/perl/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>/categories/linux/</link>
+      <pubDate>Fri, 02 Sep 2016 16:01:23 +0800</pubDate>
+      
+      <guid>/categories/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tool</title>
+      <link>/categories/tool/</link>
+      <pubDate>Tue, 23 Aug 2016 16:01:23 +0800</pubDate>
+      
+      <guid>/categories/tool/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gfw</title>
+      <link>/categories/gfw/</link>
+      <pubDate>Sat, 21 Jun 2014 15:05:02 +0800</pubDate>
+      
+      <guid>/categories/gfw/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

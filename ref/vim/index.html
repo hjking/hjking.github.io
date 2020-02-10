@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Vim - HJKing</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="HJKing" /><meta name="description" content="Vim Distributions Vim distributions are Vim &#43; custom settings &#43; custom plugins from certain authors and are therefore very opinionated. cream A modern configuration of the powerful and famous Vim, Cream is for Microsoft Windows, GNU/Linux, and FreeBSD. janus This is a distribution of plug-ins and mappings for Vim, Gvim and MacVim. It is designed to provide minimal working environment using the most popular plug-ins and the most common mappings." /><meta name="keywords" content="ASIC, UVM, SV" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.64.0 with theme even" />
+
+
+<link rel="canonical" href="/ref/vim/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Vim" />
+<meta property="og:description" content="Vim Distributions Vim distributions are Vim &#43; custom settings &#43; custom plugins from certain authors and are therefore very opinionated. cream A modern configuration of the powerful and famous Vim, Cream is for Microsoft Windows, GNU/Linux, and FreeBSD. janus This is a distribution of plug-ins and mappings for Vim, Gvim and MacVim. It is designed to provide minimal working environment using the most popular plug-ins and the most common mappings." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/ref/vim/" />
+<meta property="article:published_time" content="2018-11-28T15:04:39+08:00" />
+<meta property="article:modified_time" content="2018-11-28T15:04:39+08:00" />
+<meta itemprop="name" content="Vim">
+<meta itemprop="description" content="Vim Distributions Vim distributions are Vim &#43; custom settings &#43; custom plugins from certain authors and are therefore very opinionated. cream A modern configuration of the powerful and famous Vim, Cream is for Microsoft Windows, GNU/Linux, and FreeBSD. janus This is a distribution of plug-ins and mappings for Vim, Gvim and MacVim. It is designed to provide minimal working environment using the most popular plug-ins and the most common mappings.">
+<meta itemprop="datePublished" content="2018-11-28T15:04:39&#43;08:00" />
+<meta itemprop="dateModified" content="2018-11-28T15:04:39&#43;08:00" />
+<meta itemprop="wordCount" content="2235">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Vim"/>
+<meta name="twitter:description" content="Vim Distributions Vim distributions are Vim &#43; custom settings &#43; custom plugins from certain authors and are therefore very opinionated. cream A modern configuration of the powerful and famous Vim, Cream is for Microsoft Windows, GNU/Linux, and FreeBSD. janus This is a distribution of plug-ins and mappings for Vim, Gvim and MacVim. It is designed to provide minimal working environment using the most popular plug-ins and the most common mappings."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">HJKing</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/ref/">
+        <li class="mobile-menu-item">Reference</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">HJKing</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/ref/">Reference</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+  <div class="post-content">
+    <h1 id="vim">Vim</h1>
+<h2 id="distributions">Distributions</h2>
+<p>Vim distributions are Vim + custom settings + custom plugins from certain authors and are therefore very opinionated.</p>
+<ul>
+<li>
+<p><a href="http://cream.sourceforge.net/">cream</a></p>
+<p>A modern configuration of the powerful and famous Vim, Cream is for Microsoft Windows, GNU/Linux, and FreeBSD.</p>
+</li>
+<li>
+<p><a href="https://github.com/carlhuda/janus">janus</a></p>
+<p>This is a distribution of plug-ins and mappings for Vim, Gvim and MacVim.</p>
+<p>It is designed to provide minimal working environment using the most popular plug-ins and the most common mappings.</p>
+<p>The distribution is completely customisable using a ~/.vimrc.before and ~/.vimrc.after Vim RC files.</p>
+</li>
+<li>
+<p><a href="https://github.com/spf13/spf13-vim">spf13</a></p>
+<p>spf13-vim is a distribution of vim plugins and resources for Vim, Gvim and MacVim.</p>
+<p>It is a good starting point for anyone intending to use VIM for development running equally well on Windows, Linux, *nix and Mac.</p>
+<p>The distribution is completely customisable using a ~/.vimrc.local, ~/.vimrc.bundles.local, and ~/.vimrc.before.local Vim RC files.</p>
+</li>
+</ul>
+<h2 id="教程">教程</h2>
+<ul>
+<li><a href="https://github.com/wsdjeg/vim-galore-zh_cn">Vim 从入门到精通</a></li>
+</ul>
+<h2 id="featured-plugins">Featured Plugins</h2>
+<h3 id="插件管理器">插件管理器</h3>
+<ul>
+<li>
+<p><a href="https://github.com/tpope/vim-pathogen">pathogen</a></p>
+<p>该插件用来管理Vim的插件，可以让插件的安装与卸载更加方便。配合Github和Submodule效果更佳。</p>
+</li>
+<li>
+<p>vim-plug</p>
+</li>
+</ul>
+<h3 id="文件代码搜索工具">文件，代码搜索工具</h3>
+<ul>
+<li>
+<p><a href="https://github.com/kien/ctrlp.vim">ctrlp</a></p>
+<p>搜索目录下的文件，没有依赖于其他语言，轻量级的。</p>
+</li>
+</ul>
+<h3 id="自动补全">自动补全</h3>
+<ul>
+<li>
+<p><a href="https://github.com/Shougo/neocomplcache">neocomplcache</a></p>
+<p>关键字补全、文件路径补全、tag补全等等，各种，非常好用，速度超快。<a href="https://github.com/Shougo/neocomplete.vim">neocomplete</a> 也不错，但是它是基于lua的。</p>
+</li>
+<li>
+<p><a href="https://github.com/Shougo/neocomplete.vim">neocomplete</a></p>
+<p>需要Vim支持Lua</p>
+</li>
+<li>
+<p><a href="https://github.com/Valloric/YouCompleteMe">YouCompleteMe</a></p>
+<p>前Google的C++工程师Valloric (Val Markovic) 开发的一款，专门用于C系（C,C++,C#) 的自动补全工具, 优点是速度非常快，而且支持变量跳转，函数关联跳转，检测代码报错, 可以说是最牛逼的补全工具，缺点是太难配置，对于除了C系语言的其他语言补全支持并不好. 对于刚接触Vim的同学来说相当不友好, 不过文档比较齐全.</p>
+</li>
+</ul>
+<h3 id="代码检测">代码检测</h3>
+<h3 id="代码对齐格式化">代码对齐，格式化</h3>
+<ul>
+<li>
+<p><a href="https://github.com/godlygeek/tabular">Tabularize</a></p>
+<p>格式化对齐文本。可以将常用的格式，排版方式做成键位映射，更加方便，速度感人.</p>
+</li>
+<li>
+<p><a href="https://github.com/junegunn/vim-easy-align">vim-easy-align</a></p>
+<p>代码排版，格式化插件， 它参考了tabular, 并且集成了tabular的优点，同时集成了自己的一套规则方法，有一定的学习成本，适合想装逼，想挑战的同学，本文作者没用过，所以就不吹牛逼了</p>
+</li>
+<li>
+<p>lion</p>
+<p>文本对齐
+gl :
+gL :</p>
+</li>
+</ul>
+<h3 id="极速跳转">极速跳转</h3>
+<ul>
+<li>
+<p><a href="https://github.com/easymotion/vim-easymotion">EasyMotion</a></p>
+<p>提供在文件中快速跳转和定位位置。
+<strong>&lt;Leader&gt;&lt;Leader&gt;</strong>: 启动
+<strong>&lt;Leader&gt;&lt;Leader&gt;w</strong> : 查找单词的开头
+<strong>&lt;Leader&gt;&lt;Leader&gt;f</strong> : 查找单词的字符
+<strong>&lt;Leader&gt;&lt;Leader&gt;b</strong> : 向后搜索，跳转到单词的开头
+<strong>&lt;Leader&gt;&lt;Leader&gt;e</strong> : 向前搜索，跳转到单词的结尾
+<strong>&lt;Leader&gt;&lt;Leader&gt;j</strong> : 向下跳转到行首
+<strong>&lt;Leader&gt;&lt;Leader&gt;k</strong> : 向上跳转到行首
+<strong>&lt;Leader&gt;&lt;Leader&gt;n</strong> : 向前跳转到最近通过/或者?搜索后的匹配项
+<strong>&lt;Leader&gt;&lt;Leader&gt;N</strong> : 向后跳转到最近通过/或者?搜索后的匹配项</p>
+</li>
+<li>
+<p><a href="https://github.com/henrik/CamelCaseMotion">CamelCaseMotion</a></p>
+<p>让 <em>w</em>, <em>e</em>, <em>b</em> 等跳转时能处理类似 CamelCase 这样的单词，当成2个单词。</p>
+</li>
+<li>
+<p><a href="https://github.com/Shougo/wildfire.vim">wildfire</a></p>
+<p>快速的就近选择一个候选文本对象，并能通过快捷键继续简单的扩大文本对象范围。</p>
+</li>
+<li>
+<p><a href="https://github.com/terryma/vim-expand-region">vim-expand-region</a></p>
+<p>快速选择文本。</p>
+</li>
+<li>
+<p><a href="https://github.com/justinmk/vim-sneak">vim-sneak</a></p>
+<p>我们知道, vim中F和f 键位只能快速定位当前行，对。仅仅只是当前这一行，但是sneak 可以使其完全支持多行 f 和 F 进行跳转！</p>
+</li>
+<li>
+<p><a href="https://github.com/haya14busa/incsearch.vim">incsearch.vim</a></p>
+<p>作者haya14busa (haya14busa)是个日本萌妹， incsearch 是增强vim 中自带的 ? 和 ／ 搜索功能， 并且支持更加高级的正则表达式匹配, vim默认搜索是只能高亮一个当前匹配的字符，但是incsearch却可以同时高亮所有匹配的字符！！！</p>
+</li>
+</ul>
+<h3 id="版本控制">版本控制</h3>
+<ul>
+<li>
+<p><a href="https://github.com/gregsexton/gitv">gitv</a></p>
+<p>展开项目的Git Tree ，需要 vim-git 和vim-fugitive 的支持</p>
+</li>
+<li>
+<p><a href="https://github.com/tpope/vim-fugitive.git">fugitive</a></p>
+<p>方便在Vim里面使用Git的插件。</p>
+</li>
+</ul>
+<h3 id="文本处理">文本处理</h3>
+<ul>
+<li>
+<p><a href="https://github.com/tpope/vim-surround">vim-surround</a></p>
+<p>快速添加，删除，修改 [ ] {} &quot;&rdquo; '&rsquo; ，XML tag， HTML tags等。</p>
+<p>cs&rdquo;&rsquo;   : &ldquo;Hello world!&rdquo;   -&gt;    &lsquo;Hello world!&rsquo;
+cs'<!-- raw HTML omitted --> : &lsquo;Hello world!&rsquo;   -&gt;    <!-- raw HTML omitted -->Hello world!<!-- raw HTML omitted -->
+ds&rdquo;    : &ldquo;Hello world!&rdquo;   -&gt;    Hello world!
+ysiw]  : Hello world!     -&gt;    [Hello] world!
+cs]{   : [Hello] world!   -&gt;    { Hello } world!
+yssb or yss) : { Hello } world!  -&gt;  ({ Hello } world!)
+ds{ds) : ({ Hello } world!)  -&gt;  Hello world!</p>
+</li>
+<li>
+<p><a href="">multiple-cursors</a></p>
+<p>多光标操作，多重选取，多光标输入。在 Normal 模式下按 Ctrl-n 高亮选中当前光标下的单词，并且将光标放在单词尾部；继续按，会选中下一个重复的单词。 如果在Visual模式下选中一行, 按 Ctrl-n 选中每一相同行，并将光标放在末尾，并回到 Normal 模式。</p>
+</li>
+<li>
+<p><a href="https://github.com/sjl/gundo.vim">gundo</a></p>
+<p>显示撤销树浏览器。</p>
+</li>
+</ul>
+<h3 id="编程相关">编程相关</h3>
+<ul>
+<li>
+<p><a href="https://github.com/vim-scripts/a.vim">a</a></p>
+<p>让cpp文件在.h和.cpp文件中切换。</p>
+</li>
+<li>
+<p><a href="">vim-commentary</a></p>
+<p>快速注释插件，绝对改善生活, 但是在HTML文件中还是有小bug的</p>
+</li>
+<li>
+<p><a href="https://github.com/scrooloose/nerdtree">NERDTree</a></p>
+<p>该插件会生成工程目录树，显示树形结构。</p>
+</li>
+<li>
+<p><a href="https://github.com/majutsushi/tagbar">Tagbar</a></p>
+<p>该插件生成函数、变量列表。</p>
+</li>
+<li>
+<p><a href="https://github.com/scrooloose/nerdcommenter">NERDCommenter</a></p>
+<p>注释代码的插件。
+<strong>,ca</strong> : 在可选的注释方式之间切换，比如C/C++ 的块注释/* */和行注释//
+**,cc** : 注释当前行
+**,c<!-- raw HTML omitted -->**  : 切换注释/非注释状态
+**,cm** : 注释多行
+**,ci** : 翻转注释
+**,cs** : 以”性感”的方式注释
+**,c$** : 从光标开始注释
+**,cA** : 在当前行尾添加注释符，并进入Insert模式
+**,cu** : 取消注释
+Normal模式下，几乎所有命令前面都可以指定行数。Visual模式下执行命令，会对选中的特定区块进行注释/反注释</p>
+<ul>
+<li>
+<p>[count]<!-- raw HTML omitted -->cc |NERDComComment|</p>
+<p>Comment out the current line or text selected in visual mode.</p>
+</li>
+<li>
+<p>[count]<!-- raw HTML omitted -->cn |NERDComNestedComment|</p>
+<p>Same as cc but forces nesting.</p>
+</li>
+<li>
+<p>[count]<!-- raw HTML omitted -->c<!-- raw HTML omitted --> |NERDComToggleComment|</p>
+<p>Toggles the comment state of the selected line(s). If the topmost selected line is -   commented, all selected lines are uncommented and vice versa.</p>
+</li>
+<li>
+<p>[count]<!-- raw HTML omitted -->cm |NERDComMinimalComment|</p>
+<p>Comments the given lines using only one set of multipart delimiters.</p>
+</li>
+<li>
+<p>[count]<!-- raw HTML omitted -->ci |NERDComInvertComment|</p>
+<p>Toggles the comment state of the selected line(s) individually.</p>
+</li>
+<li>
+<p>[count]<!-- raw HTML omitted -->cs |NERDComSexyComment|</p>
+<p>Comments out the selected lines with a pretty block formatted layout.</p>
+</li>
+<li>
+<p>[count]<!-- raw HTML omitted -->cy |NERDComYankComment|</p>
+<p>Same as cc except that the commented line(s) are yanked first.</p>
+</li>
+<li>
+<p><!-- raw HTML omitted -->c$ |NERDComEOLComment|</p>
+<p>Comments the current line from the cursor to the end of line.</p>
+</li>
+<li>
+<p><!-- raw HTML omitted -->cA |NERDComAppendComment|</p>
+<p>Adds comment delimiters to the end of line and goes into insert mode between them.</p>
+</li>
+<li>
+<p><!-- raw HTML omitted -->ca |NERDComAltDelim|</p>
+<p>Switches to the alternative set of delimiters.</p>
+</li>
+<li>
+<p>[count]<!-- raw HTML omitted -->cl</p>
+</li>
+<li>
+<p>[count]<!-- raw HTML omitted -->cb |NERDComAlignedComment|</p>
+<p>Same as |NERDComComment| except that the delimiters are aligned down the left side (<!-- raw HTML omitted -->  cl) or both sides (<!-- raw HTML omitted -->cb).</p>
+</li>
+<li>
+<p>[count]<!-- raw HTML omitted -->cu |NERDComUncommentLine|</p>
+<p>Uncomments the selected line(s).</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="其他">其他</h3>
+<ul>
+<li>
+<p>unite</p>
+</li>
+<li>
+<p><a href="https://github.com/vim-airline/vim-airline">vim-airline</a></p>
+<p>各种line已经成为过去，基本 airline 已经实现了统一 ，同时支持各种插件，当然带来的负担就是会导致vim启动慢了一点. 当然如果要用vim装逼的话，这个是必不可少的.</p>
+</li>
+<li>
+<p>[vim-repeat]</p>
+<p>点命令( . 重复上一次修改)的扩展</p>
+</li>
+<li>
+<p><a href="https://github.com/Raimondi/delimitMate.git">delimitMate</a></p>
+<p>符号自动补全, 成对生成(),{},[]</p>
+</li>
+<li>
+<p>quickrun: 快速执行</p>
+</li>
+<li>
+<p>trailing-whitespace: 行尾空格处理</p>
+</li>
+<li>
+<p>rainbow_parentheses: 括号高亮</p>
+</li>
+<li>
+<p>syntastic: 语法检查</p>
+</li>
+<li>
+<p>matchit: 成对标签跳转</p>
+</li>
+<li>
+<p>vim-signature: 快速标记跳转</p>
+</li>
+<li>
+<p>calendar.vim
+代替原生的calendar。
+<strong>:Calendar</strong>  在新buffer中打开日历视图，默认月视图</p>
+</li>
+<li>
+<p>over
+让替换变得可视化。进入替换命令行后，用正常的s替换命令，当输入待替换的字符串时会高亮显示，输入用来替换的字符转时，会在原文中高亮显示在替换字符串后面。
+<strong>:OverCommandLine</strong> : 进入替换命令行</p>
+</li>
+<li>
+<p>sneak</p>
+<p>通过输入字符快速跳转和定位。普通模式下按 <em>s&lt;char&gt;&lt;char&gt;</em> 来快速跳转到 <em>&lt;char&gt;&lt;char&gt;</em> 处。
+; : 跳转到下个匹配处
+3; : 跳转到第三个匹配处
+CTRL-O : 回到光标起始位置
+s<!-- raw HTML omitted --> : 重复上次搜索
+S : 向后搜索</p>
+</li>
+<li>
+<p>vim-vertical-move</p>
+<p>不改变鼠标的列号，在上下文中移动。
+<strong>[v</strong> : 向上移动
+<strong>]v</strong> : 向下移动</p>
+</li>
+<li>
+<p>wildfire</p>
+<p>快速选取附近的文本。按一下 <!-- raw HTML omitted --> 来选取最近的文本对象，继续按，选取下一个。</p>
+</li>
+</ul>
+<h2 id="customize">Customize</h2>
+<h3 id="custom-settings">Custom Settings</h3>
+<h3 id="misc">Misc</h3>
+<h2 id="other-awesome-stuff">Other Awesome Stuff</h2>
+<h3 id="colors">Colors</h3>
+<h3 id="additional-syntaxes">Additional Syntaxes</h3>
+<h3 id="调试">调试</h3>
+<ul>
+<li>
+<p>查看启动时间</p>
+<p>加上参数 <em>&ndash;startuptime file.log</em> ，file.log是指定的log文件。</p>
+</li>
+<li>
+<p>查看加载的插件</p>
+<p>在vim中运行 <em>scriptnames</em> 。</p>
+</li>
+</ul>
+<h2 id="tips">Tips</h2>
+<ul>
+<li>
+<p>Remove all trailing spaces</p>
+<p>Try :%s/\s+$//e.</p>
+</li>
+<li>
+<p>Use [{ to jump back to the &ldquo;{&rdquo; at the start of the current code block.</p>
+</li>
+<li>
+<p>Use gd to jump from the use of a variable to its local declaration.</p>
+</li>
+</ul>
+<h2 id="cheatsheet">Cheatsheet</h2>
+<ul>
+<li><a href="http://people.csail.mit.edu/vgod/vim/vim-cheat-sheet-en.png">http://people.csail.mit.edu/vgod/vim/vim-cheat-sheet-en.png</a></li>
+<li><a href="https://cdn.shopify.com/s/files/1/0165/4168/files/preview.png">https://cdn.shopify.com/s/files/1/0165/4168/files/preview.png</a></li>
+<li><a href="http://www.nathael.org/Data/vi-vim-cheat-sheet.svg">http://www.nathael.org/Data/vi-vim-cheat-sheet.svg</a></li>
+<li><a href="http://michael.peopleofhonoronly.com/vim/vim_cheat_sheet_for_programmers_screen.png">http://michael.peopleofhonoronly.com/vim/vim_cheat_sheet_for_programmers_screen.png</a></li>
+<li><a href="http://www.rosipov.com/images/posts/vim-movement-commands-cheatsheet.png">http://www.rosipov.com/images/posts/vim-movement-commands-cheatsheet.png</a></li>
+</ul>
+
+  </div>
+</article>
+        </div>
+        
+
+  
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="hjking/hjking.github.io"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:hon9jin@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://stackoverflow.com/users/1605724/hjking" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://twitter.com/hon9jin" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://www.facebook.com/kin9hom" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="https://www.linkedin.com/in/hjking" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="https://github.com/hjking" class="iconfont icon-github" title="github"></a>
+      <a href="http://weibo.com/hon9jin" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://kinghom.tumblr.com" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://instagram.com/kinghom" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">HJKing</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/raphael@2.2.7/raphael.min.js" integrity="sha256-67By+NpOtm9ka1R6xpUefeGOY8kWWHHRAKlvaTJ7ONI=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/flowchart.js@1.8.0/release/flowchart.min.js" integrity="sha256-zNGWjubXoY6rb5MnmpBNefO0RgoVYfle9p0tvOQM+6k=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js" integrity="sha256-4O4pS1SH31ZqrSO2A/2QJTVjTPqVe+jnYgOWUVr7EEc=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/snapsvg@0.5.1/dist/snap.svg-min.js" integrity="sha256-oI+elz+sIm+jpn8F/qEspKoKveTc5uKeFHNNVexe6d8=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/underscore@1.8.3/underscore-min.js" integrity="sha256-obZACiHd7gkOk9iIL/pimWMTJ4W/pBsKu+oZnSeBIek=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.js" integrity="sha384-8748Vn52gHJYJI0XEuPB2QlPVNUkJlJn9tHqKec6J3q2r9l8fvRxrgn/E5ZHV0sP" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.css" integrity="sha384-6QbLKJMz5dS3adWSeINZe74uSydBGFbnzaAYmp+tKyq60S7H2p6V7g1TysM5lAaF" crossorigin="anonymous">
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-6627086-2', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+</body>
+</html>

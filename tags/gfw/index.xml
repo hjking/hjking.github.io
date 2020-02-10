@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>gfw on HJKing</title>
+    <link>/tags/gfw/</link>
+    <description>Recent content in gfw on HJKing</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 21 Jun 2014 15:05:02 +0800</lastBuildDate>
+    
+	<atom:link href="/tags/gfw/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>上网必备技能</title>
+      <link>/post/2014-06-21-gfw/</link>
+      <pubDate>Sat, 21 Jun 2014 15:05:02 +0800</pubDate>
+      
+      <guid>/post/2014-06-21-gfw/</guid>
+      <description>&lt;p&gt;作为身在国内的孩纸，上网是件容易的事儿，但是要想自由的上网，那还真是个难事儿。以下列出几个上网必备技能，供大家交流学习。&lt;strong&gt;(Keep Updating)&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;vpn&#34;&gt;VPN&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;GreenVPN，这货被很多大牛推荐过，稳定靠谱，我也推荐大家使用，&lt;a href=&#34;http://gjsq.me/726217&#34;&gt;GreenVPN&lt;/a&gt; ——  推广链接，不喜勿点。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;更多免费VPN，&lt;a href=&#34;http://ilvpn.com/free-vpn&#34;&gt;猛击这里&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;chrome插件&#34;&gt;Chrome插件&lt;/h2&gt;
+&lt;h3 id=&#34;红杏&#34;&gt;红杏&lt;/h3&gt;
+&lt;p&gt;基于Chrome浏览器的一个插件，自动帮你翻墙，免去你各种不便，&lt;a href=&#34;http://honx.in/i/U6OB_YKo1wqCqIe9&#34;&gt;安装地址&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;goagent&#34;&gt;Goagent&lt;/h2&gt;
+&lt;p&gt;这货我就不介绍了吧，大名鼎鼎，完全免费。&lt;a href=&#34;https://code.google.com/p/goagent&#34;&gt;项目地址&lt;/a&gt;，里面的安装步骤写得很清楚，按着来就可以了。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

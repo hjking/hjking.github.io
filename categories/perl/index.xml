@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Perl on HJKing</title>
+    <link>/categories/perl/</link>
+    <description>Recent content in Perl on HJKing</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 29 Dec 2016 16:01:23 +0800</lastBuildDate>
+    
+	<atom:link href="/categories/perl/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Perl one-liners</title>
+      <link>/post/introduction-to-perl-one-liners/</link>
+      <pubDate>Thu, 29 Dec 2016 16:01:23 +0800</pubDate>
+      
+      <guid>/post/introduction-to-perl-one-liners/</guid>
+      <description>Introduction to Perl one-liners
+Perl one-liners are small and awesome Perl programs that fit in a single line of code and they do one thing really well. These things include changing line spacing, numbering lines, doing calculations, converting and substituting text, deleting and printing certain lines, parsing logs, editing files in-place, doing statistics, carrying out system administration tasks, updating a bunch of files at once, and many more. Perl one-liners will make you the shell warrior.</description>
+    </item>
+    
+  </channel>
+</rss>

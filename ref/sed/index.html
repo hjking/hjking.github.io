@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>sed - HJKing</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="HJKing" /><meta name="description" content="sed被称为流编辑器（stream editor），可以根据命令来处理数据流中的数据。 本身是一个管道命令，主要是以行为单位进行处理，可以将数据" /><meta name="keywords" content="ASIC, UVM, SV" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.64.0 with theme even" />
+
+
+<link rel="canonical" href="/ref/sed/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="sed" />
+<meta property="og:description" content="sed被称为流编辑器（stream editor），可以根据命令来处理数据流中的数据。 本身是一个管道命令，主要是以行为单位进行处理，可以将数据" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/ref/sed/" />
+<meta property="article:published_time" content="2018-11-28T15:04:39+08:00" />
+<meta property="article:modified_time" content="2018-11-28T15:04:39+08:00" />
+<meta itemprop="name" content="sed">
+<meta itemprop="description" content="sed被称为流编辑器（stream editor），可以根据命令来处理数据流中的数据。 本身是一个管道命令，主要是以行为单位进行处理，可以将数据">
+<meta itemprop="datePublished" content="2018-11-28T15:04:39&#43;08:00" />
+<meta itemprop="dateModified" content="2018-11-28T15:04:39&#43;08:00" />
+<meta itemprop="wordCount" content="7511">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="sed"/>
+<meta name="twitter:description" content="sed被称为流编辑器（stream editor），可以根据命令来处理数据流中的数据。 本身是一个管道命令，主要是以行为单位进行处理，可以将数据"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">HJKing</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/ref/">
+        <li class="mobile-menu-item">Reference</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">HJKing</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/ref/">Reference</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+  <div class="post-content">
+    <p>sed被称为流编辑器（stream editor），可以根据命令来处理数据流中的数据。 本身是一个管道命令，主要是以行为单位进行处理，可以将数据行进行替换、删除、新增、选取等特定工作。</p>
+<h1 id="sed命令行格式">Sed命令行格式</h1>
+<pre><code>sed -Options &quot;Features&quot; File
+</code></pre>
+<h2 id="options">Options</h2>
+<pre><code>-n ：使用安静(silent)模式。在一般 sed 的用法中，所有来自 STDIN 的数据一般都会被列出到终端上。但如果加上 -n 参数后，则只有经过sed 特殊处理的那一行(或者动作)才会被列出来。
+-e ：直接在命令列模式上进行 sed 的动作编辑；
+-f ：直接将 sed 的动作写在一个文件内， -f filename 则可以运行 filename 内的 sed 动作；
+-r ：sed 的动作支持的是延伸型正规表示法的语法。(默认是基础正规表示法语法)
+-i ：直接修改读取的文件内容，而不是输出到终端。
+</code></pre>
+<h2 id="features">Features</h2>
+<pre><code>a ：新增， a 的后面可以接字串，而这些字串会在新的一行出现(目前的下一行)
+c ：取代， c 的后面可以接字串，这些字串可以取代你指定行的所有内容
+d ：删除， 因为是删除啊，所以 d 后面通常不接任何东西
+i ：插入， i 的后面可以接字串，而这些字串会在新的一行出现(目前的上一行)
+p ：列印， 亦即将某个选择的数据印出。通常 p 会与参数 sed -n 一起运行
+r ：引入， sed中的 r 命令会把其后面的任何字符判读为文件名，直到回车符或是单引号
+s ：替换， 通常这个 s 的动作可以搭配正则表达式。 例如 sed “s/要被取代的字串/新的字串/g”
+</code></pre>
+<h1 id="sed-tips">sed Tips</h1>
+<p><code>sed</code> refers to Stream Editor. It can perform text transformations on a given file or an input stream.</p>
+<ul>
+<li>打印一行: p</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># treat this as using &#39;grep&#39;</span>
+<span class="c1"># same with &#39;cat file.txt&#39;</span>
+sed <span class="s1">&#39;&#39;</span> file.txt
+
+<span class="c1"># print every line that matches the regex pattern</span>
+sed -n <span class="s1">&#39;/test/p&#39;</span> file.txt
+
+<span class="c1"># match different patterns</span>
+sed -n <span class="s1">&#39;/test1/, /test2/p&#39;</span> file.txt
+
+sed -n <span class="s2">&#34;1p&#34;</span>   file.txt         <span class="c1"># 只显示文件的第一行</span>
+sed -n <span class="s2">&#34;</span><span class="nv">$p</span><span class="s2">&#34;</span>   file.txt         <span class="c1"># 只显示文件的最后一行</span>
+sed -n <span class="s2">&#34;1,2p&#34;</span> file.txt         <span class="c1"># 只显示文件的第一行到第二行</span>
+sed -n <span class="s2">&#34;</span><span class="s2">2,</span><span class="nv">$p</span><span class="s2">&#34;</span> file.txt         <span class="c1"># 显示文件的第二行到最后一行</span>
+
+sed -n <span class="s2">&#34;/ruby/p&#34;</span> file.txt      <span class="c1"># 输出关键字ruby所在行的内容；其中&#34;/str/p&#34;，str为搜索的文本内容</span>
+sed -n <span class="s2">&#34;/\$/p&#34;</span> file.txt        <span class="c1"># 输出关键字$所在行的内容，使用反斜线\屏蔽特殊含义</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>删除一行: d</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># remove every line that matches the regex pattern</span>
+sed <span class="s1">&#39;/test/d&#39;</span> file.txt
+
+<span class="c1"># remove 2nd line</span>
+sed <span class="s1">&#39;2d&#39;</span> file.txt
+
+<span class="c1"># remove from 2nd line to the end of the file</span>
+sed <span class="s1">&#39;2,$d&#39;</span> file.txt
+
+sed <span class="s2">&#34;</span><span class="nv">$d</span><span class="s2">&#34;</span>   file.txt       <span class="c1"># 输出删除最后一行后的文件内容</span>
+
+sed <span class="s2">&#34;1,2d&#34;</span> file.txt       <span class="c1"># 输出删除第一行到第二行后的文件内容</span>
+
+sed <span class="s2">&#34;</span><span class="s2">2,</span><span class="nv">$d</span><span class="s2">&#34;</span> file.txt       <span class="c1"># 输出删除第2行到最后1行后的文件内容</span>
+
+sed <span class="s1">&#39;d&#39;</span> file   <span class="c1"># 将file的流中所有行全部删除</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>替换: s</li>
+</ul>
+<p>注意：如果不加上-i选项，修改的都是流中的内容，file本身的内容没有变化。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># replace the 1st &#39;test&#39; with &#39;text&#39; in each line</span>
+sed <span class="s1">&#39;s/test/text/&#39;</span> file.txt
+
+<span class="c1"># replace all &#39;test&#39; with &#39;text&#39; in each line</span>
+sed <span class="s1">&#39;s/test/text/g&#39;</span> file.txt
+
+<span class="c1"># replace the 2nd &#39;test&#39; with &#39;text&#39; in each line</span>
+sed <span class="s1">&#39;s/test/text/2&#39;</span> file.txt
+
+<span class="c1"># replace all &#39;test&#39; from the 2nd to the end of each line with &#39;text&#39;</span>
+sed <span class="s1">&#39;s/test/text/2g&#39;</span> file.txt
+
+<span class="c1"># replace the &#39;test&#39; in the 2nd line with &#39;text&#39;</span>
+sed <span class="s1">&#39;2s/test/text/g&#39;</span> file.txt
+
+sed -n <span class="s1">&#39;s/pattern/replacement/p&#39;</span> file   将file的流中每行的第一个pattern替换成replacement，并打印出修改过的行
+
+sed -n <span class="s1">&#39;s/pattern/replacement/2p&#39;</span> file   将file的流中每行的第二个pattern替换成replacement，并打印出修改过的行（标记符号可以多个一起使用，且顺序不影响结果）
+
+sed <span class="s1">&#39;s/pattern/replacement/gw outFile&#39;</span> file   将file的流中每行的每一个pattern替换成replacement，并将输出保存到outFile中（w标记必须要放在最后，如果写作wg，标记g将无效，并生成名为g outFile的输出文件）
+
+sed <span class="s1">&#39;2s/pattern/replacement/&#39;</span> file   将file的流中第二行的第一个pattern替换成replacement
+
+sed <span class="s1">&#39;2,4s/pattern/replacement/&#39;</span> file   将file的流中第二行到第四行的第一个pattern替换成replacement
+
+sed <span class="s1">&#39;2,$s/pattern/replacement/&#39;</span> file   将file的流中第二行到最后一行的第一个pattern替换成replacement
+
+sed <span class="s1">&#39;/word/s/pattern/replacement/&#39;</span> file   将file的流中含有word的行中的第一个pattern替换成replacement，可以使用正则表达式
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>插入或者附加文本: i &amp; a</li>
+</ul>
+<p>（1）插入（insert）命令（i）会在指定行前增加一个新行。</p>
+<p>（2）附加（append）命令（a）会在指定行后增加一个新行。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># insert a new line before the 2nd line</span>
+sed <span class="s1">&#39;2i test&#39;</span> file.txt
+
+<span class="c1"># append a new line after the 2nd line</span>
+sed <span class="s1">&#39;2a test&#39;</span> file.txt
+
+<span class="c1"># append a new line after each line that matches the regex pattern</span>
+sed <span class="s1">&#39;/test/a test&#39;</span> file.txt
+
+sed <span class="s2">&#34;1a drink tea&#34;</span> 98k.txt            <span class="c1"># 在第一行后增加字符串&#34;drink tea&#34;</span>
+
+sed <span class="s2">&#34;1,3a drink tea&#34;</span> 98k.txt          <span class="c1"># 在第一行到第三行后增加字符串&#34;drink tea&#34;</span>
+
+sed <span class="s2">&#34;1a drink tea\nor coffee&#34;</span> 98k.txt <span class="c1"># 在第一行后增加两行，换行使用\n，可多次使用\n添加多行</span>
+
+sed <span class="s2">&#34;1r 1.txt&#34;</span> 98k.txt     <span class="c1"># 把1.txt的内容增加到98k.txt的第一行后</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>修改行: c</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># replace the 2nd line with &#39;test&#39;</span>
+sed <span class="s1">&#39;2 c test&#39;</span> file.txt
+
+<span class="c1"># replace each line that matches the regex pattern with &#39;text&#39;</span>
+sed <span class="s1">&#39;/test/c text&#39;</span> file.txt
+
+sed <span class="s2">&#34;1c Hi&#34;</span> 98k.txt    <span class="c1"># 把98k.txt的第一行替换为Hi</span>
+
+sed <span class="s2">&#34;1,2c Hi&#34;</span> 98k.txt  <span class="c1"># 把98k.txt的第一行到第二行替换为Hi</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>直接文本操作</li>
+</ul>
+<p><code>sed -i</code> 是直接对文件进行操作</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># make immediate change!</span>
+sed -i <span class="s1">&#39;s/test/text/g&#39;</span> file.txt
+
+<span class="c1"># 对每行匹配到的第一个字符串进行替换</span>
+sed -i <span class="s2">&#34;s/原字符串/新字符串/&#34;</span> 98k.txt
+
+<span class="c1"># 对全局匹配上的所有字符串进行替换</span>
+sed -i <span class="s2">&#34;s/原字符串/新字符串/g&#34;</span> 98k.txt
+
+<span class="c1"># 删除所有匹配到字符串的行</span>
+sed -i <span class="s2">&#34;/匹配字符串/d&#34;</span>  98k.txt
+
+<span class="c1"># 特定字符串的行后插入新行</span>
+sed -i <span class="s2">&#34;/特定字符串/a 新行字符串&#34;</span> 98k.txt
+
+<span class="c1"># 特定字符串的行前插入新行</span>
+sed -i <span class="s2">&#34;/特定字符串/i 新行字符串&#34;</span> 98k.txt
+
+<span class="c1"># 把匹配行中的某个字符串替换为目标字符串</span>
+sed -i <span class="s2">&#34;/匹配字符串/s/源字符串/目标字符串/g&#34;</span> 98k.txt
+
+<span class="c1"># 在文件98k.txt中的末行之后，添加bye</span>
+sed -i <span class="s2">&#34;</span><span class="nv">$a</span><span class="s2"> bye</span><span class="s2">&#34;</span> 98k.txt
+
+<span class="c1"># 对于文件第3行，把匹配上的所有字符串进行替换</span>
+sed -i <span class="s2">&#34;3s/原字符串/新字符串/g&#34;</span> 98k.txt
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>文本间隔：</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># 在每一行后面增加一空行</span>
+sed G
+
+<span class="c1"># 将原来的所有空行删除并在每一行后面增加一空行。</span>
+<span class="c1"># 这样在输出的文本中每一行后面将有且只有一空行。</span>
+sed ‘/^$/d<span class="p">;</span>G’
+
+<span class="c1"># 在每一行后面增加两行空行</span>
+sed ‘G<span class="p">;</span>G’
+
+<span class="c1"># 将第一个脚本所产生的所有空行删除（即删除所有偶数行）</span>
+sed ‘n<span class="p">;</span>d’
+
+<span class="c1"># 在匹配式样“regex”的行之前插入一空行</span>
+sed ‘/regex/<span class="o">{</span>x<span class="p">;</span>p<span class="p">;</span>x<span class="p">;</span><span class="o">}</span>’
+
+<span class="c1"># 在匹配式样“regex”的行之后插入一空行</span>
+sed ‘/regex/G’
+
+<span class="c1"># 在匹配式样“regex”的行之前和之后各插入一空行</span>
+sed ‘/regex/<span class="o">{</span>x<span class="p">;</span>p<span class="p">;</span>x<span class="p">;</span>G<span class="p">;</span><span class="o">}</span>’
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>编号：</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># 为文件中的每一行进行编号（简单的左对齐方式）。这里使用了“制表符”</span>
+<span class="c1"># （tab，见本文末尾关于’\t’的用法的描述）而不是空格来对齐边缘。</span>
+<span class="nv">sed</span> <span class="o">=</span> filename <span class="p">|</span> sed ‘N<span class="p">;</span>s/<span class="se">\n</span>/<span class="se">\t</span>/’
+
+<span class="c1"># 对文件中的所有行编号（行号在左，文字右端对齐）。</span>
+<span class="nv">sed</span> <span class="o">=</span> filename <span class="p">|</span> sed ‘N<span class="p">;</span> s/^/ /<span class="p">;</span> s/ *<span class="se">\(</span>.<span class="se">\{</span>6,<span class="se">\}</span><span class="se">\)</span><span class="se">\n</span>/<span class="se">\1</span> /’
+
+<span class="c1"># 对文件中的所有行编号，但只显示非空白行的行号。</span>
+sed ‘/./<span class="o">=</span>’ filename <span class="p">|</span> sed ‘/./N<span class="p">;</span> s/<span class="se">\n</span>/ /’
+
+<span class="c1"># 计算行数 （模拟 “wc -l”）</span>
+sed -n ‘$<span class="o">=</span>’
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>文本转换和替代：</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
+</span><span class="lnt">82
+</span><span class="lnt">83
+</span><span class="lnt">84
+</span><span class="lnt">85
+</span><span class="lnt">86
+</span><span class="lnt">87
+</span><span class="lnt">88
+</span><span class="lnt">89
+</span><span class="lnt">90
+</span><span class="lnt">91
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># Unix环境：转换DOS的新行符（CR/LF）为Unix格式。</span>
+sed <span class="s1">&#39;s/.$//&#39;</span> <span class="c1"># 假设所有行以CR/LF结束</span>
+sed <span class="s1">&#39;s/^M$//&#39;</span> <span class="c1"># 在bash/tcsh中，将按Ctrl-M改为按Ctrl-V</span>
+sed <span class="s1">&#39;s/\x0D$//&#39;</span> <span class="c1"># ssed、gsed 3.02.80，及更高版本</span>
+
+<span class="c1"># Unix环境：转换Unix的新行符（LF）为DOS格式。</span>
+sed <span class="s2">&#34;</span><span class="s2">s/</span>$<span class="s2">/`echo -e \\\r`/</span><span class="s2">&#34;</span> <span class="c1"># 在ksh下所使用的命令</span>
+sed <span class="s2">&#34;</span><span class="s2">s/</span>$<span class="s2">&#39;”/`echo \\\r`/</span><span class="s2">&#34;</span> <span class="c1"># 在bash下所使用的命令</span>
+sed <span class="s2">&#34;</span><span class="s2">s/</span>$<span class="s2">/`echo \\\r`/</span><span class="s2">&#34;</span> <span class="c1"># 在zsh下所使用的命令</span>
+sed <span class="s1">&#39;s/$/\r/&#39;</span> <span class="c1"># gsed 3.02.80 及更高版本</span>
+
+<span class="c1"># DOS环境：转换Unix新行符（LF）为DOS格式。</span>
+sed <span class="s2">&#34;</span><span class="s2">s/</span>$<span class="s2">//</span><span class="s2">&#34;</span> <span class="c1"># 方法 1</span>
+sed -n p <span class="c1"># 方法 2</span>
+
+<span class="c1"># DOS环境：转换DOS新行符（CR/LF）为Unix格式。</span>
+<span class="c1"># 下面的脚本只对UnxUtils sed 4.0.7 及更高版本有效。要识别UnxUtils版本的</span>
+<span class="c1"># sed可以通过其特有的“–text”选项。你可以使用帮助选项（“–help”）看</span>
+<span class="c1"># 其中有无一个“–text”项以此来判断所使用的是否是UnxUtils版本。其它DOS</span>
+<span class="c1"># 版本的的sed则无法进行这一转换。但可以用“tr”来实现这一转换。</span>
+sed <span class="s2">&#34;s/\r//&#34;</span> infile &gt;outfile <span class="c1"># UnxUtils sed v4.0.7 或更高版本</span>
+tr -d <span class="se">\r</span> &lt;infile &gt;outfile <span class="c1"># GNU tr 1.22 或更高版本</span>
+
+<span class="c1"># 将每一行前导的“空白字符”（空格，制表符）删除</span>
+<span class="c1"># 使之左对齐</span>
+sed <span class="s1">&#39;s/^[ \t]*//&#39;</span> <span class="c1"># 见本文末尾关于’\t’用法的描述</span>
+
+<span class="c1"># 将每一行拖尾的“空白字符”（空格，制表符）删除</span>
+sed <span class="s1">&#39;s/[ \t]*$//&#39;</span> <span class="c1"># 见本文末尾关于’\t’用法的描述</span>
+
+<span class="c1"># 将每一行中的前导和拖尾的空白字符删除</span>
+sed <span class="s1">&#39;s/^[ \t]*//;s/[ \t]*$//&#39;</span>
+
+<span class="c1"># 在每一行开头处插入5个空格（使全文向右移动5个字符的位置）</span>
+sed <span class="s1">&#39;s/^/ /&#39;</span>
+
+<span class="c1"># 以79个字符为宽度，将所有文本右对齐</span>
+sed -e :a -e <span class="s1">&#39;s/^.\{1,78\}$/ &amp;/;ta&#39;</span> <span class="c1"># 78个字符外加最后的一个空格</span>
+
+<span class="c1"># 以79个字符为宽度，使所有文本居中。在方法1中，为了让文本居中每一行的前</span>
+<span class="c1"># 头和后头都填充了空格。 在方法2中，在居中文本的过程中只在文本的前面填充</span>
+<span class="c1"># 空格，并且最终这些空格将有一半会被删除。此外每一行的后头并未填充空格。</span>
+sed -e :a -e <span class="s1">&#39;s/^.\{1,77\}$/ &amp; /;ta&#39;</span> <span class="c1"># 方法1</span>
+sed -e :a -e <span class="s1">&#39;s/^.\{1,77\}$/ &amp;/;ta’ -e ‘s/\( *\)\1/\1/&#39;</span> <span class="c1"># 方法2</span>
+
+<span class="c1"># 在每一行中查找字串“foo”，并将找到的“foo”替换为“bar”</span>
+sed <span class="s1">&#39;s/foo/bar/&#39;</span> <span class="c1"># 只替换每一行中的第一个“foo”字串</span>
+sed <span class="s1">&#39;s/foo/bar/4&#39;</span> <span class="c1"># 只替换每一行中的第四个“foo”字串</span>
+sed <span class="s1">&#39;s/foo/bar/g&#39;</span> <span class="c1"># 将每一行中的所有“foo”都换成“bar”</span>
+sed <span class="s1">&#39;s/\(.*\)foo\(.*foo\)/\1bar\2/&#39;</span> <span class="c1"># 替换倒数第二个“foo”</span>
+sed <span class="s1">&#39;s/\(.*\)foo/\1bar/&#39;</span> <span class="c1"># 替换最后一个“foo”</span>
+
+<span class="c1"># 只在行中出现字串“baz”的情况下将“foo”替换成“bar”</span>
+sed <span class="s1">&#39;/baz/s/foo/bar/g&#39;</span>
+
+<span class="c1"># 将“foo”替换成“bar”，并且只在行中未出现字串“baz”的情况下替换</span>
+sed <span class="s1">&#39;/baz/!s/foo/bar/g&#39;</span>
+
+<span class="c1"># 不管是“scarlet”“ruby”还是“puce”，一律换成“red”</span>
+sed <span class="s1">&#39;s/scarlet/red/g;s/ruby/red/g;s/puce/red/g&#39;</span> <span class="c1">#对多数的sed都有效</span>
+gsed <span class="s1">&#39;s/scarlet\|ruby\|puce/red/g&#39;</span> <span class="c1"># 只对GNU sed有效</span>
+
+<span class="c1"># 倒置所有行，第一行成为最后一行，依次类推（模拟“tac”）。</span>
+<span class="c1"># 由于某些原因，使用下面命令时HHsed v1.5会将文件中的空行删除</span>
+sed <span class="s1">&#39;1!G;h;$!d&#39;</span> <span class="c1"># 方法1</span>
+sed -n <span class="s1">&#39;1!G;h;$p&#39;</span> <span class="c1"># 方法2</span>
+
+<span class="c1"># 将行中的字符逆序排列，第一个字成为最后一字，……（模拟“rev”）</span>
+sed <span class="s1">&#39;/\n/!G;s/\(.\)\(.*\n\)/&amp;\2\1/;//D;s/.//&#39;</span>
+
+<span class="c1"># 将每两行连接成一行（类似“paste”）</span>
+sed <span class="s1">&#39;$!N;s/\n/ /&#39;</span>
+
+<span class="c1"># 如果当前行以反斜杠“\”结束，则将下一行并到当前行末尾</span>
+<span class="c1"># 并去掉原来行尾的反斜杠</span>
+sed -e :a -e <span class="s1">&#39;/\\$/N; s/\\\n//; ta&#39;</span>
+
+<span class="c1"># 如果当前行以等号开头，将当前行并到上一行末尾</span>
+<span class="c1"># 并以单个空格代替原来行头的“=”</span>
+sed -e :a -e <span class="s1">&#39;$!N;s/\n=/ /;ta&#39;</span> -e <span class="s1">&#39;P;D&#39;</span>
+
+<span class="c1"># 为数字字串增加逗号分隔符号，将“1234567”改为“1,234,567”</span>
+gsed <span class="s1">&#39;:a;s/\B[0-9]\{3\}\&gt;/,&amp;/;ta&#39;</span> <span class="c1"># GNU sed</span>
+sed -e :a -e <span class="s1">&#39;s/\(.*[0-9]\)\([0-9]\{3\}\)/\1,\2/;ta&#39;</span> <span class="c1"># 其他sed</span>
+
+<span class="c1"># 为带有小数点和负号的数值增加逗号分隔符（GNU sed）</span>
+gsed -r <span class="s1">&#39;:a;s/(^|[^0-9.])([0-9]+)([0-9]{3})/\1\2,\3/g;ta&#39;</span>
+
+<span class="c1"># 在每5行后增加一空白行 （在第5，10，15，20，等行后增加一空白行）</span>
+gsed <span class="s1">&#39;0~5G&#39;</span> <span class="c1"># 只对GNU sed有效</span>
+sed <span class="s1">&#39;n;n;n;n;G;&#39;</span> <span class="c1"># 其他sed</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>选择性地显示特定行：</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
+</span><span class="lnt">82
+</span><span class="lnt">83
+</span><span class="lnt">84
+</span><span class="lnt">85
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># 显示文件中的前10行 （模拟“head”的行为）</span>
+sed 10q
+
+<span class="c1"># 显示文件中的第一行 （模拟“head -1”命令）</span>
+sed q
+
+<span class="c1"># 显示文件中的最后10行 （模拟“tail”）</span>
+sed -e :a -e <span class="s1">&#39;$q;N;11,$D;ba&#39;</span>
+
+<span class="c1"># 显示文件中的最后2行（模拟“tail -2”命令）</span>
+sed <span class="s1">&#39;$!N;$!D&#39;</span>
+
+<span class="c1"># 显示文件中的最后一行（模拟“tail -1”）</span>
+sed <span class="s1">&#39;$!d&#39;</span> <span class="c1"># 方法1</span>
+sed -n <span class="s1">&#39;$p&#39;</span> <span class="c1"># 方法2</span>
+
+<span class="c1"># 显示文件中的倒数第二行</span>
+sed -e <span class="s1">&#39;$!{h;d;}&#39;</span> -e x <span class="c1"># 当文件中只有一行时，输入空行</span>
+sed -e <span class="s1">&#39;1{$q;}&#39;</span> -e <span class="s1">&#39;$!{h;d;}&#39;</span> -e x <span class="c1"># 当文件中只有一行时，显示该行</span>
+sed -e <span class="s1">&#39;1{$d;}&#39;</span> -e <span class="s1">&#39;$!{h;d;}&#39;</span> -e x <span class="c1"># 当文件中只有一行时，不输出</span>
+
+<span class="c1"># 只显示匹配正则表达式的行（模拟“grep”）</span>
+sed -n <span class="s1">&#39;/regexp/p&#39;</span> <span class="c1"># 方法1</span>
+sed <span class="s1">&#39;/regexp/!d&#39;</span> <span class="c1"># 方法2</span>
+
+<span class="c1"># 只显示“不”匹配正则表达式的行（模拟“grep -v”）</span>
+sed -n <span class="s1">&#39;/regexp/!p&#39;</span> <span class="c1"># 方法1，与前面的命令相对应</span>
+sed <span class="s1">&#39;/regexp/d&#39;</span> <span class="c1"># 方法2，类似的语法</span>
+
+<span class="c1"># 查找“regexp”并将匹配行的上一行显示出来，但并不显示匹配行</span>
+sed -n <span class="s1">&#39;/regexp/{g;1!p;};h&#39;</span>
+
+<span class="c1"># 查找“regexp”并将匹配行的下一行显示出来，但并不显示匹配行</span>
+sed -n <span class="s1">&#39;/regexp/{n;p;}&#39;</span>
+
+<span class="c1"># 显示包含“regexp”的行及其前后行，并在第一行之前加上“regexp”所</span>
+<span class="c1"># 在行的行号 （类似“grep -A1 -B1”）</span>
+sed -n -e <span class="s1">&#39;/regexp/{=;x;1!p;g;$!N;p;D;}&#39;</span> -e h
+
+<span class="c1"># 显示包含“AAA”、“BBB”或“CCC”的行（任意次序）</span>
+sed <span class="s1">&#39;/AAA/!d; /BBB/!d; /CCC/!d&#39;</span> <span class="c1"># 字串的次序不影响结果</span>
+
+<span class="c1"># 显示包含“AAA”、“BBB”和“CCC”的行（固定次序）</span>
+sed <span class="s1">&#39;/AAA.*BBB.*CCC/!d&#39;</span>
+
+<span class="c1"># 显示包含“AAA”“BBB”或“CCC”的行 （模拟“egrep”）</span>
+sed -e <span class="s1">&#39;/AAA/b&#39;</span> -e <span class="s1">&#39;/BBB/b&#39;</span> -e <span class="s1">&#39;/CCC/b&#39;</span> -e d <span class="c1"># 多数sed</span>
+gsed <span class="s1">&#39;/AAA\|BBB\|CCC/!d&#39;</span> <span class="c1"># 对GNU sed有效</span>
+
+<span class="c1"># 显示包含“AAA”的段落 （段落间以空行分隔）</span>
+<span class="c1"># HHsed v1.5 必须在“x;”后加入“G;”，接下来的3个脚本都是这样</span>
+sed -e <span class="s1">&#39;/./{H;$!d;}&#39;</span> -e <span class="s1">&#39;x;/AAA/!d;&#39;</span>
+
+<span class="c1"># 显示包含“AAA”“BBB”和“CCC”三个字串的段落 （任意次序）</span>
+sed -e <span class="s1">&#39;/./{H;$!d;}&#39;</span> -e <span class="s1">&#39;x;/AAA/!d;/BBB/!d;/CCC/!d&#39;</span>
+
+<span class="c1"># 显示包含“AAA”、“BBB”、“CCC”三者中任一字串的段落 （任意次序）</span>
+sed -e ‘/./<span class="o">{</span>H<span class="p">;</span><span class="nv">$!</span>d<span class="p">;</span><span class="o">}</span>’ -e ‘x<span class="p">;</span>/AAA/b’ -e ‘/BBB/b’ -e ‘/CCC/b’ -e d
+gsed ‘/./<span class="o">{</span>H<span class="p">;</span><span class="nv">$!</span>d<span class="p">;</span><span class="o">}</span><span class="p">;</span>x<span class="p">;</span>/AAA<span class="se">\|</span>BBB<span class="se">\|</span>CCC/b<span class="p">;</span>d’ <span class="c1"># 只对GNU sed有效</span>
+
+<span class="c1"># 显示包含65个或以上字符的行</span>
+sed -n ‘/^.<span class="se">\{</span>65<span class="se">\}</span>/p’
+
+<span class="c1"># 显示包含65个以下字符的行</span>
+sed -n ‘/^.<span class="se">\{</span>65<span class="se">\}</span>/!p’ <span class="c1"># 方法1，与上面的脚本相对应</span>
+sed ‘/^.<span class="se">\{</span>65<span class="se">\}</span>/d’ <span class="c1"># 方法2，更简便一点的方法</span>
+
+<span class="c1"># 显示部分文本——从包含正则表达式的行开始到最后一行结束</span>
+sed -n ‘/regexp/,<span class="nv">$p</span>’
+
+<span class="c1"># 显示部分文本——指定行号范围（从第8至第12行，含8和12行）</span>
+sed -n ‘8,12p’ <span class="c1"># 方法1</span>
+sed ‘8,12!d’ <span class="c1"># 方法2</span>
+
+<span class="c1"># 显示第52行</span>
+sed -n ’52p’ <span class="c1"># 方法1</span>
+sed ’52!d’ <span class="c1"># 方法2</span>
+sed ’52q<span class="p">;</span>d’ <span class="c1"># 方法3, 处理大文件时更有效率</span>
+
+<span class="c1"># 从第3行开始，每7行显示一次</span>
+gsed -n ‘3~7p’ <span class="c1"># 只对GNU sed有效</span>
+sed -n ‘3,<span class="si">${</span><span class="nv">p</span><span class="p">;n;n;n;n;n;n;</span><span class="si">}</span>’ <span class="c1"># 其他sed</span>
+
+<span class="c1"># 显示两个正则表达式之间的文本（包含）</span>
+sed -n ‘/Iowa/,/Montana/p’ <span class="c1"># 区分大小写方式</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>选择性地删除特定行：</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># 显示通篇文档，除了两个正则表达式之间的内容</span>
+sed ‘/Iowa/,/Montana/d’
+
+<span class="c1"># 删除文件中相邻的重复行（模拟“uniq”）</span>
+<span class="c1"># 只保留重复行中的第一行，其他行删除</span>
+sed ‘<span class="nv">$!</span>N<span class="p">;</span> /^<span class="se">\(</span>.*<span class="se">\)</span><span class="se">\n</span><span class="se">\1</span>$/!P<span class="p">;</span> D’
+
+<span class="c1"># 删除文件中的重复行，不管有无相邻。注意hold space所能支持的缓存</span>
+<span class="c1"># 大小，或者使用GNU sed。</span>
+sed -n ‘G<span class="p">;</span> s/<span class="se">\n</span>/<span class="o">&amp;&amp;</span>/<span class="p">;</span> /^<span class="se">\(</span><span class="o">[</span> -~<span class="o">]</span>*<span class="se">\n</span><span class="se">\)</span>.*<span class="se">\n</span><span class="se">\1</span>/d<span class="p">;</span> s/<span class="se">\n</span>//<span class="p">;</span> h<span class="p">;</span> P’
+
+<span class="c1"># 删除除重复行外的所有行（模拟“uniq -d”）</span>
+sed ‘<span class="nv">$!</span>N<span class="p">;</span> s/^<span class="se">\(</span>.*<span class="se">\)</span><span class="se">\n</span><span class="se">\1</span>$/<span class="se">\1</span>/<span class="p">;</span> t<span class="p">;</span> D’
+
+<span class="c1"># 删除文件中开头的10行</span>
+sed ‘1,10d’
+
+<span class="c1"># 删除文件中的最后一行</span>
+sed ‘<span class="nv">$d</span>’
+
+<span class="c1"># 删除文件中的最后两行</span>
+sed ‘N<span class="p">;</span><span class="nv">$!</span>P<span class="p">;</span><span class="nv">$!</span>D<span class="p">;</span><span class="nv">$d</span>’
+
+<span class="c1"># 删除文件中的最后10行</span>
+sed -e :a -e ‘<span class="nv">$d</span><span class="p">;</span>N<span class="p">;</span>2,10ba’ -e ‘P<span class="p">;</span>D’ <span class="c1"># 方法1</span>
+sed -n -e :a -e ‘1,10!<span class="o">{</span>P<span class="p">;</span>N<span class="p">;</span>D<span class="p">;</span><span class="o">}</span><span class="p">;</span>N<span class="p">;</span>ba’ <span class="c1"># 方法2</span>
+
+<span class="c1"># 删除8的倍数行</span>
+gsed ‘0~8d’ <span class="c1"># 只对GNU sed有效</span>
+sed ‘n<span class="p">;</span>n<span class="p">;</span>n<span class="p">;</span>n<span class="p">;</span>n<span class="p">;</span>n<span class="p">;</span>n<span class="p">;</span>d<span class="p">;</span>’ <span class="c1"># 其他sed</span>
+
+<span class="c1"># 删除匹配式样的行</span>
+sed ‘/pattern/d’ <span class="c1"># 删除含pattern的行。当然pattern</span>
+<span class="c1"># 可以换成任何有效的正则表达式</span>
+
+<span class="c1"># 删除文件中的所有空行（与“grep ‘.’ ”效果相同）</span>
+sed ‘/^$/d’ <span class="c1"># 方法1</span>
+sed ‘/./!d’ <span class="c1"># 方法2</span>
+
+<span class="c1"># 只保留多个相邻空行的第一行。并且删除文件顶部和尾部的空行。</span>
+<span class="c1"># （模拟“cat -s”）</span>
+sed ‘/./,/^$/!d’ <span class="c1">#方法1，删除文件顶部的空行，允许尾部保留一空行</span>
+sed ‘/^$/N<span class="p">;</span>/<span class="se">\n</span>$/D’ <span class="c1">#方法2，允许顶部保留一空行，尾部不留空行</span>
+
+<span class="c1"># 只保留多个相邻空行的前两行。</span>
+sed ‘/^$/N<span class="p">;</span>/<span class="se">\n</span>$/N<span class="p">;</span>//D’
+
+<span class="c1"># 删除文件顶部的所有空行</span>
+sed ‘/./,<span class="nv">$!</span>d’
+
+<span class="c1"># 删除文件尾部的所有空行</span>
+sed -e :a -e ‘/^<span class="se">\n</span>*$/<span class="o">{</span><span class="nv">$d</span><span class="p">;</span>N<span class="p">;</span>ba’ -e ‘<span class="o">}</span>’ <span class="c1"># 对所有sed有效</span>
+sed -e :a -e ‘/^<span class="se">\n</span>*$/N<span class="p">;</span>/<span class="se">\n</span>$/ba’ <span class="c1"># 同上，但只对 gsed 3.02.*有效</span>
+
+<span class="c1"># 删除每个段落的最后一行</span>
+sed -n ‘/^$/<span class="o">{</span>p<span class="p">;</span>h<span class="p">;</span><span class="o">}</span><span class="p">;</span>/./<span class="o">{</span>x<span class="p">;</span>/./p<span class="p">;</span><span class="o">}</span>’
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>特殊应用</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># 移除手册页（man page）中的nroff标记。在Unix System V或bash shell下使</span>
+<span class="c1"># 用’echo’命令时可能需要加上 -e 选项。</span>
+sed “s/.<span class="sb">`</span><span class="nb">echo</span> <span class="se">\\</span><span class="se">\b</span><span class="sb">`</span>//g” <span class="c1"># 外层的双括号是必须的（Unix环境）</span>
+sed ‘s/.^H//g’ <span class="c1"># 在bash或tcsh中, 按 Ctrl-V 再按 Ctrl-H</span>
+sed ‘s/.<span class="se">\x</span>08//g’ <span class="c1"># sed 1.5，GNU sed，ssed所使用的十六进制的表示方法</span>
+
+<span class="c1"># 提取新闻组或 e-mail 的邮件头</span>
+sed ‘/^$/q’ <span class="c1"># 删除第一行空行后的所有内容</span>
+
+<span class="c1"># 提取新闻组或 e-mail 的正文部分</span>
+sed ‘1,/^$/d’ <span class="c1"># 删除第一行空行之前的所有内容</span>
+
+<span class="c1"># 从邮件头提取“Subject”（标题栏字段），并移除开头的“Subject:”字样</span>
+sed ‘/^Subject: */!d<span class="p">;</span> s///<span class="p">;</span>q’
+
+<span class="c1"># 从邮件头获得回复地址</span>
+sed ‘/^Reply-To:/q<span class="p">;</span> /^From:/h<span class="p">;</span> /./d<span class="p">;</span>g<span class="p">;</span>q’
+
+<span class="c1"># 获取邮件地址。在上一个脚本所产生的那一行邮件头的基础上进一步的将非电邮</span>
+<span class="c1"># 地址的部分剃除。（见上一脚本）</span>
+sed ‘s/ *<span class="o">(</span>.*<span class="o">)</span>//<span class="p">;</span> s/&gt;.*//<span class="p">;</span> s/.*<span class="o">[</span>:&lt;<span class="o">]</span> *//’
+
+<span class="c1"># 在每一行开头加上一个尖括号和空格（引用信息）</span>
+sed ‘s/^/&gt; /’
+
+<span class="c1"># 将每一行开头处的尖括号和空格删除（解除引用）</span>
+sed ‘s/^&gt; //’
+
+<span class="c1"># 移除大部分的HTML标签（包括跨行标签）</span>
+sed -e :a -e ‘s/&lt;<span class="o">[</span>^&gt;<span class="o">]</span>*&gt;//g<span class="p">;</span>/&lt;/N<span class="p">;</span>//ba’
+
+<span class="c1"># 将分成多卷的uuencode文件解码。移除文件头信息，只保留uuencode编码部分。</span>
+<span class="c1"># 文件必须以特定顺序传给sed。下面第一种版本的脚本可以直接在命令行下输入；</span>
+<span class="c1"># 第二种版本则可以放入一个带执行权限的shell脚本中。（由Rahul Dhesi的一</span>
+<span class="c1"># 个脚本修改而来。）</span>
+sed ‘/^end/,/^begin/d’ file1 file2 … fileX <span class="p">|</span> uudecode <span class="c1"># vers. 1</span>
+sed ‘/^end/,/^begin/d’ “<span class="nv">$@</span>” <span class="p">|</span> uudecode <span class="c1"># vers. 2</span>
+
+<span class="c1"># 将文件中的段落以字母顺序排序。段落间以（一行或多行）空行分隔。GNU sed使用</span>
+<span class="c1"># 字元“\v”来表示垂直制表符，这里用它来作为换行符的占位符——当然你也可以</span>
+<span class="c1"># 用其他未在文件中使用的字符来代替它。</span>
+sed ‘/./<span class="o">{</span>H<span class="p">;</span>d<span class="p">;</span><span class="o">}</span><span class="p">;</span>x<span class="p">;</span>s/<span class="se">\n</span>/<span class="o">=</span><span class="o">{</span>NL<span class="o">}</span><span class="o">=</span>/g’ file <span class="p">|</span> sort <span class="p">|</span> sed ‘1s/<span class="o">=</span><span class="o">{</span>NL<span class="o">}</span><span class="o">=</span>//<span class="p">;</span>s/<span class="o">=</span><span class="o">{</span>NL<span class="o">}</span><span class="o">=</span>/<span class="se">\n</span>/g’
+gsed ‘/./<span class="o">{</span>H<span class="p">;</span>d<span class="o">}</span><span class="p">;</span>x<span class="p">;</span>y/<span class="se">\n</span>/<span class="se">\v</span>/’ file <span class="p">|</span> sort <span class="p">|</span> sed ‘1s/<span class="se">\v</span>//<span class="p">;</span>y/<span class="se">\v</span>/<span class="se">\n</span>/’
+
+<span class="c1"># 分别压缩每个.TXT文件，压缩后删除原来的文件并将压缩后的.ZIP文件</span>
+<span class="c1"># 命名为与原来相同的名字（只是扩展名不同）。（DOS环境：“dir /b”</span>
+<span class="c1"># 显示不带路径的文件名）。</span>
+<span class="nb">echo</span> @echo off &gt;zipup.bat
+dir /b *.txt <span class="p">|</span> sed “s/^<span class="se">\(</span>.*<span class="se">\)</span><span class="se">\.</span>TXT/pkzip -mo <span class="se">\1</span> <span class="se">\1</span>.TXT/” &gt;&gt;zipup.bat
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>写入文件</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">sed <span class="s1">&#39;w outFile&#39;</span> file   <span class="c1">#将file的内容写入到outFile中</span>
+
+sed <span class="s1">&#39;1,2w outFile&#39;</span> file   <span class="c1">#将file第一行到第二行的内容写入到outFile中</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>从文件读取数据</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">sed <span class="s1">&#39;3r newFile&#39;</span> file   <span class="c1"># 将newFile的内容添加到file的流的第三行之后</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+  </div>
+</article>
+        </div>
+        
+
+  
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="hjking/hjking.github.io"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:hon9jin@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://stackoverflow.com/users/1605724/hjking" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://twitter.com/hon9jin" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://www.facebook.com/kin9hom" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="https://www.linkedin.com/in/hjking" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="https://github.com/hjking" class="iconfont icon-github" title="github"></a>
+      <a href="http://weibo.com/hon9jin" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://kinghom.tumblr.com" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://instagram.com/kinghom" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">HJKing</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/raphael@2.2.7/raphael.min.js" integrity="sha256-67By+NpOtm9ka1R6xpUefeGOY8kWWHHRAKlvaTJ7ONI=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/flowchart.js@1.8.0/release/flowchart.min.js" integrity="sha256-zNGWjubXoY6rb5MnmpBNefO0RgoVYfle9p0tvOQM+6k=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js" integrity="sha256-4O4pS1SH31ZqrSO2A/2QJTVjTPqVe+jnYgOWUVr7EEc=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/snapsvg@0.5.1/dist/snap.svg-min.js" integrity="sha256-oI+elz+sIm+jpn8F/qEspKoKveTc5uKeFHNNVexe6d8=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/underscore@1.8.3/underscore-min.js" integrity="sha256-obZACiHd7gkOk9iIL/pimWMTJ4W/pBsKu+oZnSeBIek=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.js" integrity="sha384-8748Vn52gHJYJI0XEuPB2QlPVNUkJlJn9tHqKec6J3q2r9l8fvRxrgn/E5ZHV0sP" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.css" integrity="sha384-6QbLKJMz5dS3adWSeINZe74uSydBGFbnzaAYmp+tKyq60S7H2p6V7g1TysM5lAaF" crossorigin="anonymous">
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-6627086-2', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+</body>
+</html>

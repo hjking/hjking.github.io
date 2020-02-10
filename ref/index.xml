@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Reference on HJKing</title>
+    <link>/ref/</link>
+    <description>Recent content in Reference on HJKing</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 28 Nov 2018 15:04:39 +0800</lastBuildDate>
+    
+	<atom:link href="/ref/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Emacs</title>
+      <link>/ref/emacs/</link>
+      <pubDate>Wed, 28 Nov 2018 15:04:39 +0800</pubDate>
+      
+      <guid>/ref/emacs/</guid>
+      <description>Emacs Starter Kit Spacemacs Spacemacs is a user-friendly and well-documented Emacs kit that integrates the best Emacs packages out there. It uses Evil Mode to combine the ergonomic editing features of Vim with the extensibility of Emacs. Spacemacs is designed to be approachable for users coming from Vim–you do not need prior experience with Emacs to get started. Prelude Prelude is an Emacs distribution</description>
+    </item>
+    
+    <item>
+      <title>Git</title>
+      <link>/ref/git/</link>
+      <pubDate>Wed, 28 Nov 2018 15:04:39 +0800</pubDate>
+      
+      <guid>/ref/git/</guid>
+      <description>Git 参考链接 GitHub Flow A successful Git branching model Understanding the Git Workflow Pro Git 在 GitHub 當中使用的 work flow Git分支管理策略 Git Step by Step</description>
+    </item>
+    
+    <item>
+      <title>IC</title>
+      <link>/ref/ic/</link>
+      <pubDate>Wed, 28 Nov 2018 15:04:39 +0800</pubDate>
+      
+      <guid>/ref/ic/</guid>
+      <description>Verilog SystemVerilog OOP 面向对象的基本概念：类，对象，句柄，类成员，类方法； 类的三大属性：封装，继承，多态。 Verification UVM 技能树 数字IC所需掌握的几项技能： 1.前端 2.</description>
+    </item>
+    
+    <item>
+      <title>org mode 使用和配置</title>
+      <link>/ref/orgmode/</link>
+      <pubDate>Wed, 28 Nov 2018 15:04:39 +0800</pubDate>
+      
+      <guid>/ref/orgmode/</guid>
+      <description>Headlines 标题是以 * 开头，一个 * 表示一级标题，2个 * 表示二级标题，以此类推。 视图切换 org允许在几种可视模式间切换：折叠，只显示标题，显示全部。 S-TAB ：</description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>/ref/python/</link>
+      <pubDate>Wed, 28 Nov 2018 15:04:39 +0800</pubDate>
+      
+      <guid>/ref/python/</guid>
+      <description>Python Good Repo awesome-python Get Started Learning Python: From Zero to Hero A List of Non Trivial Python Exercises The Hitchhiker’s Guide to Machine Learning in Python API Design: Think First, Code Later Python FAQ: Why should I use Python 3? NumPy From Python to Numpy Exploring Line Lengths in Python Packages NumPy Tutorial: Data analysis with Python Data</description>
+    </item>
+    
+    <item>
+      <title>sed</title>
+      <link>/ref/sed/</link>
+      <pubDate>Wed, 28 Nov 2018 15:04:39 +0800</pubDate>
+      
+      <guid>/ref/sed/</guid>
+      <description>sed被称为流编辑器（stream editor），可以根据命令来处理数据流中的数据。 本身是一个管道命令，主要是以行为单位进行处理，可以将数据</description>
+    </item>
+    
+    <item>
+      <title>Sublime Text 3</title>
+      <link>/ref/sublime/</link>
+      <pubDate>Wed, 28 Nov 2018 15:04:39 +0800</pubDate>
+      
+      <guid>/ref/sublime/</guid>
+      <description>Sublime Text 3 技巧集锦</description>
+    </item>
+    
+    <item>
+      <title>SVN</title>
+      <link>/ref/svn/</link>
+      <pubDate>Wed, 28 Nov 2018 15:04:39 +0800</pubDate>
+      
+      <guid>/ref/svn/</guid>
+      <description>SVN SVN Tricks and Tips svn ignore 当前目录忽略某个文件或某类文件 1 svn propset svn:ignore &amp;#34;obj&amp;#34; . 以上命令不仅仅是添加一条SVN忽略规则，而且会清除掉之前添加的规则。 忽略多个文件和目</description>
+    </item>
+    
+    <item>
+      <title>Tools</title>
+      <link>/ref/tools/</link>
+      <pubDate>Wed, 28 Nov 2018 15:04:39 +0800</pubDate>
+      
+      <guid>/ref/tools/</guid>
+      <description>PC端工具 系统相关 Process Explorer Windows 上任务管理器的升级版。每个进程的子进程和母进程是什么都一目了然。 Dism++ Windows实用系统优化工具 GeekUninstaller 卸载软件，最大的好</description>
+    </item>
+    
+    <item>
+      <title>Total Commander</title>
+      <link>/ref/tc/</link>
+      <pubDate>Wed, 28 Nov 2018 15:04:39 +0800</pubDate>
+      
+      <guid>/ref/tc/</guid>
+      <description>Total Commander Tricks &amp;amp; Tips 操作 CTRL-d 加字母，快速跳转到常用文件夹里的某个目录。 ALT-F1 x，x为磁盘符号，则直接跳转到对应的磁盘目录。 xxx Enter, 过滤出匹配xxx的目录和文件并</description>
+    </item>
+    
+    <item>
+      <title>UVM</title>
+      <link>/ref/uvm/</link>
+      <pubDate>Wed, 28 Nov 2018 15:04:39 +0800</pubDate>
+      
+      <guid>/ref/uvm/</guid>
+      <description>书籍 SystemVerilog验证，第二版 UVM实战，张强 芯片验证漫游指南，刘斌 The UVM Primer Pratical UVM step by step examples A Prtical Guide to Adopting the universal verification methodology (UVM) second edition ASIC/SOC functional design verification systemverilog assertions and functional coverage</description>
+    </item>
+    
+    <item>
+      <title>Vim</title>
+      <link>/ref/vim/</link>
+      <pubDate>Wed, 28 Nov 2018 15:04:39 +0800</pubDate>
+      
+      <guid>/ref/vim/</guid>
+      <description>Vim Distributions Vim distributions are Vim + custom settings + custom plugins from certain authors and are therefore very opinionated. cream A modern configuration of the powerful and famous Vim, Cream is for Microsoft Windows, GNU/Linux, and FreeBSD. janus This is a distribution of plug-ins and mappings for Vim, Gvim and MacVim. It is designed to provide minimal working environment using the most popular plug-ins and the most common mappings.</description>
+    </item>
+    
+  </channel>
+</rss>

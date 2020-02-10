@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>使用org-trello管理Trello - HJKing</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="HJKing" /><meta name="description" content="本文将介绍使用 Emacs 配合 org-trello 来管理 Trello。
+链接  org-mode Trello org-trello  安装 使用 package 包管理插件安装，我将假设你已经配置好了插件仓库 melpa。在 Emacs 中 M-x package-install RET org-trello RET 就可下载 org-trello 软件包。
+配置 在 init.el 中添加以下内容：
+1  (require &amp;#39;org-trello)  注意： 不建议所有的 org file 都启用 org-trello 模式，利用以下配置使 org-trello 只对特定文件有效。
+1  (custom-set-variables &amp;#39;(org-trello-files &amp;#39;(&amp;#34;/path/to/file0&amp;#34; &amp;#34;/path/to/file1&amp;#34;)))  当打开 file0 和 file1 时，org-trello 才会激活。
+使用 获取Trello授权 为了使 org-trello 能够访问 Trello，并能操作 Trello 的 board ，需要从 Trello 获取 consumer-key 和 access-token。使用快捷键 C-c o i，或者运行命令 org-trello/install-key-and-token , 此时默认浏览器会打开 Trello 的相关页面，复制 Key 部分的字符串，粘贴到 Emacs 的 minibuffer ，之后又会打开一个 org-trello 请求 Trello 授权的页面，点击 Allow, 浏览器会跳转至显示 access-token 页面，复制粘贴到 Emacs 的 minibuffer，回车。以上过程至需要执行一次即可。
+与Trello的board相关联 每一个 org 文件都需要与一个 Trello 的 board 相关联。
+与已有的board相关联 打开一个 org 文件，执行：C-c o I 或者 M-x org-trello/install-board-metadata ，Emacs会在minibuffer中返回一个已有board的列表，输入你想要同步的board对应的编号即可。
+注意： 确保board中的list名称和 org 中设置的 org-todo-keywords 保持一致，否则会同步出错。
+" /><meta name="keywords" content="ASIC, UVM, SV" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.64.0 with theme even" />
+
+
+<link rel="canonical" href="/post/2014-12-26-org-trello/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="使用org-trello管理Trello" />
+<meta property="og:description" content="本文将介绍使用 Emacs 配合 org-trello 来管理 Trello。
+链接
+
+org-mode
+Trello
+org-trello
+
+安装
+使用 package 包管理插件安装，我将假设你已经配置好了插件仓库 melpa。在 Emacs 中 M-x package-install RET org-trello RET 就可下载 org-trello 软件包。
+配置
+在 init.el 中添加以下内容：
+
+
+1
+
+
+(require &#39;org-trello)
+
+
+注意： 不建议所有的 org file 都启用 org-trello 模式，利用以下配置使 org-trello 只对特定文件有效。
+
+
+1
+
+
+(custom-set-variables &#39;(org-trello-files &#39;(&#34;/path/to/file0&#34; &#34;/path/to/file1&#34;)))
+
+
+当打开 file0 和 file1 时，org-trello 才会激活。
+使用
+获取Trello授权
+为了使 org-trello 能够访问 Trello，并能操作 Trello 的 board ，需要从 Trello 获取 consumer-key 和 access-token。使用快捷键 C-c o i，或者运行命令 org-trello/install-key-and-token , 此时默认浏览器会打开 Trello 的相关页面，复制 Key 部分的字符串，粘贴到 Emacs 的 minibuffer ，之后又会打开一个 org-trello 请求 Trello 授权的页面，点击 Allow, 浏览器会跳转至显示 access-token 页面，复制粘贴到 Emacs 的 minibuffer，回车。以上过程至需要执行一次即可。
+与Trello的board相关联
+每一个 org 文件都需要与一个 Trello 的 board 相关联。
+与已有的board相关联
+打开一个 org 文件，执行：C-c o I 或者 M-x org-trello/install-board-metadata ，Emacs会在minibuffer中返回一个已有board的列表，输入你想要同步的board对应的编号即可。
+注意： 确保board中的list名称和 org 中设置的 org-todo-keywords 保持一致，否则会同步出错。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/2014-12-26-org-trello/" />
+<meta property="article:published_time" content="2014-12-26T15:05:02+08:00" />
+<meta property="article:modified_time" content="2014-12-26T15:05:02+08:00" />
+<meta itemprop="name" content="使用org-trello管理Trello">
+<meta itemprop="description" content="本文将介绍使用 Emacs 配合 org-trello 来管理 Trello。
+链接
+
+org-mode
+Trello
+org-trello
+
+安装
+使用 package 包管理插件安装，我将假设你已经配置好了插件仓库 melpa。在 Emacs 中 M-x package-install RET org-trello RET 就可下载 org-trello 软件包。
+配置
+在 init.el 中添加以下内容：
+
+
+1
+
+
+(require &#39;org-trello)
+
+
+注意： 不建议所有的 org file 都启用 org-trello 模式，利用以下配置使 org-trello 只对特定文件有效。
+
+
+1
+
+
+(custom-set-variables &#39;(org-trello-files &#39;(&#34;/path/to/file0&#34; &#34;/path/to/file1&#34;)))
+
+
+当打开 file0 和 file1 时，org-trello 才会激活。
+使用
+获取Trello授权
+为了使 org-trello 能够访问 Trello，并能操作 Trello 的 board ，需要从 Trello 获取 consumer-key 和 access-token。使用快捷键 C-c o i，或者运行命令 org-trello/install-key-and-token , 此时默认浏览器会打开 Trello 的相关页面，复制 Key 部分的字符串，粘贴到 Emacs 的 minibuffer ，之后又会打开一个 org-trello 请求 Trello 授权的页面，点击 Allow, 浏览器会跳转至显示 access-token 页面，复制粘贴到 Emacs 的 minibuffer，回车。以上过程至需要执行一次即可。
+与Trello的board相关联
+每一个 org 文件都需要与一个 Trello 的 board 相关联。
+与已有的board相关联
+打开一个 org 文件，执行：C-c o I 或者 M-x org-trello/install-board-metadata ，Emacs会在minibuffer中返回一个已有board的列表，输入你想要同步的board对应的编号即可。
+注意： 确保board中的list名称和 org 中设置的 org-todo-keywords 保持一致，否则会同步出错。">
+<meta itemprop="datePublished" content="2014-12-26T15:05:02&#43;08:00" />
+<meta itemprop="dateModified" content="2014-12-26T15:05:02&#43;08:00" />
+<meta itemprop="wordCount" content="719">
+
+
+
+<meta itemprop="keywords" content="Emacs,trello,tool,org," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="使用org-trello管理Trello"/>
+<meta name="twitter:description" content="本文将介绍使用 Emacs 配合 org-trello 来管理 Trello。
+链接
+
+org-mode
+Trello
+org-trello
+
+安装
+使用 package 包管理插件安装，我将假设你已经配置好了插件仓库 melpa。在 Emacs 中 M-x package-install RET org-trello RET 就可下载 org-trello 软件包。
+配置
+在 init.el 中添加以下内容：
+
+
+1
+
+
+(require &#39;org-trello)
+
+
+注意： 不建议所有的 org file 都启用 org-trello 模式，利用以下配置使 org-trello 只对特定文件有效。
+
+
+1
+
+
+(custom-set-variables &#39;(org-trello-files &#39;(&#34;/path/to/file0&#34; &#34;/path/to/file1&#34;)))
+
+
+当打开 file0 和 file1 时，org-trello 才会激活。
+使用
+获取Trello授权
+为了使 org-trello 能够访问 Trello，并能操作 Trello 的 board ，需要从 Trello 获取 consumer-key 和 access-token。使用快捷键 C-c o i，或者运行命令 org-trello/install-key-and-token , 此时默认浏览器会打开 Trello 的相关页面，复制 Key 部分的字符串，粘贴到 Emacs 的 minibuffer ，之后又会打开一个 org-trello 请求 Trello 授权的页面，点击 Allow, 浏览器会跳转至显示 access-token 页面，复制粘贴到 Emacs 的 minibuffer，回车。以上过程至需要执行一次即可。
+与Trello的board相关联
+每一个 org 文件都需要与一个 Trello 的 board 相关联。
+与已有的board相关联
+打开一个 org 文件，执行：C-c o I 或者 M-x org-trello/install-board-metadata ，Emacs会在minibuffer中返回一个已有board的列表，输入你想要同步的board对应的编号即可。
+注意： 确保board中的list名称和 org 中设置的 org-todo-keywords 保持一致，否则会同步出错。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">HJKing</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/ref/">
+        <li class="mobile-menu-item">Reference</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">HJKing</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/ref/">Reference</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">使用org-trello管理Trello</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2014-12-26 15:05 </span>
+        <div class="post-category">
+            <a href="/categories/tool/"> tool </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#链接">链接</a></li>
+    <li><a href="#安装">安装</a></li>
+    <li><a href="#配置">配置</a></li>
+    <li><a href="#使用">使用</a>
+      <ul>
+        <li><a href="#获取trello授权">获取Trello授权</a></li>
+        <li><a href="#与trello的board相关联">与Trello的board相关联</a></li>
+        <li><a href="#同步org文件和trello">同步org文件和Trello</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>本文将介绍使用 <code>Emacs</code> 配合 <code>org-trello</code> 来管理 <code>Trello</code>。</p>
+<h2 id="链接">链接</h2>
+<ul>
+<li><a href="http://orgmode.org/">org-mode</a></li>
+<li><a href="http://trello.com/">Trello</a></li>
+<li><a href="https://org-trello.github.io/">org-trello</a></li>
+</ul>
+<h2 id="安装">安装</h2>
+<p>使用 <code>package</code> 包管理插件安装，我将假设你已经配置好了插件仓库 <code>melpa</code>。在 <em>Emacs</em> 中 <code>M-x package-install RET org-trello RET</code> 就可下载 <code>org-trello</code> 软件包。</p>
+<h2 id="配置">配置</h2>
+<p>在 <code>init.el</code> 中添加以下内容：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="p">(</span><span class="nb">require</span> <span class="ss">&#39;org-trello</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><em>注意：</em> 不建议所有的 org file 都启用 org-trello 模式，利用以下配置使 <code>org-trello</code> 只对特定文件有效。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="p">(</span><span class="nv">custom-set-variables</span> <span class="o">&#39;</span><span class="p">(</span><span class="nv">org-trello-files</span> <span class="o">&#39;</span><span class="p">(</span><span class="s">&#34;</span><span class="s">/path/to/file0</span><span class="s">&#34;</span> <span class="s">&#34;</span><span class="s">/path/to/file1</span><span class="s">&#34;</span><span class="p">)</span><span class="p">)</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>当打开 <em>file0</em> 和 <em>file1</em> 时，<code>org-trello</code> 才会激活。</p>
+<h2 id="使用">使用</h2>
+<h3 id="获取trello授权">获取Trello授权</h3>
+<p>为了使 <code>org-trello</code> 能够访问 <code>Trello</code>，并能操作 <code>Trello</code> 的 <code>board</code> ，需要从 <code>Trello</code> 获取 <em>consumer-key</em> 和 <em>access-token</em>。使用快捷键 <strong>C-c o i</strong>，或者运行命令 <strong>org-trello/install-key-and-token</strong> , 此时默认浏览器会打开 <code>Trello</code> 的相关页面，复制 <em>Key</em> 部分的字符串，粘贴到 <em>Emacs</em> 的 <em>minibuffer</em> ，之后又会打开一个 <code>org-trello</code> 请求 <code>Trello</code> 授权的页面，点击 <em>Allow</em>, 浏览器会跳转至显示 <code>access-token</code> 页面，复制粘贴到 <code>Emacs</code> 的 <code>minibuffer</code>，回车。以上过程至需要执行一次即可。</p>
+<h3 id="与trello的board相关联">与Trello的board相关联</h3>
+<p>每一个 org 文件都需要与一个 <code>Trello</code> 的 <code>board</code> 相关联。</p>
+<h4 id="与已有的board相关联">与已有的board相关联</h4>
+<p>打开一个 org 文件，执行：<strong>C-c o I</strong> 或者 <strong>M-x org-trello/install-board-metadata</strong> ，Emacs会在minibuffer中返回一个已有board的列表，输入你想要同步的board对应的编号即可。</p>
+<p><strong>注意：</strong> 确保board中的list名称和 <code>org</code> 中设置的 <code>org-todo-keywords</code> 保持一致，否则会同步出错。</p>
+<h4 id="新建一个board">新建一个board</h4>
+<p>执行：<strong>C-c o b</strong> 或者 <strong>M-x org-trello/create-board-and-install-metadata</strong> 。该命令会根据 org 中设置的 <code>org-todo-keywords</code> 建立对应的 board list。</p>
+<h3 id="同步org文件和trello">同步org文件和Trello</h3>
+<h4 id="从trello同步到-org-缓冲">从Trello同步到 org 缓冲</h4>
+<ul>
+<li>执行：<strong>C-u C-c o s</strong> 或者 <strong>C-u M-x org-trello/sync-buffer</strong> 会将Trello的board内容同步到org文件缓冲里。</li>
+<li><strong>C-u C-c o c</strong> 或者 <strong>C-u C-c o C</strong> 从Trello同步card内容。</li>
+</ul>
+<h4 id="同步org文件至trello">同步org文件至Trello</h4>
+<ul>
+<li>执行：<strong>C-c o c</strong> 或者 <strong>C-c o C</strong> 将会把本地org条目同步至board中对应list下的card。</li>
+<li>执行：<strong>C-c o s</strong> 将同步整个org文件缓冲同步至board。</li>
+</ul>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">HJKing</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2014-12-26 15:05
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/emacs/">Emacs</a>
+          <a href="/tags/trello/">trello</a>
+          <a href="/tags/tool/">tool</a>
+          <a href="/tags/org/">org</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/2015-03-02-sublime/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Sublime Text 3 技巧集锦</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/2014-06-21-gfw/">
+            <span class="next-text nav-default">上网必备技能</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="hjking/hjking.github.io"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:hon9jin@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://stackoverflow.com/users/1605724/hjking" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://twitter.com/hon9jin" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://www.facebook.com/kin9hom" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="https://www.linkedin.com/in/hjking" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="https://github.com/hjking" class="iconfont icon-github" title="github"></a>
+      <a href="http://weibo.com/hon9jin" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://kinghom.tumblr.com" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://instagram.com/kinghom" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">HJKing</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/raphael@2.2.7/raphael.min.js" integrity="sha256-67By+NpOtm9ka1R6xpUefeGOY8kWWHHRAKlvaTJ7ONI=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/flowchart.js@1.8.0/release/flowchart.min.js" integrity="sha256-zNGWjubXoY6rb5MnmpBNefO0RgoVYfle9p0tvOQM+6k=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js" integrity="sha256-4O4pS1SH31ZqrSO2A/2QJTVjTPqVe+jnYgOWUVr7EEc=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/snapsvg@0.5.1/dist/snap.svg-min.js" integrity="sha256-oI+elz+sIm+jpn8F/qEspKoKveTc5uKeFHNNVexe6d8=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/underscore@1.8.3/underscore-min.js" integrity="sha256-obZACiHd7gkOk9iIL/pimWMTJ4W/pBsKu+oZnSeBIek=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.js" integrity="sha384-8748Vn52gHJYJI0XEuPB2QlPVNUkJlJn9tHqKec6J3q2r9l8fvRxrgn/E5ZHV0sP" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.css" integrity="sha384-6QbLKJMz5dS3adWSeINZe74uSydBGFbnzaAYmp+tKyq60S7H2p6V7g1TysM5lAaF" crossorigin="anonymous">
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-6627086-2', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+</body>
+</html>

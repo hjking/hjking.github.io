@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Emacs - HJKing</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="HJKing" /><meta name="description" content="Emacs Starter Kit Spacemacs Spacemacs is a user-friendly and well-documented Emacs kit that integrates the best Emacs packages out there. It uses Evil Mode to combine the ergonomic editing features of Vim with the extensibility of Emacs. Spacemacs is designed to be approachable for users coming from Vim–you do not need prior experience with Emacs to get started. Prelude Prelude is an Emacs distribution" /><meta name="keywords" content="ASIC, UVM, SV" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.64.0 with theme even" />
+
+
+<link rel="canonical" href="/ref/emacs/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Emacs" />
+<meta property="og:description" content="Emacs Starter Kit Spacemacs Spacemacs is a user-friendly and well-documented Emacs kit that integrates the best Emacs packages out there. It uses Evil Mode to combine the ergonomic editing features of Vim with the extensibility of Emacs. Spacemacs is designed to be approachable for users coming from Vim–you do not need prior experience with Emacs to get started. Prelude Prelude is an Emacs distribution" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/ref/emacs/" />
+<meta property="article:published_time" content="2018-11-28T15:04:39+08:00" />
+<meta property="article:modified_time" content="2018-11-28T15:04:39+08:00" />
+<meta itemprop="name" content="Emacs">
+<meta itemprop="description" content="Emacs Starter Kit Spacemacs Spacemacs is a user-friendly and well-documented Emacs kit that integrates the best Emacs packages out there. It uses Evil Mode to combine the ergonomic editing features of Vim with the extensibility of Emacs. Spacemacs is designed to be approachable for users coming from Vim–you do not need prior experience with Emacs to get started. Prelude Prelude is an Emacs distribution">
+<meta itemprop="datePublished" content="2018-11-28T15:04:39&#43;08:00" />
+<meta itemprop="dateModified" content="2018-11-28T15:04:39&#43;08:00" />
+<meta itemprop="wordCount" content="268">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Emacs"/>
+<meta name="twitter:description" content="Emacs Starter Kit Spacemacs Spacemacs is a user-friendly and well-documented Emacs kit that integrates the best Emacs packages out there. It uses Evil Mode to combine the ergonomic editing features of Vim with the extensibility of Emacs. Spacemacs is designed to be approachable for users coming from Vim–you do not need prior experience with Emacs to get started. Prelude Prelude is an Emacs distribution"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">HJKing</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/ref/">
+        <li class="mobile-menu-item">Reference</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">HJKing</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/ref/">Reference</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+  <div class="post-content">
+    <h1 id="emacs">Emacs</h1>
+<h2 id="starter-kit">Starter Kit</h2>
+<ul>
+<li><a href="http://spacemacs.org">Spacemacs</a></li>
+</ul>
+<p>Spacemacs is a user-friendly and well-documented Emacs kit that integrates the best Emacs packages out there. It uses Evil Mode to combine the ergonomic editing features of Vim with the extensibility of Emacs.</p>
+<p>Spacemacs is designed to be approachable for users coming from Vim–you do not need prior experience with Emacs to get started.</p>
+<ul>
+<li><a href="http://batsov.com/prelude/">Prelude</a></li>
+</ul>
+<p>Prelude is an Emacs distribution that aims to enhance the default Emacs experience. Prelude alters a lot of the default settings, bundles a plethora of additional packages and adds its own core library to the mix. The final product offers an easy to use Emacs configuration for Emacs newcomers and lots of additional power for Emacs power users.</p>
+<ul>
+<li><a href="https://github.com/purcell/emacs.d">Steve Purcell</a></li>
+</ul>
+<h2 id="packages">Packages</h2>
+<h3 id="插件管理">插件管理</h3>
+<ul>
+<li>use-package</li>
+<li>Helm</li>
+<li>projectile</li>
+</ul>
+<h3 id="快捷键显示">快捷键显示</h3>
+<ul>
+<li><a href="https://github.com/justbur/emacs-which-key">which-key</a></li>
+<li><a href="https://github.com/kai2nenobu/guide-key">guide-key</a></li>
+</ul>
+<p>基于<a href="https://github.com/m2ym/popwin-el">popwin.el</a>。配合<a href="https://github.com/aki2o/guide-key-tip">guide-key-tip</a>，可以在弹出悬浮窗口中显示。</p>
+<ul>
+<li><a href="http://www.emacswiki.org/emacs/OneKey">OneKey</a></li>
+</ul>
+<h2 id="参考">参考</h2>
+<h3 id="入门教程">入门教程</h3>
+<ul>
+<li><a href="http://www.jesshamrick.com/2012/09/10/absolute-beginners-guide-to-emacs/">Absolute Beginner&rsquo;s Guide to Emacs</a></li>
+<li><a href="https://www.digitalocean.com/community/tutorials/how-to-use-the-emacs-editor-in-linux">How To Use the Emacs Editor in Linux</a></li>
+<li><a href="http://book.emacs-china.org/">Master Emacs in 21 Days</a></li>
+<li><a href="https://github.com/redguardtoo/mastering-emacs-in-one-year-guide/blob/master/guide-zh.org">一年成为Emacs高手</a></li>
+<li><a href="http://emacs-doctor.com/emacs-strip-tease.html">Strip Emacs</a></li>
+<li><a href="http://emacs.sexy/">Emacs is Sexy</a></li>
+<li><a href="http://sachachua.com/blog/series/a-visual-guide-to-emacs/">A Visual Guide to Emacs</a></li>
+</ul>
+<h3 id="elisp">Elisp</h3>
+<ul>
+<li><a href="https://www.gnu.org/software/emacs/manual/elisp.html">GNU Emacs Lisp Reference Manual</a></li>
+<li><a href="https://www.gnu.org/software/emacs/manual/eintr.html">An Introduction to Programming in Emacs Lisp</a></li>
+<li><a href="http://ergoemacs.org/emacs/elisp.html">Xah Emacs Lisp Tutorial</a></li>
+<li><a href="http://bzg.fr/learn-emacs-lisp-in-15-minutes.html">Learn Emacs Lisp in 15 Minutes</a></li>
+<li><a href="http://steve-yegge.blogspot.com.au/2008/01/emergency-elisp.html">Steve Yegge的Emacs Lisp教程</a></li>
+</ul>
+
+  </div>
+</article>
+        </div>
+        
+
+  
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="hjking/hjking.github.io"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:hon9jin@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://stackoverflow.com/users/1605724/hjking" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://twitter.com/hon9jin" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://www.facebook.com/kin9hom" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="https://www.linkedin.com/in/hjking" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="https://github.com/hjking" class="iconfont icon-github" title="github"></a>
+      <a href="http://weibo.com/hon9jin" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://kinghom.tumblr.com" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://instagram.com/kinghom" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">HJKing</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/raphael@2.2.7/raphael.min.js" integrity="sha256-67By+NpOtm9ka1R6xpUefeGOY8kWWHHRAKlvaTJ7ONI=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/flowchart.js@1.8.0/release/flowchart.min.js" integrity="sha256-zNGWjubXoY6rb5MnmpBNefO0RgoVYfle9p0tvOQM+6k=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js" integrity="sha256-4O4pS1SH31ZqrSO2A/2QJTVjTPqVe+jnYgOWUVr7EEc=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/snapsvg@0.5.1/dist/snap.svg-min.js" integrity="sha256-oI+elz+sIm+jpn8F/qEspKoKveTc5uKeFHNNVexe6d8=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/underscore@1.8.3/underscore-min.js" integrity="sha256-obZACiHd7gkOk9iIL/pimWMTJ4W/pBsKu+oZnSeBIek=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.js" integrity="sha384-8748Vn52gHJYJI0XEuPB2QlPVNUkJlJn9tHqKec6J3q2r9l8fvRxrgn/E5ZHV0sP" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.css" integrity="sha384-6QbLKJMz5dS3adWSeINZe74uSydBGFbnzaAYmp+tKyq60S7H2p6V7g1TysM5lAaF" crossorigin="anonymous">
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-6627086-2', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+</body>
+</html>

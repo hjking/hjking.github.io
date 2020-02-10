@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Perl one-liners - HJKing</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="HJKing" /><meta name="description" content="Introduction to Perl one-liners
+Perl one-liners are small and awesome Perl programs that fit in a single line of code and they do one thing really well. These things include changing line spacing, numbering lines, doing calculations, converting and substituting text, deleting and printing certain lines, parsing logs, editing files in-place, doing statistics, carrying out system administration tasks, updating a bunch of files at once, and many more. Perl one-liners will make you the shell warrior." /><meta name="keywords" content="ASIC, UVM, SV" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.64.0 with theme even" />
+
+
+<link rel="canonical" href="/post/introduction-to-perl-one-liners/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Perl one-liners" />
+<meta property="og:description" content="Introduction to Perl one-liners
+Perl one-liners are small and awesome Perl programs that fit in a single line of code and they do one thing really well. These things include changing line spacing, numbering lines, doing calculations, converting and substituting text, deleting and printing certain lines, parsing logs, editing files in-place, doing statistics, carrying out system administration tasks, updating a bunch of files at once, and many more. Perl one-liners will make you the shell warrior." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/introduction-to-perl-one-liners/" />
+<meta property="article:published_time" content="2016-12-29T16:01:23+08:00" />
+<meta property="article:modified_time" content="2016-12-29T16:01:23+08:00" />
+<meta itemprop="name" content="Perl one-liners">
+<meta itemprop="description" content="Introduction to Perl one-liners
+Perl one-liners are small and awesome Perl programs that fit in a single line of code and they do one thing really well. These things include changing line spacing, numbering lines, doing calculations, converting and substituting text, deleting and printing certain lines, parsing logs, editing files in-place, doing statistics, carrying out system administration tasks, updating a bunch of files at once, and many more. Perl one-liners will make you the shell warrior.">
+<meta itemprop="datePublished" content="2016-12-29T16:01:23&#43;08:00" />
+<meta itemprop="dateModified" content="2016-12-29T16:01:23&#43;08:00" />
+<meta itemprop="wordCount" content="1311">
+
+
+
+<meta itemprop="keywords" content="perl," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Perl one-liners"/>
+<meta name="twitter:description" content="Introduction to Perl one-liners
+Perl one-liners are small and awesome Perl programs that fit in a single line of code and they do one thing really well. These things include changing line spacing, numbering lines, doing calculations, converting and substituting text, deleting and printing certain lines, parsing logs, editing files in-place, doing statistics, carrying out system administration tasks, updating a bunch of files at once, and many more. Perl one-liners will make you the shell warrior."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">HJKing</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/ref/">
+        <li class="mobile-menu-item">Reference</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">HJKing</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/ref/">Reference</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Perl one-liners</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2016-12-29 16:01 </span>
+        <div class="post-category">
+            <a href="/categories/perl/"> Perl </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents"></nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>Introduction to Perl one-liners</p>
+<p>Perl one-liners are small and awesome Perl programs that fit in a single line of code and they do one thing really well. These things include changing line spacing, numbering lines, doing calculations, converting and substituting text, deleting and printing certain lines, parsing logs, editing files in-place, doing statistics, carrying out system administration tasks, updating a bunch of files at once, and many more. Perl one-liners will make you the shell warrior. Anything that took you minutes to solve, will now take you seconds!</p>
+<p>Let&rsquo;s look at several examples to get more familiar with one-liners. Here is one:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-perl" data-lang="perl">    <span class="n"></span><span class="n">perl</span> <span class="o">-</span><span class="n"></span><span class="n">pi</span> <span class="o">-</span><span class="n"></span><span class="n">e</span> <span class="s">&#39;s/you/me/g&#39;</span> <span class="n"></span><span class="n">file</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>This one-liner replaces all occurrences of the text <em>you</em> with <em>me</em> in the file <em>file</em>. Very useful if you ask me. Imagine you are on a remote server and have this file and you need to do the replacement. You can either open it in text editor and execute find-replace or just do it through command line and, bam, be done with it.</p>
+<p>The <strong>-e</strong> argument is the best argument. It allows you to specify the Perl code to be executed right on the command line. In this one-liner the code says, do the substitution (<em>s/find/replace/flags</em> command) and replace <em>you</em> with me globally (g flag). The <strong>-p</strong> argument makes sure the code gets executed on every line, and that the line gets printed out after that. The <strong>-i</strong> argument makes sure that <strong>file</strong> gets edited in-place, meaning Perl opens the file, executes the substitution for each line, prints the output to a temporary file, and then replaces the original file.</p>
+<p>How about doing the same replacement in multiple files? Just specify them on the command line!</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-perl" data-lang="perl"><span class="n"></span><span class="n">perl</span> <span class="o">-</span><span class="n"></span><span class="n">pi</span> <span class="o">-</span><span class="n"></span><span class="n">e</span> <span class="s">&#39;s/you/me/g&#39;</span> <span class="n"></span><span class="n">file1</span> <span class="n"></span><span class="n">file2</span> <span class="n"></span><span class="n">file3</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Now let&rsquo;s do the same replacement only on lines that match we. It&rsquo;s as simple as this:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-perl" data-lang="perl"><span class="n"></span><span class="n">perl</span> <span class="o">-</span><span class="n"></span><span class="n">pi</span> <span class="o">-</span><span class="n"></span><span class="n">e</span> <span class="s">&#39;s/you/me/g if /we/&#39;</span> <span class="n"></span><span class="n">file</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Here we use the conditional if /we/. This makes sure that s/you/me/g gets executed only on lines that match the regular expression /we/. The regular expression here can be anything. Let&rsquo;s say you want to execute the substitution only on lines that have digits in them. You can then use the /\d/ regular expression that matches numbers:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-perl" data-lang="perl"><span class="n"></span><span class="n">perl</span> <span class="o">-</span><span class="n"></span><span class="n">pi</span> <span class="o">-</span><span class="n"></span><span class="n">e</span> <span class="s">&#39;s/you/me/g if /\d/&#39;</span> <span class="n"></span><span class="n">file</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Now how about finding all repeated lines in a file?</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-perl" data-lang="perl"><span class="n"></span><span class="n">perl</span> <span class="o">-</span><span class="ow">ne</span> <span class="s">&#39;print if $a{$_}++&#39;</span> <span class="n"></span><span class="n">file</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>This one-liner records the lines seen so far in the %a hash and keeps the counter of how many times it has seen the same line. The $a{$_}++ creates elements in the %a hash automagically. When it sees a repeated line, the value of that hash element is defined and greater than zero, so if $a{$_} is true, and it prints the line. This one-liner also uses the -n command line argument that loops over the input but unlike -p doesn&rsquo;t print the lines automatically, so you have to use print explicitly.</p>
+<p>How about numbering lines? Super simple! Perl has the $. special variable that automatically maintains the current line number. You can just print it out together with the line:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-perl" data-lang="perl"><span class="n"></span><span class="n">perl</span> <span class="o">-</span><span class="ow">ne</span> <span class="s">&#39;print &#34;$. $_&#34;&#39;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>You can also achieve the same by using -p argument and modifying the $_ variable, which contains the entire line:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-perl" data-lang="perl"><span class="n"></span><span class="n">perl</span> <span class="o">-</span><span class="n"></span><span class="n">pe</span> <span class="s">&#39;$_ = &#34;$. $_&#34;&#39;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Here each line gets replaced by the string &ldquo;$. $_&quot;, which is the current line number followed by the line itself.</p>
+<p>How about we combine the previous two one-liners and create one that numbers repeated lines? Here we go:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-perl" data-lang="perl">    <span class="n"></span><span class="n">perl</span> <span class="o">-</span><span class="ow">ne</span> <span class="s">&#39;print &#34;$. $_&#34; if $a{$_}++&#39;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Now let&rsquo;s do something different. Let&rsquo;s sum up all the numbers on each line. We&rsquo;ll use the sum function from the List::Util CPAN module. You can install it as easily as running perl -MCPAN -e&rsquo;install List::Util&rsquo;.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-perl" data-lang="perl">    <span class="n"></span><span class="n">perl</span> <span class="o">-</span><span class="n"></span><span class="nn">MList::</span><span class="n"></span><span class="n">Util</span><span class="o">=</span><span class="n"></span><span class="n">sum</span> <span class="o">-</span><span class="n"></span><span class="n">alne</span> <span class="s">&#39;print sum @F&#39;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>The -MList::Util command line argument imports the List::Util module, and the =sum part of it imports the sum function from it. Next -a enables automatic splitting of fields into the @F array. The -l argument makes sure that print outputs a newline at the end of each line. Finally the sum @F sums up all the elements in the @F list and print prints it out, followed by a newline (that was added by the -l argument).</p>
+<p>How about finding the date 1299 days ago? That&rsquo;s also solvable by a simple one-liner:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-perl" data-lang="perl">    <span class="n"></span><span class="n">perl</span> <span class="o">-</span><span class="n"></span><span class="n">MPOSIX</span> <span class="o">-</span><span class="ow">le</span> <span class="s">&#39;
+</span><span class="s">      @now = localtime;
+</span><span class="s">      $now[3] -= 1299;
+</span><span class="s">      print scalar localtime mktime @now
+</span><span class="s">    &#39;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>This one-liner didn&rsquo;t quite fit in one line, but that&rsquo;s just because my blog has narrow space for content. What happens here is we modify the 4th element of the structure returned by localtime, which happens to be days. So we just subtract 1299 days from the current day. Then we reassembles it into a new time through localtime mktime @now and print it in scalar context that prints human readable time.</p>
+<p>How about generating an 8 letter password? Again, solvable elegantly with a one-liner:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-perl" data-lang="perl">    <span class="n"></span><span class="n">perl</span> <span class="o">-</span><span class="ow">le</span> <span class="s">&#39;print map { (a..z)[rand 26] } 1..8&#39;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>The a..z generates a list of letters from a to z (total 26). Then we randomly choose one of the characters through generating a random number in range 0-25, and then we repeat this whole process 8 times!</p>
+<p>Here is another one. Suppose you want to quickly find the decimal number that corresponds to an IP address. You can use the unpack function and find it really quickly:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-perl" data-lang="perl">    <span class="n"></span><span class="n">perl</span> <span class="o">-</span><span class="ow">le</span> <span class="s">&#39;print unpack(&#34;N&#34;, 127.0.0.1)&#39;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>This one-liner uses a vstring, which is a version literal. The IP address 127.0.0.1 is treated as a vstring, which is basically the numbers 127, 0, 0, 1 concatenated together. Next the unpack function unpacks them to a single decimal number.</p>
+<p>Btw, I once created a cheat sheet with all the pack/unpack format strings. Get it here: perl pack, unpack cheat sheet.</p>
+<p>Now how about calculations? Let&rsquo;s find the sum of the numbers in the first column:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-perl" data-lang="perl">    <span class="n"></span><span class="n">perl</span> <span class="o">-</span><span class="n"></span><span class="n">lane</span> <span class="s">&#39;$sum += $F[0]; END { print $sum }&#39;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Here the lines automatically get split up into fields through the -a argument. The fields can be now accessed through the @F array. The first element of the array, $F[0], is the first column. So all we have to do is sum all the columns up through $sum += $F[0]. When the Perl program ends its job, it executes any code in the special END block. In this case we print out the total sum there. Really easy!</p>
+<p>Now let&rsquo;s find out how many packets have gone through all the iptables rules. It&rsquo;s this simple:</p>
+<blockquote>
+<p>iptables -L -nvx | perl -lane '
+$_ = $F[0]; $pkts += $_ if /^\d/; END { print $pkts }
+'</p>
+</blockquote>
+<p>The iptables program outputs the packets as the first field. All we do is check if the first field is numeric (because it also outputs labels header), and if so, sum the packets up on the first column, just like in the previous one-liner.</p>
+<p>How about getting a list of the names of all users on the system?</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-perl" data-lang="perl">    <span class="n"></span><span class="n">perl</span> <span class="o">-</span><span class="n"></span><span class="n">a</span> <span class="o">-</span><span class="n"></span><span class="n">F:</span> <span class="o">-</span><span class="n"></span><span class="n">lne</span> <span class="s">&#39;print $F[4]&#39;</span> <span class="sr">/etc/</span><span class="n"></span><span class="n">passwd</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Combining -a with -F argument allows you to specify the character that lines should be split on. In this case it&rsquo;s the colon, which is the record separator of /etc/passwd. Next we just print the 5th field $F[4], which is the real name of the user. Really quick and easy.</p>
+<p>As you can see, knowing Perl one-liners lets you accomplish many tasks quickly. If you wish to learn more and become really fast in the shell, I suggest you get a copy of my &ldquo;Perl One-Liners Explained&rdquo; e-book. The e-book contains 130 unique one-liners and many of them are presented in several different ways, so the total number of one-liners in this book is over 200.</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">HJKing</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2016-12-29 16:01
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/perl/">perl</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/2016-12-29-customizing-uvm-message-format/">
+            <span class="next-text nav-default">自定义 UVM 打印信息的格式</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="hjking/hjking.github.io"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:hon9jin@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://stackoverflow.com/users/1605724/hjking" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://twitter.com/hon9jin" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://www.facebook.com/kin9hom" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="https://www.linkedin.com/in/hjking" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="https://github.com/hjking" class="iconfont icon-github" title="github"></a>
+      <a href="http://weibo.com/hon9jin" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://kinghom.tumblr.com" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://instagram.com/kinghom" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">HJKing</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/raphael@2.2.7/raphael.min.js" integrity="sha256-67By+NpOtm9ka1R6xpUefeGOY8kWWHHRAKlvaTJ7ONI=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/flowchart.js@1.8.0/release/flowchart.min.js" integrity="sha256-zNGWjubXoY6rb5MnmpBNefO0RgoVYfle9p0tvOQM+6k=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js" integrity="sha256-4O4pS1SH31ZqrSO2A/2QJTVjTPqVe+jnYgOWUVr7EEc=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/snapsvg@0.5.1/dist/snap.svg-min.js" integrity="sha256-oI+elz+sIm+jpn8F/qEspKoKveTc5uKeFHNNVexe6d8=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/underscore@1.8.3/underscore-min.js" integrity="sha256-obZACiHd7gkOk9iIL/pimWMTJ4W/pBsKu+oZnSeBIek=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.js" integrity="sha384-8748Vn52gHJYJI0XEuPB2QlPVNUkJlJn9tHqKec6J3q2r9l8fvRxrgn/E5ZHV0sP" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.css" integrity="sha384-6QbLKJMz5dS3adWSeINZe74uSydBGFbnzaAYmp+tKyq60S7H2p6V7g1TysM5lAaF" crossorigin="anonymous">
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-6627086-2', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+</body>
+</html>

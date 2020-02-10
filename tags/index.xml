@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on HJKing</title>
+    <link>/tags/</link>
+    <description>Recent content in Tags on HJKing</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 29 Dec 2016 16:01:23 +0800</lastBuildDate>
+    
+	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>perl</title>
+      <link>/tags/perl/</link>
+      <pubDate>Thu, 29 Dec 2016 16:01:23 +0800</pubDate>
+      
+      <guid>/tags/perl/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SystemVerilog</title>
+      <link>/tags/systemverilog/</link>
+      <pubDate>Thu, 29 Dec 2016 16:01:23 +0800</pubDate>
+      
+      <guid>/tags/systemverilog/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>UVM</title>
+      <link>/tags/uvm/</link>
+      <pubDate>Thu, 29 Dec 2016 16:01:23 +0800</pubDate>
+      
+      <guid>/tags/uvm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>awk</title>
+      <link>/tags/awk/</link>
+      <pubDate>Fri, 02 Sep 2016 16:01:23 +0800</pubDate>
+      
+      <guid>/tags/awk/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>grep</title>
+      <link>/tags/grep/</link>
+      <pubDate>Fri, 02 Sep 2016 16:01:23 +0800</pubDate>
+      
+      <guid>/tags/grep/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sed</title>
+      <link>/tags/sed/</link>
+      <pubDate>Fri, 02 Sep 2016 16:01:23 +0800</pubDate>
+      
+      <guid>/tags/sed/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ctags</title>
+      <link>/tags/ctags/</link>
+      <pubDate>Tue, 23 Aug 2016 16:01:23 +0800</pubDate>
+      
+      <guid>/tags/ctags/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>verilog</title>
+      <link>/tags/verilog/</link>
+      <pubDate>Tue, 23 Aug 2016 16:01:23 +0800</pubDate>
+      
+      <guid>/tags/verilog/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vim</title>
+      <link>/tags/vim/</link>
+      <pubDate>Tue, 23 Aug 2016 16:01:23 +0800</pubDate>
+      
+      <guid>/tags/vim/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>sublime</title>
+      <link>/tags/sublime/</link>
+      <pubDate>Mon, 02 Mar 2015 15:05:02 +0800</pubDate>
+      
+      <guid>/tags/sublime/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tool</title>
+      <link>/tags/tool/</link>
+      <pubDate>Mon, 02 Mar 2015 15:05:02 +0800</pubDate>
+      
+      <guid>/tags/tool/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Emacs</title>
+      <link>/tags/emacs/</link>
+      <pubDate>Fri, 26 Dec 2014 15:05:02 +0800</pubDate>
+      
+      <guid>/tags/emacs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>org</title>
+      <link>/tags/org/</link>
+      <pubDate>Fri, 26 Dec 2014 15:05:02 +0800</pubDate>
+      
+      <guid>/tags/org/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>trello</title>
+      <link>/tags/trello/</link>
+      <pubDate>Fri, 26 Dec 2014 15:05:02 +0800</pubDate>
+      
+      <guid>/tags/trello/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>gfw</title>
+      <link>/tags/gfw/</link>
+      <pubDate>Sat, 21 Jun 2014 15:05:02 +0800</pubDate>
+      
+      <guid>/tags/gfw/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

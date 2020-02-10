@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>使用 Vim 编写 Verilog/SystemVerilog - HJKing</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="HJKing" /><meta name="description" content="由于 VIM 自身对 Verilog/SystemVerilog 的支持不是很完美，所以需要额外配置一下，本文记录了我在使用过程中一些常用的配置。其中用到了一些第三方插件和网上的代码片段。
+语法高亮 使用插件 verilog_systemverilog 。增加了语法高亮等。
+文件浏览 安装插件nerdtree，通过运行命令 NERDTree 可以在VIM中打开文件浏览，方便在文件间切换。
+" /><meta name="keywords" content="ASIC, UVM, SV" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.64.0 with theme even" />
+
+
+<link rel="canonical" href="/post/2016-08-23-vim-and-verilog/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="使用 Vim 编写 Verilog/SystemVerilog" />
+<meta property="og:description" content="由于 VIM 自身对 Verilog/SystemVerilog 的支持不是很完美，所以需要额外配置一下，本文记录了我在使用过程中一些常用的配置。其中用到了一些第三方插件和网上的代码片段。
+语法高亮
+使用插件 verilog_systemverilog 。增加了语法高亮等。
+文件浏览
+安装插件nerdtree，通过运行命令 NERDTree 可以在VIM中打开文件浏览，方便在文件间切换。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/2016-08-23-vim-and-verilog/" />
+<meta property="article:published_time" content="2016-08-23T16:01:23+08:00" />
+<meta property="article:modified_time" content="2016-08-23T16:01:23+08:00" />
+<meta itemprop="name" content="使用 Vim 编写 Verilog/SystemVerilog">
+<meta itemprop="description" content="由于 VIM 自身对 Verilog/SystemVerilog 的支持不是很完美，所以需要额外配置一下，本文记录了我在使用过程中一些常用的配置。其中用到了一些第三方插件和网上的代码片段。
+语法高亮
+使用插件 verilog_systemverilog 。增加了语法高亮等。
+文件浏览
+安装插件nerdtree，通过运行命令 NERDTree 可以在VIM中打开文件浏览，方便在文件间切换。">
+<meta itemprop="datePublished" content="2016-08-23T16:01:23&#43;08:00" />
+<meta itemprop="dateModified" content="2016-08-23T16:01:23&#43;08:00" />
+<meta itemprop="wordCount" content="538">
+
+
+
+<meta itemprop="keywords" content="vim,verilog,systemverilog,UVM,ctags," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="使用 Vim 编写 Verilog/SystemVerilog"/>
+<meta name="twitter:description" content="由于 VIM 自身对 Verilog/SystemVerilog 的支持不是很完美，所以需要额外配置一下，本文记录了我在使用过程中一些常用的配置。其中用到了一些第三方插件和网上的代码片段。
+语法高亮
+使用插件 verilog_systemverilog 。增加了语法高亮等。
+文件浏览
+安装插件nerdtree，通过运行命令 NERDTree 可以在VIM中打开文件浏览，方便在文件间切换。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">HJKing</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/ref/">
+        <li class="mobile-menu-item">Reference</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">HJKing</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/ref/">Reference</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">使用 Vim 编写 Verilog/SystemVerilog</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2016-08-23 16:01 </span>
+        <div class="post-category">
+            <a href="/categories/tool/"> tool </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#语法高亮">语法高亮</a></li>
+        <li><a href="#文件浏览">文件浏览</a></li>
+        <li><a href="#tag-跳转">tag 跳转</a></li>
+        <li><a href="#在module和endmodule间跳转">在module和endmodule间跳转</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>由于 VIM 自身对 Verilog/SystemVerilog 的支持不是很完美，所以需要额外配置一下，本文记录了我在使用过程中一些常用的配置。其中用到了一些第三方插件和网上的代码片段。</p>
+<h3 id="语法高亮">语法高亮</h3>
+<p>使用插件 <a href="https://github.com/vhda/verilog_systemverilog.vim">verilog_systemverilog</a> 。增加了语法高亮等。</p>
+<h3 id="文件浏览">文件浏览</h3>
+<p>安装插件<a href="https://github.com/scrooloose/nerdtree">nerdtree</a>，通过运行命令 <code>NERDTree</code> 可以在VIM中打开文件浏览，方便在文件间切换。</p>
+<h3 id="tag-跳转">tag 跳转</h3>
+<p>首先得利用 <code>ctags</code> 到生成 TAGS 文件。</p>
+<p>如果是使用 <a href="http://ctags.sourceforge.net/">exuberant-ctags</a>，默认是不识别 verilog 和 SystemVerilog 代码的。需要通过修改配置文件，增加语法识别。</p>
+<p>编辑 <code>~/.ctags</code>， 添加以下代码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">--exclude<span class="o">=</span>.SOS
+--exclude<span class="o">=</span>.git
+--exclude<span class="o">=</span>nobackup
+--exclude<span class="o">=</span>nobkp
+--exclude<span class="o">=</span>results
+--exclude<span class="o">=</span>*.log
+
+--langdef<span class="o">=</span>SystemVerilog
+--langmap<span class="o">=</span>SystemVerilog:.sv.v.svh.tv.vg.vinc
+
+--regex-SystemVerilog<span class="o">=</span>/^<span class="se">\s</span>*<span class="o">(</span><span class="se">\b</span><span class="o">(</span>static<span class="p">|</span>local<span class="p">|</span>virtual<span class="p">|</span>protected<span class="o">)</span><span class="se">\b</span><span class="o">)</span>*<span class="se">\s</span>*<span class="se">\b</span>class<span class="se">\b</span><span class="se">\s</span>*<span class="o">(</span><span class="se">\b</span><span class="se">\w</span>+<span class="se">\b</span><span class="o">)</span>/<span class="se">\3</span>/c,class/
+--regex-SystemVerilog<span class="o">=</span>/^<span class="se">\s</span>*<span class="o">(</span><span class="se">\b</span><span class="o">(</span>static<span class="p">|</span>local<span class="p">|</span>virtual<span class="p">|</span>protected<span class="o">)</span><span class="se">\b</span><span class="o">)</span>*<span class="se">\s</span>*<span class="se">\b</span>task<span class="se">\b</span><span class="se">\s</span>*<span class="o">(</span><span class="se">\b</span><span class="o">(</span>static<span class="p">|</span>automatic<span class="o">)</span><span class="se">\b</span><span class="o">)</span>*<span class="se">\s</span>*<span class="o">(</span><span class="se">\w</span>+::<span class="o">)</span>*<span class="se">\s</span>*<span class="o">(</span><span class="se">\b</span><span class="se">\w</span>+<span class="se">\b</span><span class="o">)</span>/<span class="se">\6</span>/t,task/
+--regex-SystemVerilog<span class="o">=</span>/^<span class="se">\s</span>*<span class="o">(</span><span class="se">\b</span><span class="o">(</span>static<span class="p">|</span>local<span class="p">|</span>virtual<span class="p">|</span>protected<span class="o">)</span><span class="se">\b</span><span class="o">)</span>*<span class="se">\s</span>*<span class="se">\b</span>function<span class="se">\b</span><span class="se">\s</span>*<span class="o">(</span><span class="se">\b</span><span class="o">(</span><span class="se">\w</span>+<span class="o">)</span><span class="se">\b</span><span class="o">)</span>*<span class="se">\s</span>*<span class="o">(</span><span class="se">\w</span>+::<span class="o">)</span>*<span class="se">\s</span>*<span class="o">(</span><span class="se">\b</span><span class="se">\w</span>+<span class="se">\b</span><span class="o">)</span>/<span class="se">\6</span>/f,function/
+
+--regex-SystemVerilog<span class="o">=</span>/^<span class="se">\s</span>*<span class="se">\b</span>module<span class="se">\b</span><span class="se">\s</span>*<span class="o">(</span><span class="se">\b</span><span class="se">\w</span>+<span class="se">\b</span><span class="o">)</span>/<span class="se">\1</span>/m,module/
+--regex-SystemVerilog<span class="o">=</span>/^<span class="se">\s</span>*<span class="se">\b</span>program<span class="se">\b</span><span class="se">\s</span>*<span class="o">(</span><span class="se">\b</span><span class="se">\w</span>+<span class="se">\b</span><span class="o">)</span>/<span class="se">\1</span>/p,program/
+--regex-SystemVerilog<span class="o">=</span>/^<span class="se">\s</span>*<span class="se">\b</span>interface<span class="se">\b</span><span class="se">\s</span>*<span class="o">(</span><span class="se">\b</span><span class="se">\w</span>+<span class="se">\b</span><span class="o">)</span>/<span class="se">\1</span>/i,interface/
+--regex-SystemVerilog<span class="o">=</span>/^<span class="se">\s</span>*<span class="se">\b</span>typedef<span class="se">\b</span><span class="se">\s</span>+.*<span class="se">\s</span>+<span class="o">(</span><span class="se">\b</span><span class="se">\w</span>+<span class="se">\b</span><span class="o">)</span><span class="se">\s</span>*<span class="p">;</span>/<span class="se">\1</span>/e,typedef/
+--regex-SystemVerilog<span class="o">=</span>/^<span class="se">\s</span>*<span class="sb">`</span>define<span class="se">\b</span><span class="se">\s</span>*<span class="o">(</span><span class="se">\w</span>+<span class="o">)</span>/<span class="sb">`</span><span class="se">\1</span>/d,define/
+--regex-SystemVerilog<span class="o">=</span>/<span class="o">}</span><span class="se">\s</span>*<span class="o">(</span><span class="se">\b</span><span class="se">\w</span>+<span class="se">\b</span><span class="o">)</span><span class="se">\s</span>*<span class="p">;</span>/<span class="se">\1</span>/e,typedef/
+
+--regex-SystemVerilog<span class="o">=</span>/^<span class="se">\s</span>*<span class="o">(</span><span class="se">\b</span><span class="o">(</span>static<span class="p">|</span>local<span class="p">|</span>private<span class="p">|</span>rand<span class="o">)</span><span class="se">\b</span><span class="o">)</span>*<span class="se">\s</span>*<span class="o">(</span><span class="se">\b</span><span class="o">(</span>shortint<span class="p">|</span>int<span class="p">|</span>longint<span class="o">)</span><span class="se">\b</span><span class="o">)</span><span class="se">\s</span>*<span class="o">(</span><span class="se">\b</span>unsigned<span class="se">\b</span><span class="o">)</span>?<span class="o">(</span><span class="se">\s</span>*<span class="se">\[</span>.+<span class="se">\]</span><span class="o">)</span>*<span class="se">\s</span>*<span class="o">(</span><span class="se">\b</span><span class="se">\w</span>+<span class="se">\b</span><span class="o">)</span>/<span class="se">\7</span>/v,variable/
+--regex-SystemVerilog<span class="o">=</span>/^<span class="se">\s</span>*<span class="o">(</span><span class="se">\b</span><span class="o">(</span>static<span class="p">|</span>local<span class="p">|</span>private<span class="p">|</span>rand<span class="o">)</span><span class="se">\b</span><span class="o">)</span>*<span class="se">\s</span>*<span class="o">(</span><span class="se">\b</span><span class="o">(</span>byte<span class="p">|</span>bit<span class="p">|</span>logic<span class="p">|</span>reg<span class="p">|</span>integer<span class="p">|</span><span class="nb">time</span><span class="o">)</span><span class="se">\b</span><span class="o">)</span><span class="o">(</span><span class="se">\s</span>*<span class="se">\[</span>.+<span class="se">\]</span><span class="o">)</span>*<span class="se">\s</span>*<span class="o">(</span><span class="se">\b</span><span class="se">\w</span>+<span class="se">\b</span><span class="o">)</span>/<span class="se">\6</span>/v,variable/
+--regex-SystemVerilog<span class="o">=</span>/^<span class="se">\s</span>*<span class="o">(</span><span class="se">\b</span><span class="o">(</span>static<span class="p">|</span>local<span class="p">|</span>private<span class="o">)</span><span class="se">\b</span><span class="o">)</span>*<span class="se">\s</span>*<span class="o">(</span><span class="se">\b</span><span class="o">(</span>real<span class="p">|</span>shortreal<span class="p">|</span>chandle<span class="p">|</span>string<span class="p">|</span>event<span class="o">)</span><span class="se">\b</span><span class="o">)</span><span class="o">(</span><span class="se">\s</span>*<span class="se">\[</span>.+<span class="se">\]</span><span class="o">)</span>*<span class="se">\s</span>*<span class="o">(</span><span class="se">\b</span><span class="se">\w</span>+<span class="se">\b</span><span class="o">)</span>/<span class="se">\6</span>/v,variable/
+--regex-SystemVerilog<span class="o">=</span>/<span class="o">(</span><span class="se">\b</span><span class="o">(</span>input<span class="p">|</span>output<span class="p">|</span>inout<span class="o">)</span><span class="se">\b</span><span class="o">)</span>?<span class="se">\s</span>*<span class="o">(</span><span class="se">\[</span>.+<span class="se">\]</span><span class="o">)</span>*<span class="se">\s</span>*<span class="o">(</span><span class="se">\b</span><span class="o">(</span>wire<span class="p">|</span>reg<span class="p">|</span>logic<span class="o">)</span><span class="se">\b</span><span class="o">)</span><span class="se">\s</span>*<span class="o">(</span><span class="se">\[</span>.+<span class="se">\]</span><span class="o">)</span>*<span class="se">\s</span>*<span class="o">(</span><span class="c1">#(\(.+\)|\S+)\))?\s*(\b\w+\b)/\9/v,variable/</span>
+--regex-SystemVerilog<span class="o">=</span>/<span class="o">(</span><span class="se">\b</span><span class="o">(</span>parameter<span class="p">|</span>localparam<span class="o">)</span><span class="se">\b</span><span class="o">)</span>.+<span class="o">(</span><span class="se">\b</span><span class="se">\w</span>+<span class="se">\b</span><span class="o">)</span><span class="se">\s</span>*<span class="o">=</span>/<span class="se">\3</span>/a,parameter/
+
+--SystemVerilog-kinds<span class="o">=</span>+ctfmpied
+
+--languages<span class="o">=</span>SystemVerilog,C,C++,HTML,Lisp,Make,Perl,Python,Sh
+</code></pre></td></tr></table>
+</div>
+</div><p>然后就可以运行 ctags 产生 TAGS 文件：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">ctags -Re --languages<span class="o">=</span>SystemVerilog -f my.tags /path/to/your/source/code
+</code></pre></td></tr></table>
+</div>
+</div><p>之后配置 VIM， 使 VIM 能读到已经产生的 TAGS 文件:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-viml" data-lang="viml"><span class="nx">set</span> <span class="nx">tags</span><span class="p">+</span><span class="p">=</span>./<span class="nx">my</span>.<span class="nx">tags</span><span class="err">
+</span></code></pre></td></tr></table>
+</div>
+</div><p>以后在 VIM 中打开代码时，就可以通过 <code>CTRL-]</code> 跳转到当前光标处的变量/函数等的定义位置。</p>
+<h3 id="在module和endmodule间跳转">在module和endmodule间跳转</h3>
+<p>在 VIM 中，可以通过 <code>%</code> 在匹配的 <code>( 与 ) ，{ 与 } ， [ 与 ]</code> 间跳转。增加以下配置后，可以实现在 module 与 endmodule，task 与 endtask等之间跳转。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-viml" data-lang="viml"><span class="nx">runtime</span><span class="p">!</span> <span class="nx">macros</span>/<span class="nx">matchit</span>.<span class="nx">vim</span><span class="err">
+</span><span class="err"></span><span class="k">if</span> <span class="nx">exists</span><span class="p">(</span><span class="s1">&#39;loaded_matchit&#39;</span><span class="p">)</span><span class="err">
+</span><span class="err"></span>  <span class="k">let</span> <span class="nx">b</span>:<span class="nx">match_ignorecase</span><span class="p">=</span><span class="m">0</span><span class="err">
+</span><span class="err"></span>  <span class="k">let</span> <span class="nx">b</span>:<span class="nx">match_words</span><span class="p">=</span><span class="err">
+</span><span class="err"></span>    \ <span class="s1">&#39;\&lt;begin\&gt;:\&lt;end\&gt;,&#39;</span> .<span class="err">
+</span><span class="err"></span>    \ <span class="s1">&#39;\&lt;if\&gt;:\&lt;else\&gt;,&#39;</span> .<span class="err">
+</span><span class="err"></span>    \ <span class="s1">&#39;\&lt;module\&gt;:\&lt;endmodule\&gt;,&#39;</span> .<span class="err">
+</span><span class="err"></span>    \ <span class="s1">&#39;\&lt;class\&gt;:\&lt;endclass\&gt;,&#39;</span> .<span class="err">
+</span><span class="err"></span>    \ <span class="s1">&#39;\&lt;program\&gt;:\&lt;endprogram\&gt;,&#39;</span> .<span class="err">
+</span><span class="err"></span>    \ <span class="s1">&#39;\&lt;clocking\&gt;:\&lt;endclocking\&gt;,&#39;</span> .<span class="err">
+</span><span class="err"></span>    \ <span class="s1">&#39;\&lt;property\&gt;:\&lt;endproperty\&gt;,&#39;</span> .<span class="err">
+</span><span class="err"></span>    \ <span class="s1">&#39;\&lt;sequence\&gt;:\&lt;endsequence\&gt;,&#39;</span> .<span class="err">
+</span><span class="err"></span>    \ <span class="s1">&#39;\&lt;package\&gt;:\&lt;endpackage\&gt;,&#39;</span> .<span class="err">
+</span><span class="err"></span>    \ <span class="s1">&#39;\&lt;covergroup\&gt;:\&lt;endgroup\&gt;,&#39;</span> .<span class="err">
+</span><span class="err"></span>    \ <span class="s1">&#39;\&lt;primitive\&gt;:\&lt;endprimitive\&gt;,&#39;</span> .<span class="err">
+</span><span class="err"></span>    \ <span class="s1">&#39;\&lt;specify\&gt;:\&lt;endspecify\&gt;,&#39;</span> .<span class="err">
+</span><span class="err"></span>    \ <span class="s1">&#39;\&lt;generate\&gt;:\&lt;endgenerate\&gt;,&#39;</span> .<span class="err">
+</span><span class="err"></span>    \ <span class="s1">&#39;\&lt;interface\&gt;:\&lt;endinterface\&gt;,&#39;</span> .<span class="err">
+</span><span class="err"></span>    \ <span class="s1">&#39;\&lt;function\&gt;:\&lt;endfunction\&gt;,&#39;</span> .<span class="err">
+</span><span class="err"></span>    \ <span class="s1">&#39;\&lt;task\&gt;:\&lt;endtask\&gt;,&#39;</span> .<span class="err">
+</span><span class="err"></span>    \ <span class="s1">&#39;\&lt;case\&gt;\|\&lt;casex\&gt;\|\&lt;casez\&gt;:\&lt;endcase\&gt;,&#39;</span> .<span class="err">
+</span><span class="err"></span>    \ <span class="s1">&#39;\&lt;fork\&gt;:\&lt;join\&gt;\|\&lt;join_any\&gt;\|\&lt;join_none\&gt;,&#39;</span> .<span class="err">
+</span><span class="err"></span>    \ <span class="s1">&#39;`ifdef\&gt;:`else\&gt;:`endif\&gt;,&#39;</span><span class="err">
+</span><span class="err"></span><span class="k">endif</span><span class="err">
+</span></code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">HJKing</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2016-08-23 16:01
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/vim/">vim</a>
+          <a href="/tags/verilog/">verilog</a>
+          <a href="/tags/systemverilog/">systemverilog</a>
+          <a href="/tags/uvm/">UVM</a>
+          <a href="/tags/ctags/">ctags</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/2016-09-02-grep-awk-sed/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">grep, awk, sed 简介</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/2015-03-02-sublime/">
+            <span class="next-text nav-default">Sublime Text 3 技巧集锦</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="hjking/hjking.github.io"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:hon9jin@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://stackoverflow.com/users/1605724/hjking" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://twitter.com/hon9jin" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://www.facebook.com/kin9hom" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="https://www.linkedin.com/in/hjking" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="https://github.com/hjking" class="iconfont icon-github" title="github"></a>
+      <a href="http://weibo.com/hon9jin" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://kinghom.tumblr.com" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://instagram.com/kinghom" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">HJKing</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/raphael@2.2.7/raphael.min.js" integrity="sha256-67By+NpOtm9ka1R6xpUefeGOY8kWWHHRAKlvaTJ7ONI=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/flowchart.js@1.8.0/release/flowchart.min.js" integrity="sha256-zNGWjubXoY6rb5MnmpBNefO0RgoVYfle9p0tvOQM+6k=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js" integrity="sha256-4O4pS1SH31ZqrSO2A/2QJTVjTPqVe+jnYgOWUVr7EEc=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/snapsvg@0.5.1/dist/snap.svg-min.js" integrity="sha256-oI+elz+sIm+jpn8F/qEspKoKveTc5uKeFHNNVexe6d8=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/underscore@1.8.3/underscore-min.js" integrity="sha256-obZACiHd7gkOk9iIL/pimWMTJ4W/pBsKu+oZnSeBIek=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.js" integrity="sha384-8748Vn52gHJYJI0XEuPB2QlPVNUkJlJn9tHqKec6J3q2r9l8fvRxrgn/E5ZHV0sP" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.css" integrity="sha384-6QbLKJMz5dS3adWSeINZe74uSydBGFbnzaAYmp+tKyq60S7H2p6V7g1TysM5lAaF" crossorigin="anonymous">
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-6627086-2', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+</body>
+</html>

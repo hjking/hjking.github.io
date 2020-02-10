@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linux on HJKing</title>
+    <link>/categories/linux/</link>
+    <description>Recent content in Linux on HJKing</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 02 Sep 2016 16:01:23 +0800</lastBuildDate>
+    
+	<atom:link href="/categories/linux/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>grep, awk, sed 简介</title>
+      <link>/post/2016-09-02-grep-awk-sed/</link>
+      <pubDate>Fri, 02 Sep 2016 16:01:23 +0800</pubDate>
+      
+      <guid>/post/2016-09-02-grep-awk-sed/</guid>
+      <description>grep, awk and sed are three of the most useful command-line tools1 in *nix world. And this article will give you a brief introduction and basic usages of these three different commands. grep grep (Global Regular Expression Print) is used to search for specific terms in a file. Different from awk and sed, grep can’t add/modify/remove the text in a specific file. But it’</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>sublime on HJKing</title>
+    <link>/tags/sublime/</link>
+    <description>Recent content in sublime on HJKing</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 02 Mar 2015 15:05:02 +0800</lastBuildDate>
+    
+	<atom:link href="/tags/sublime/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Sublime Text 3 技巧集锦</title>
+      <link>/post/2015-03-02-sublime/</link>
+      <pubDate>Mon, 02 Mar 2015 15:05:02 +0800</pubDate>
+      
+      <guid>/post/2015-03-02-sublime/</guid>
+      <description>&lt;h2 id=&#34;常用插件&#34;&gt;常用插件：&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Package Control&lt;/p&gt;
+&lt;p&gt;安装和管理插件。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;BracketHighlighter&lt;/p&gt;
+&lt;p&gt;高亮显示匹配的括号，引号和标签。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;TrailingSpacer&lt;/p&gt;
+&lt;p&gt;高亮显示行尾多余的空格和Tab。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Alignment&lt;/p&gt;
+&lt;p&gt;等号智能对齐和统一缩进。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;SideBarEnhancement&lt;/p&gt;
+&lt;p&gt;侧边栏增强。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;MarkDown Editing&lt;/p&gt;
+&lt;p&gt;编辑markdown文件时提供语法支持，缩进。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;FileDiffs&lt;/p&gt;
+&lt;p&gt;比较文件。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/jonschlinkert/sublime-markdown-extended&#34;&gt;Markdown Enhancements&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;增强编辑markdown文件时的着色和高亮。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;常用快捷键&#34;&gt;常用快捷键：&lt;/h2&gt;
+&lt;h3 id=&#34;移动&#34;&gt;移动&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Ctrl + ←/→：进行逐词移动&lt;/p&gt;
+&lt;p&gt;Ctrl + ↑/↓移动当前显示区域&lt;/p&gt;
+&lt;p&gt;Ctrl + Shift + L：将当前选中区域打散，实现对所有行进行同时编辑&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;选择&#34;&gt;选择&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Ctrl + Shift + J：快速选择同缩进的内容&lt;/p&gt;
+&lt;p&gt;Ctrl + Shift + Space：快速选择当前作用域（Scope）的内容&lt;/p&gt;
+&lt;p&gt;Ctrl + Shift + ←/→进行逐词选择&lt;/p&gt;
+&lt;p&gt;Ctrl + D：选择当前光标所在的词并高亮该词所有出现的位置，再次Ctrl + &amp;gt; D选择该词出现的下一个位置，在多重选词的过程中，使用Ctrl + K进行跳过，使用Ctrl &amp;gt; + U进行回退，使用Esc退出多重编辑&lt;/p&gt;
+&lt;p&gt;Ctrl + Shift + L：将当前选中区域打散&lt;/p&gt;
+&lt;p&gt;Ctrl + J：把当前选中区域合并为一行&lt;/p&gt;
+&lt;p&gt;Ctrl + M：在起始括号和结尾括号间切换&lt;/p&gt;
+&lt;p&gt;Ctrl + Shift + M：快速选择括号间的内容&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;查找和替换&#34;&gt;查找和替换&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Ctrl + D：选择当前光标所在的词并高亮该词所有出现的位置，再次 Ctrl + D选择该词出现的下一个位置，在多重选词的过程中，使用Ctrl + K进行跳过，使用Ctrl + U进行回退，使用Esc退出多重编辑&lt;/p&gt;
+&lt;p&gt;F3：跳至当前关键字下一个位置&lt;/p&gt;
+&lt;p&gt;Shift + F3：跳到当前关键字上一个位置&lt;/p&gt;
+&lt;p&gt;Alt + F3：选中当前关键字出现的所有位置&lt;/p&gt;
+&lt;p&gt;Ctrl + F 调出搜索框进行搜索&lt;/p&gt;
+&lt;p&gt;Ctrl + H 进行替换&lt;/p&gt;
+&lt;p&gt;在搜索框输入关键字后Enter跳至关键字当前光标的下一个位置，Shift + Enter跳至上一个位置，Alt + Enter选中其出现的所有位置（同样的，接下来可以进行快速替换）&lt;/p&gt;
+&lt;p&gt;使用 Ctrl + Shift + F 开启多文件搜索&amp;amp;替换&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>自定义 UVM 打印信息的格式 - HJKing</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="HJKing" /><meta name="description" content="默认格式 默认情况下，当我们调用 `uvm_info 宏时，打印信息格式如下: UVM_INFO my_uvm_report.sv(83) @ 0: reporter [top] This is a message from top. UVM_INFO my_uvm_report.sv(68) @ 0: uvm_test_top [my_test] This is a message from my_test. UVM_INFO my_uvm_report.sv(39) @ 0: uvm_test_top.my_env_h [my_env] This is a message from my_env. 自定义格式 通" /><meta name="keywords" content="ASIC, UVM, SV" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.64.0 with theme even" />
+
+
+<link rel="canonical" href="/post/2016-12-29-customizing-uvm-message-format/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="自定义 UVM 打印信息的格式" />
+<meta property="og:description" content="默认格式 默认情况下，当我们调用 `uvm_info 宏时，打印信息格式如下: UVM_INFO my_uvm_report.sv(83) @ 0: reporter [top] This is a message from top. UVM_INFO my_uvm_report.sv(68) @ 0: uvm_test_top [my_test] This is a message from my_test. UVM_INFO my_uvm_report.sv(39) @ 0: uvm_test_top.my_env_h [my_env] This is a message from my_env. 自定义格式 通" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/2016-12-29-customizing-uvm-message-format/" />
+<meta property="article:published_time" content="2016-12-29T16:01:23+08:00" />
+<meta property="article:modified_time" content="2016-12-29T16:01:23+08:00" />
+<meta itemprop="name" content="自定义 UVM 打印信息的格式">
+<meta itemprop="description" content="默认格式 默认情况下，当我们调用 `uvm_info 宏时，打印信息格式如下: UVM_INFO my_uvm_report.sv(83) @ 0: reporter [top] This is a message from top. UVM_INFO my_uvm_report.sv(68) @ 0: uvm_test_top [my_test] This is a message from my_test. UVM_INFO my_uvm_report.sv(39) @ 0: uvm_test_top.my_env_h [my_env] This is a message from my_env. 自定义格式 通">
+<meta itemprop="datePublished" content="2016-12-29T16:01:23&#43;08:00" />
+<meta itemprop="dateModified" content="2016-12-29T16:01:23&#43;08:00" />
+<meta itemprop="wordCount" content="470">
+
+
+
+<meta itemprop="keywords" content="UVM,SystemVerilog," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="自定义 UVM 打印信息的格式"/>
+<meta name="twitter:description" content="默认格式 默认情况下，当我们调用 `uvm_info 宏时，打印信息格式如下: UVM_INFO my_uvm_report.sv(83) @ 0: reporter [top] This is a message from top. UVM_INFO my_uvm_report.sv(68) @ 0: uvm_test_top [my_test] This is a message from my_test. UVM_INFO my_uvm_report.sv(39) @ 0: uvm_test_top.my_env_h [my_env] This is a message from my_env. 自定义格式 通"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">HJKing</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/ref/">
+        <li class="mobile-menu-item">Reference</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">HJKing</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/ref/">Reference</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">自定义 UVM 打印信息的格式</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2016-12-29 16:01 </span>
+        <div class="post-category">
+            <a href="/categories/ic/"> IC </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#默认格式">默认格式</a></li>
+    <li><a href="#自定义格式">自定义格式</a></li>
+    <li><a href="#如何使用自定义格式">如何使用自定义格式</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h2 id="默认格式">默认格式</h2>
+<p>默认情况下，当我们调用 `uvm_info 宏时，打印信息格式如下:</p>
+<blockquote>
+<p>UVM_INFO my_uvm_report.sv(83) @ 0: reporter [top] This is a message from top.</p>
+<p>UVM_INFO my_uvm_report.sv(68) @ 0: uvm_test_top [my_test] This is a message from my_test.</p>
+<p>UVM_INFO my_uvm_report.sv(39) @ 0: uvm_test_top.my_env_h [my_env] This is a message from my_env.</p>
+</blockquote>
+<h2 id="自定义格式">自定义格式</h2>
+<p>通过重载 <code>uvm_report_server</code> 类的 <code>compose_message</code> 函数可以达到目的。 首先创建一个继承自 <code>uvm_report_server</code> 的 <code>my_report_server</code> 类，在类中实现 <code>compose_message</code> 函数。 需要注意的是对 <code>uvm_severity</code> 类型的 severity 做了强制转换为 <code>uvm_severity_type</code>，为的是显示打印类型。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-verilog" data-lang="verilog"><span class="n">class</span> <span class="n">my_report_server</span> <span class="n">extends</span> <span class="n">uvm_report_server</span><span class="p">;</span>
+   <span class="n">virtual</span> <span class="k">function</span> <span class="k">string</span> <span class="n">compose_message</span><span class="p">(</span> <span class="n">uvm_severity</span> <span class="n">severity</span><span class="p">,</span>
+                                            <span class="k">string</span> <span class="n">name</span><span class="p">,</span>
+                                            <span class="k">string</span> <span class="n">id</span><span class="p">,</span>
+                                            <span class="k">string</span> <span class="n">message</span><span class="p">,</span>
+                                            <span class="k">string</span> <span class="n">filename</span><span class="p">,</span>
+                                            <span class="kt">int</span> <span class="n">line</span> <span class="p">)</span><span class="p">;</span>
+      <span class="n">uvm_severity_type</span> <span class="n">severity_type</span> <span class="o">=</span> <span class="n">uvm_severity_type</span><span class="p">&#39;</span><span class="p">(</span> <span class="n">severity</span> <span class="p">)</span><span class="p">;</span>
+      <span class="k">return</span> <span class="n">$psprintf</span><span class="p">(</span> <span class="s">&#34;</span><span class="s">%-8s | %16s | %2d | %0t | %-21s | %-7s | %s</span><span class="s">&#34;</span><span class="p">,</span>
+             <span class="n">severity_type</span><span class="p">.</span><span class="n">name</span><span class="p">(</span><span class="p">)</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">line</span><span class="p">,</span> <span class="nb">$time</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">id</span><span class="p">,</span> <span class="n">message</span> <span class="p">)</span><span class="p">;</span>
+   <span class="k">endfunction</span><span class="o">:</span> <span class="n">compose_message</span>
+<span class="nl">endclass:</span> <span class="n">my_report_server</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="如何使用自定义格式">如何使用自定义格式</h2>
+<p>使用 <code>my_report_server</code> 替换 <code>uvm_report_server</code>。 <code>uvm_report_server</code> 是一个全局 server，处理由 <code>uvm_report_handler</code> 句柄产生的打印信息。</p>
+<p>首先, 实例化 <code>my_report_server</code>。 然后，通过 <code>uvm_report_server</code> 的静态函数 <code>set_server()</code> 设置 <code>my_server</code> 为全局。这里，我们在 testcase 的 <code>start_of_simulation()</code> 函数中做以上处理。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-verilog" data-lang="verilog"><span class="n">class</span> <span class="n">my_test</span> <span class="n">extends</span> <span class="n">uvm_test</span><span class="p">;</span>
+   <span class="c1">// ...
+</span><span class="c1"></span>   <span class="k">function</span> <span class="k">void</span> <span class="n">start_of_simulation</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+      <span class="n">my_report_server</span> <span class="n">my_server</span> <span class="o">=</span> <span class="n">new</span><span class="p">;</span>
+      <span class="n">uvm_report_server</span><span class="o">:</span><span class="o">:</span><span class="n">set_server</span><span class="p">(</span> <span class="n">my_server</span> <span class="p">)</span><span class="p">;</span>
+   <span class="k">endfunction</span><span class="o">:</span> <span class="n">start_of_simulation</span>
+<span class="nl">endclass:</span> <span class="n">my_test</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>现在的打印信息格式如下:</p>
+<blockquote>
+<p>UVM_INFO my_uvm_report.sv(83) @ 0: reporter [top] This is a message from top.</p>
+<p>UVM_INFO | my_uvm_report.sv | 68 | 0 | uvm_test_top          | my_test | This is a message from my_test.</p>
+<p>UVM_INFO | my_uvm_report.sv | 39 | 0 | uvm_test_top.my_env_h | my_env  | This is a message from my_env.</p>
+</blockquote>
+<p>需要注意的是，由于我们是在testcase里替换的，第一行的打印是在替换之前调用的。</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">HJKing</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2016-12-29 16:01
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/uvm/">UVM</a>
+          <a href="/tags/systemverilog/">SystemVerilog</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/introduction-to-perl-one-liners/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Perl one-liners</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/2016-09-02-grep-awk-sed/">
+            <span class="next-text nav-default">grep, awk, sed 简介</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="hjking/hjking.github.io"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:hon9jin@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://stackoverflow.com/users/1605724/hjking" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://twitter.com/hon9jin" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://www.facebook.com/kin9hom" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="https://www.linkedin.com/in/hjking" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="https://github.com/hjking" class="iconfont icon-github" title="github"></a>
+      <a href="http://weibo.com/hon9jin" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://kinghom.tumblr.com" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://instagram.com/kinghom" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">HJKing</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/raphael@2.2.7/raphael.min.js" integrity="sha256-67By+NpOtm9ka1R6xpUefeGOY8kWWHHRAKlvaTJ7ONI=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/flowchart.js@1.8.0/release/flowchart.min.js" integrity="sha256-zNGWjubXoY6rb5MnmpBNefO0RgoVYfle9p0tvOQM+6k=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js" integrity="sha256-4O4pS1SH31ZqrSO2A/2QJTVjTPqVe+jnYgOWUVr7EEc=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/snapsvg@0.5.1/dist/snap.svg-min.js" integrity="sha256-oI+elz+sIm+jpn8F/qEspKoKveTc5uKeFHNNVexe6d8=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/underscore@1.8.3/underscore-min.js" integrity="sha256-obZACiHd7gkOk9iIL/pimWMTJ4W/pBsKu+oZnSeBIek=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.js" integrity="sha384-8748Vn52gHJYJI0XEuPB2QlPVNUkJlJn9tHqKec6J3q2r9l8fvRxrgn/E5ZHV0sP" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.css" integrity="sha384-6QbLKJMz5dS3adWSeINZe74uSydBGFbnzaAYmp+tKyq60S7H2p6V7g1TysM5lAaF" crossorigin="anonymous">
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-6627086-2', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+</body>
+</html>
