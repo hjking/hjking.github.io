@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-cn">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -48,7 +48,7 @@
 <meta itemprop="description" content="Vim Distributions Vim distributions are Vim &#43; custom settings &#43; custom plugins from certain authors and are therefore very opinionated. cream A modern configuration of the powerful and famous Vim, Cream is for Microsoft Windows, GNU/Linux, and FreeBSD. janus This is a distribution of plug-ins and mappings for Vim, Gvim and MacVim. It is designed to provide minimal working environment using the most popular plug-ins and the most common mappings.">
 <meta itemprop="datePublished" content="2018-11-28T15:04:39&#43;08:00" />
 <meta itemprop="dateModified" content="2018-11-28T15:04:39&#43;08:00" />
-<meta itemprop="wordCount" content="2235">
+<meta itemprop="wordCount" content="2236">
 
 
 
@@ -204,16 +204,36 @@ gL :</p>
 <ul>
 <li>
 <p><a href="https://github.com/easymotion/vim-easymotion">EasyMotion</a></p>
-<p>提供在文件中快速跳转和定位位置。
-<strong>&lt;Leader&gt;&lt;Leader&gt;</strong>: 启动
-<strong>&lt;Leader&gt;&lt;Leader&gt;w</strong> : 查找单词的开头
-<strong>&lt;Leader&gt;&lt;Leader&gt;f</strong> : 查找单词的字符
-<strong>&lt;Leader&gt;&lt;Leader&gt;b</strong> : 向后搜索，跳转到单词的开头
-<strong>&lt;Leader&gt;&lt;Leader&gt;e</strong> : 向前搜索，跳转到单词的结尾
-<strong>&lt;Leader&gt;&lt;Leader&gt;j</strong> : 向下跳转到行首
-<strong>&lt;Leader&gt;&lt;Leader&gt;k</strong> : 向上跳转到行首
-<strong>&lt;Leader&gt;&lt;Leader&gt;n</strong> : 向前跳转到最近通过/或者?搜索后的匹配项
-<strong>&lt;Leader&gt;&lt;Leader&gt;N</strong> : 向后跳转到最近通过/或者?搜索后的匹配项</p>
+<p>提供在文件中快速跳转和定位位置。</p>
+<ul>
+<li>
+<p><strong>&lt;Leader&gt;&lt;Leader&gt;</strong>: 启动</p>
+</li>
+<li>
+<p><strong>&lt;Leader&gt;&lt;Leader&gt;w</strong> : 查找单词的开头</p>
+</li>
+<li>
+<p><strong>&lt;Leader&gt;&lt;Leader&gt;f</strong> : 查找单词的字符</p>
+</li>
+<li>
+<p><strong>&lt;Leader&gt;&lt;Leader&gt;b</strong> : 向后搜索，跳转到单词的开头</p>
+</li>
+<li>
+<p><strong>&lt;Leader&gt;&lt;Leader&gt;e</strong> : 向前搜索，跳转到单词的结尾</p>
+</li>
+<li>
+<p><strong>&lt;Leader&gt;&lt;Leader&gt;j</strong> : 向下跳转到行首</p>
+</li>
+<li>
+<p><strong>&lt;Leader&gt;&lt;Leader&gt;k</strong> : 向上跳转到行首</p>
+</li>
+<li>
+<p><strong>&lt;Leader&gt;&lt;Leader&gt;n</strong> : 向前跳转到最近通过/或者?搜索后的匹配项</p>
+</li>
+<li>
+<p><strong>&lt;Leader&gt;&lt;Leader&gt;N</strong> : 向后跳转到最近通过/或者?搜索后的匹配项</p>
+</li>
+</ul>
 </li>
 <li>
 <p><a href="https://github.com/henrik/CamelCaseMotion">CamelCaseMotion</a></p>
@@ -252,13 +272,15 @@ gL :</p>
 <li>
 <p><a href="https://github.com/tpope/vim-surround">vim-surround</a></p>
 <p>快速添加，删除，修改 [ ] {} &quot;&rdquo; '&rsquo; ，XML tag， HTML tags等。</p>
-<p>cs&rdquo;&rsquo;   : &ldquo;Hello world!&rdquo;   -&gt;    &lsquo;Hello world!&rsquo;
-cs'<!-- raw HTML omitted --> : &lsquo;Hello world!&rsquo;   -&gt;    <!-- raw HTML omitted -->Hello world!<!-- raw HTML omitted -->
-ds&rdquo;    : &ldquo;Hello world!&rdquo;   -&gt;    Hello world!
-ysiw]  : Hello world!     -&gt;    [Hello] world!
-cs]{   : [Hello] world!   -&gt;    { Hello } world!
-yssb or yss) : { Hello } world!  -&gt;  ({ Hello } world!)
-ds{ds) : ({ Hello } world!)  -&gt;  Hello world!</p>
+<ul>
+<li>cs&rdquo;&rsquo;   : &ldquo;Hello world!&rdquo;   -&gt;    &lsquo;Hello world!&rsquo;</li>
+<li>cs'<!-- raw HTML omitted --> : &lsquo;Hello world!&rsquo;   -&gt;    <!-- raw HTML omitted -->Hello world!<!-- raw HTML omitted --></li>
+<li>ds&rdquo;    : &ldquo;Hello world!&rdquo;   -&gt;    Hello world!</li>
+<li>ysiw]  : Hello world!     -&gt;    [Hello] world!</li>
+<li>cs]{   : [Hello] world!   -&gt;    { Hello } world!</li>
+<li>yssb or yss) : { Hello } world!  -&gt;  ({ Hello } world!)</li>
+<li>ds{ds) : ({ Hello } world!)  -&gt;  Hello world!</li>
+</ul>
 </li>
 <li>
 <p><a href="">multiple-cursors</a></p>
@@ -289,17 +311,19 @@ ds{ds) : ({ Hello } world!)  -&gt;  Hello world!</p>
 </li>
 <li>
 <p><a href="https://github.com/scrooloose/nerdcommenter">NERDCommenter</a></p>
-<p>注释代码的插件。
-<strong>,ca</strong> : 在可选的注释方式之间切换，比如C/C++ 的块注释/* */和行注释//
-**,cc** : 注释当前行
-**,c<!-- raw HTML omitted -->**  : 切换注释/非注释状态
-**,cm** : 注释多行
-**,ci** : 翻转注释
-**,cs** : 以”性感”的方式注释
-**,c$** : 从光标开始注释
-**,cA** : 在当前行尾添加注释符，并进入Insert模式
-**,cu** : 取消注释
-Normal模式下，几乎所有命令前面都可以指定行数。Visual模式下执行命令，会对选中的特定区块进行注释/反注释</p>
+<p>注释代码的插件。</p>
+<ul>
+<li><strong>,ca</strong> : 在可选的注释方式之间切换，比如C/C++ 的块注释/* */和行注释//</li>
+<li><strong>,cc</strong> : 注释当前行</li>
+<li><strong>,c<!-- raw HTML omitted --></strong>  : 切换注释/非注释状态</li>
+<li><strong>,cm</strong> : 注释多行</li>
+<li><strong>,ci</strong> : 翻转注释</li>
+<li><strong>,cs</strong> : 以”性感”的方式注释</li>
+<li><strong>,c$</strong> : 从光标开始注释</li>
+<li><strong>,cA</strong> : 在当前行尾添加注释符，并进入Insert模式</li>
+<li><strong>,cu</strong> : 取消注释</li>
+</ul>
+<p>Normal模式下，几乎所有命令前面都可以指定行数。Visual模式下执行命令，会对选中的特定区块进行注释/反注释</p>
 <ul>
 <li>
 <p>[count]<!-- raw HTML omitted -->cc |NERDComComment|</p>
@@ -392,22 +416,28 @@ Normal模式下，几乎所有命令前面都可以指定行数。Visual模式�
 </li>
 <li>
 <p>calendar.vim
-代替原生的calendar。
-<strong>:Calendar</strong>  在新buffer中打开日历视图，默认月视图</p>
+代替原生的calendar。</p>
+<ul>
+<li><strong>:Calendar</strong>  在新buffer中打开日历视图，默认月视图</li>
+</ul>
 </li>
 <li>
 <p>over
-让替换变得可视化。进入替换命令行后，用正常的s替换命令，当输入待替换的字符串时会高亮显示，输入用来替换的字符转时，会在原文中高亮显示在替换字符串后面。
-<strong>:OverCommandLine</strong> : 进入替换命令行</p>
+让替换变得可视化。进入替换命令行后，用正常的s替换命令，当输入待替换的字符串时会高亮显示，输入用来替换的字符转时，会在原文中高亮显示在替换字符串后面。</p>
+<ul>
+<li><strong>:OverCommandLine</strong> : 进入替换命令行</li>
+</ul>
 </li>
 <li>
 <p>sneak</p>
-<p>通过输入字符快速跳转和定位。普通模式下按 <em>s&lt;char&gt;&lt;char&gt;</em> 来快速跳转到 <em>&lt;char&gt;&lt;char&gt;</em> 处。
-; : 跳转到下个匹配处
-3; : 跳转到第三个匹配处
-CTRL-O : 回到光标起始位置
-s<!-- raw HTML omitted --> : 重复上次搜索
-S : 向后搜索</p>
+<p>通过输入字符快速跳转和定位。普通模式下按 <em>s&lt;char&gt;&lt;char&gt;</em> 来快速跳转到 <em>&lt;char&gt;&lt;char&gt;</em> 处。</p>
+<ul>
+<li>; : 跳转到下个匹配处</li>
+<li>3; : 跳转到第三个匹配处</li>
+<li>CTRL-O : 回到光标起始位置</li>
+<li>s<!-- raw HTML omitted --> : 重复上次搜索</li>
+<li>S : 向后搜索</li>
+</ul>
 </li>
 <li>
 <p>vim-vertical-move</p>
@@ -486,7 +516,6 @@ S : 向后搜索</p>
       <a href="https://twitter.com/hon9jin" class="iconfont icon-twitter" title="twitter"></a>
       <a href="https://www.facebook.com/kin9hom" class="iconfont icon-facebook" title="facebook"></a>
       <a href="https://www.linkedin.com/in/hjking" class="iconfont icon-linkedin" title="linkedin"></a>
-      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
       <a href="https://github.com/hjking" class="iconfont icon-github" title="github"></a>
       <a href="http://weibo.com/hon9jin" class="iconfont icon-weibo" title="weibo"></a>
       <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
@@ -501,11 +530,11 @@ S : 向后搜索</p>
 
 <div class="copyright">
   <span class="power-by">
-    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
   </span>
   <span class="division">|</span>
   <span class="theme-info">
-    Theme - 
+    主题 - 
     <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
   </span>
 
@@ -513,7 +542,7 @@ S : 向后搜索</p>
 
   <span class="copyright-year">
     &copy; 
-    2017 - 
+    2014 - 
     2020
     <span class="heart">
       <i class="iconfont icon-heart"></i>

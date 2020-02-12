@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-cn">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="HJKing" /><meta name="description" content="书籍 SystemVerilog验证，第二版 UVM实战，张强 芯片验证漫游指南，刘斌 The UVM Primer Pratical UVM step by step examples A Prtical Guide to Adopting the universal verification methodology (UVM) second edition ASIC/SOC functional design verification systemverilog assertions and functional coverage" /><meta name="keywords" content="ASIC, UVM, SV" />
+<meta name="author" content="HJKing" /><meta name="description" content="UVM 书籍推荐 SystemVerilog验证，第二版 UVM实战，张强 芯片验证漫游指南，刘斌 The UVM Primer Pratical UVM step by step examples A Prtical Guide to Adopting the universal verification methodology (UVM) second edition ASIC/SOC functional design verification systemverilog assertions" /><meta name="keywords" content="ASIC, UVM, SV" />
 
 
 
@@ -39,22 +39,22 @@
 
 
 <meta property="og:title" content="UVM" />
-<meta property="og:description" content="书籍 SystemVerilog验证，第二版 UVM实战，张强 芯片验证漫游指南，刘斌 The UVM Primer Pratical UVM step by step examples A Prtical Guide to Adopting the universal verification methodology (UVM) second edition ASIC/SOC functional design verification systemverilog assertions and functional coverage" />
+<meta property="og:description" content="UVM 书籍推荐 SystemVerilog验证，第二版 UVM实战，张强 芯片验证漫游指南，刘斌 The UVM Primer Pratical UVM step by step examples A Prtical Guide to Adopting the universal verification methodology (UVM) second edition ASIC/SOC functional design verification systemverilog assertions" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/ref/uvm/" />
 <meta property="article:published_time" content="2018-11-28T15:04:39+08:00" />
 <meta property="article:modified_time" content="2018-11-28T15:04:39+08:00" />
 <meta itemprop="name" content="UVM">
-<meta itemprop="description" content="书籍 SystemVerilog验证，第二版 UVM实战，张强 芯片验证漫游指南，刘斌 The UVM Primer Pratical UVM step by step examples A Prtical Guide to Adopting the universal verification methodology (UVM) second edition ASIC/SOC functional design verification systemverilog assertions and functional coverage">
+<meta itemprop="description" content="UVM 书籍推荐 SystemVerilog验证，第二版 UVM实战，张强 芯片验证漫游指南，刘斌 The UVM Primer Pratical UVM step by step examples A Prtical Guide to Adopting the universal verification methodology (UVM) second edition ASIC/SOC functional design verification systemverilog assertions">
 <meta itemprop="datePublished" content="2018-11-28T15:04:39&#43;08:00" />
 <meta itemprop="dateModified" content="2018-11-28T15:04:39&#43;08:00" />
-<meta itemprop="wordCount" content="354">
+<meta itemprop="wordCount" content="336">
 
 
 
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="UVM"/>
-<meta name="twitter:description" content="书籍 SystemVerilog验证，第二版 UVM实战，张强 芯片验证漫游指南，刘斌 The UVM Primer Pratical UVM step by step examples A Prtical Guide to Adopting the universal verification methodology (UVM) second edition ASIC/SOC functional design verification systemverilog assertions and functional coverage"/>
+<meta name="twitter:description" content="UVM 书籍推荐 SystemVerilog验证，第二版 UVM实战，张强 芯片验证漫游指南，刘斌 The UVM Primer Pratical UVM step by step examples A Prtical Guide to Adopting the universal verification methodology (UVM) second edition ASIC/SOC functional design verification systemverilog assertions"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -124,7 +124,8 @@
         <div id="content" class="content">
           <article class="post">
   <div class="post-content">
-    <h2 id="书籍">书籍</h2>
+    <h1 id="uvm">UVM</h1>
+<h2 id="书籍推荐">书籍推荐</h2>
 <ul>
 <li>
 <p>SystemVerilog验证，第二版</p>
@@ -192,29 +193,31 @@
 </ul>
 <h2 id="uvm仿真参数">UVM仿真参数</h2>
 <h3 id="uvm-compile-options">UVM Compile options</h3>
-<pre><code>- +UVM_REPORT_DISABLE_FILE
-- +UVM_REPORT_DISABLE_LINE
-- +UVM_REPORT_DISABLE_FILE_LINE
-</code></pre>
+<ul>
+<li>+UVM_REPORT_DISABLE_FILE</li>
+<li>+UVM_REPORT_DISABLE_LINE</li>
+<li>+UVM_REPORT_DISABLE_FILE_LINE</li>
+</ul>
 <h3 id="uvm-runtime-options">UVM runtime options</h3>
-<pre><code>- +UVM_TESTNAME :
-- +UVM_VERBOSITY :  allows the user to specify the initial verbosity for all components
-- +UVM_TIMEOUT : allows users to change the global timeout of the UVM framework
-- +UVM_MAX_QUIT_COUNT : allows users to change max quit count for the report server
-- +UVM_CONFIG_DB_TRACE : turns on tracing of configuration DB access
-- +UVM_DUMP_CMDLINE_ARGS
-- +UVM_OBJECTION_TRACE :  turns on tracing of objection activity
-- +UVM_PHASE_TRACE : turns on tracing of phase executions
-- +UVM_RESOURCE_DB_TRACE : turns on tracing of resource DB access
-- +uvm_set_config_int
-- +uvm_set_config_string
-- +uvm_set_inst_override
-- +uvm_set_type_override
-- +uvm_set_verbosity
-    +uvm_set_verbosity=&lt;comp&gt;,&lt;id&gt;,&lt;verbosity&gt;,&lt;phase&gt; and +uvm_set_verbosity=&lt;comp&gt;,&lt;id&gt;,&lt;verbosity&gt;,time,&lt;time&gt; allow the users to manipulate the verbosity of specific components at specific phases
-- +uvm_set_action
-- +uvm_set_severity
-</code></pre>
+<ul>
+<li>+UVM_TESTNAME :</li>
+<li>+UVM_VERBOSITY :  allows the user to specify the initial verbosity for all components</li>
+<li>+UVM_TIMEOUT : allows users to change the global timeout of the UVM framework</li>
+<li>+UVM_MAX_QUIT_COUNT : allows users to change max quit count for the report server</li>
+<li>+UVM_CONFIG_DB_TRACE : turns on tracing of configuration DB access</li>
+<li>+UVM_DUMP_CMDLINE_ARGS</li>
+<li>+UVM_OBJECTION_TRACE :  turns on tracing of objection activity</li>
+<li>+UVM_PHASE_TRACE : turns on tracing of phase executions</li>
+<li>+UVM_RESOURCE_DB_TRACE : turns on tracing of resource DB access</li>
+<li>+uvm_set_config_int</li>
+<li>+uvm_set_config_string</li>
+<li>+uvm_set_inst_override</li>
+<li>+uvm_set_type_override</li>
+<li>+uvm_set_verbosity
++uvm_set_verbosity=<!-- raw HTML omitted -->,<!-- raw HTML omitted -->,<!-- raw HTML omitted -->,<!-- raw HTML omitted --> and +uvm_set_verbosity=<!-- raw HTML omitted -->,<!-- raw HTML omitted -->,<!-- raw HTML omitted -->,time,<!-- raw HTML omitted --> allow the users to manipulate the verbosity of specific components at specific phases</li>
+<li>+uvm_set_action</li>
+<li>+uvm_set_severity</li>
+</ul>
 
   </div>
 </article>
@@ -243,7 +246,6 @@
       <a href="https://twitter.com/hon9jin" class="iconfont icon-twitter" title="twitter"></a>
       <a href="https://www.facebook.com/kin9hom" class="iconfont icon-facebook" title="facebook"></a>
       <a href="https://www.linkedin.com/in/hjking" class="iconfont icon-linkedin" title="linkedin"></a>
-      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
       <a href="https://github.com/hjking" class="iconfont icon-github" title="github"></a>
       <a href="http://weibo.com/hon9jin" class="iconfont icon-weibo" title="weibo"></a>
       <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
@@ -258,11 +260,11 @@
 
 <div class="copyright">
   <span class="power-by">
-    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
   </span>
   <span class="division">|</span>
   <span class="theme-info">
-    Theme - 
+    主题 - 
     <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
   </span>
 
@@ -270,7 +272,7 @@
 
   <span class="copyright-year">
     &copy; 
-    2017 - 
+    2014 - 
     2020
     <span class="heart">
       <i class="iconfont icon-heart"></i>
