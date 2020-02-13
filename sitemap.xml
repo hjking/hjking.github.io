@@ -289,14 +289,14 @@
   </url>
   
   <url>
-    <loc>/categories/gfw/</loc>
+    <loc>/tags/gfw/</loc>
     <lastmod>2014-06-21T15:05:02+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>/tags/gfw/</loc>
+    <loc>/categories/gfw/</loc>
     <lastmod>2014-06-21T15:05:02+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
