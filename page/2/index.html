@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-cn">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.64.0 with theme even" />
+<meta name="generator" content="Hugo 0.60.1 with theme even" />
 
 
 <link rel="canonical" href="/" />
@@ -38,13 +38,14 @@
 
 <link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+<link rel="stylesheet" href="/css/fontawesome/font-awesome.min.css">
 
 
 <meta property="og:title" content="HJKing" />
 <meta property="og:description" content="HJKing&#39;s Blog" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="/" />
-<meta property="og:updated_time" content="2019-12-06T12:22:56+08:00" />
+<meta property="og:updated_time" content="2020-11-24T18:52:02+08:00" />
 <meta itemprop="name" content="HJKing">
 <meta itemprop="description" content="HJKing&#39;s Blog"><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="HJKing"/>
@@ -81,6 +82,8 @@
         <li class="mobile-menu-item">Tags</li>
       </a><a href="/categories/">
         <li class="mobile-menu-item">Categories</li>
+      </a><a href="/ref/">
+        <li class="mobile-menu-item">Reference</li>
       </a><a href="/about/">
         <li class="mobile-menu-item">About</li>
       </a>
@@ -103,6 +106,8 @@
       </li><li class="menu-item">
         <a class="menu-item-link" href="/categories/">Categories</a>
       </li><li class="menu-item">
+        <a class="menu-item-link" href="/ref/">Reference</a>
+      </li><li class="menu-item">
         <a class="menu-item-link" href="/about/">About</a>
       </li>
   </ul>
@@ -115,33 +120,176 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/syntax-highlighting/">Syntax Highlighting</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/2015-03-02-sublime/">Sublime Text 3 技巧集锦</a></h1>
     <div class="post-meta">
-      <span class="post-time"> 2011-08-30 16:01 </span>
+      <span class="post-time"> 2015-03-02 15:05 </span>
       <div class="post-category">
-          <a href="/categories/syntax-highlighting/"> Syntax Highlighting </a>
+          <a href="/categories/tool/"> tool </a>
           </div>
     </div>
   </header>
   
   <div class="post-content">
     <div class="post-summary">
-      <div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">helloWorld</span> <span class="p">(</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">alert</span><span class="p">(</span><span class="s2">&#34;Hello, World!&#34;</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
-</div>
-</div>
+      <h2 id="heading">常用插件：</h2>
+<ul>
+<li>
+<p>Package Control</p>
+<p>安装和管理插件。</p>
+</li>
+<li>
+<p>BracketHighlighter</p>
+<p>高亮显示匹配的括号，引号和标签。</p>
+</li>
+<li>
+<p>TrailingSpacer</p>
+<p>高亮显示行尾多余的空格和Tab。</p>
+</li>
+<li>
+<p>Alignment</p>
+<p>等号智能对齐和统一缩进。</p>
+</li>
+<li>
+<p>SideBarEnhancement</p>
+<p>侧边栏增强。</p>
+</li>
+<li>
+<p>MarkDown Editing</p>
+<p>编辑markdown文件时提供语法支持，缩进。</p>
+</li>
+<li>
+<p>FileDiffs</p>
+<p>比较文件。</p>
+</li>
+<li>
+<p><a href="https://github.com/jonschlinkert/sublime-markdown-extended">Markdown Enhancements</a></p>
+<p>增强编辑markdown文件时的着色和高亮。</p>
+</li>
+</ul>
+<h2 id="heading1">常用快捷键：</h2>
+<h3 id="heading2">移动</h3>
+<blockquote>
+<p>Ctrl + ←/→：进行逐词移动</p>
+<p>Ctrl + ↑/↓移动当前显示区域</p>
+<p>Ctrl + Shift + L：将当前选中区域打散，实现对所有行进行同时编辑</p>
+</blockquote>
+<h3 id="heading3">选择</h3>
+<blockquote>
+<p>Ctrl + Shift + J：快速选择同缩进的内容</p>
+<p>Ctrl + Shift + Space：快速选择当前作用域（Scope）的内容</p>
+<p>Ctrl + Shift + ←/→进行逐词选择</p>
+<p>Ctrl + D：选择当前光标所在的词并高亮该词所有出现的位置，再次Ctrl + &gt; D选择该词出现的下一个位置，在多重选词的过程中，使用Ctrl + K进行跳过，使用Ctrl &gt; + U进行回退，使用Esc退出多重编辑</p>
+<p>Ctrl + Shift + L：将当前选中区域打散</p>
+<p>Ctrl + J：把当前选中区域合并为一行</p>
+<p>Ctrl + M：在起始括号和结尾括号间切换</p>
+<p>Ctrl + Shift + M：快速选择括号间的内容</p>
+</blockquote>
+<h3 id="heading4">查找和替换</h3>
+<blockquote>
+<p>Ctrl + D：选择当前光标所在的词并高亮该词所有出现的位置，再次 Ctrl + D选择该词出现的下一个位置，在多重选词的过程中，使用Ctrl + K进行跳过，使用Ctrl + U进行回退，使用Esc退出多重编辑</p>
+<p>F3：跳至当前关键字下一个位置</p>
+<p>Shift + F3：跳到当前关键字上一个位置</p>
+<p>Alt + F3：选中当前关键字出现的所有位置</p>
+<p>Ctrl + F 调出搜索框进行搜索</p>
+<p>Ctrl + H 进行替换</p>
+<p>在搜索框输入关键字后Enter跳至关键字当前光标的下一个位置，Shift + Enter跳至上一个位置，Alt + Enter选中其出现的所有位置（同样的，接下来可以进行快速替换）</p>
+<p>使用 Ctrl + Shift + F 开启多文件搜索&amp;替换</p>
+</blockquote>
     </div>
     <div class="read-more">
-      <a href="/post/syntax-highlighting/" class="read-more-link">Read more...</a>
+      <a href="/post/2015-03-02-sublime/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/2014-12-26-org-trello/">使用org-trello管理Trello</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2014-12-26 15:05 </span>
+      <div class="post-category">
+          <a href="/categories/tool/"> tool </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <p>本文将介绍使用 <code>Emacs</code> 配合 <code>org-trello</code> 来管理 <code>Trello</code>。</p>
+<h2 id="heading">链接</h2>
+<ul>
+<li><a href="http://orgmode.org/">org-mode</a></li>
+<li><a href="http://trello.com/">Trello</a></li>
+<li><a href="https://org-trello.github.io/">org-trello</a></li>
+</ul>
+<h2 id="heading1">安装</h2>
+<p>使用 <code>package</code> 包管理插件安装，我将假设你已经配置好了插件仓库 <code>melpa</code>。在 <em>Emacs</em> 中 <code>M-x package-install RET org-trello RET</code> 就可下载 <code>org-trello</code> 软件包。</p>
+<h2 id="heading2">配置</h2>
+<p>在 <code>init.el</code> 中添加以下内容：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="p">(</span><span class="nb">require</span> <span class="ss">&#39;org-trello</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><em>注意：</em> 不建议所有的 org file 都启用 org-trello 模式，利用以下配置使 <code>org-trello</code> 只对特定文件有效。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span class="p">(</span><span class="nv">custom-set-variables</span> <span class="o">&#39;</span><span class="p">(</span><span class="nv">org-trello-files</span> <span class="o">&#39;</span><span class="p">(</span><span class="s">&#34;</span><span class="s">/path/to/file0</span><span class="s">&#34;</span> <span class="s">&#34;</span><span class="s">/path/to/file1</span><span class="s">&#34;</span><span class="p">)</span><span class="p">)</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>当打开 <em>file0</em> 和 <em>file1</em> 时，<code>org-trello</code> 才会激活。</p>
+<h2 id="heading3">使用</h2>
+<h3 id="trello">获取Trello授权</h3>
+<p>为了使 <code>org-trello</code> 能够访问 <code>Trello</code>，并能操作 <code>Trello</code> 的 <code>board</code> ，需要从 <code>Trello</code> 获取 <em>consumer-key</em> 和 <em>access-token</em>。使用快捷键 <strong>C-c o i</strong>，或者运行命令 <strong>org-trello/install-key-and-token</strong> , 此时默认浏览器会打开 <code>Trello</code> 的相关页面，复制 <em>Key</em> 部分的字符串，粘贴到 <em>Emacs</em> 的 <em>minibuffer</em> ，之后又会打开一个 <code>org-trello</code> 请求 <code>Trello</code> 授权的页面，点击 <em>Allow</em>, 浏览器会跳转至显示 <code>access-token</code> 页面，复制粘贴到 <code>Emacs</code> 的 <code>minibuffer</code>，回车。以上过程至需要执行一次即可。</p>
+<h3 id="trelloboard">与Trello的board相关联</h3>
+<p>每一个 org 文件都需要与一个 <code>Trello</code> 的 <code>board</code> 相关联。</p>
+<h4 id="board">与已有的board相关联</h4>
+<p>打开一个 org 文件，执行：<strong>C-c o I</strong> 或者 <strong>M-x org-trello/install-board-metadata</strong> ，Emacs会在minibuffer中返回一个已有board的列表，输入你想要同步的board对应的编号即可。</p>
+<p><strong>注意：</strong> 确保board中的list名称和 <code>org</code> 中设置的 <code>org-todo-keywords</code> 保持一致，否则会同步出错。</p>
+    </div>
+    <div class="read-more">
+      <a href="/post/2014-12-26-org-trello/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/2014-06-21-gfw/">上网必备技能</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2014-06-21 15:05 </span>
+      <div class="post-category">
+          <a href="/categories/tool/"> tool </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <p>作为身在国内的孩纸，上网是件容易的事儿，但是要想自由的上网，那还真是个难事儿。以下列出几个上网必备技能，供大家交流学习。<strong>(Keep Updating)</strong></p>
+<h2 id="vpn">VPN</h2>
+<ul>
+<li>
+<p>GreenVPN，这货被很多大牛推荐过，稳定靠谱，我也推荐大家使用，<a href="http://gjsq.me/726217">GreenVPN</a> ——  推广链接，不喜勿点。</p>
+</li>
+<li>
+<p>更多免费VPN，<a href="http://ilvpn.com/free-vpn">猛击这里</a></p>
+</li>
+</ul>
+<h2 id="chrome">Chrome插件</h2>
+<h3 id="heading">红杏</h3>
+<p>基于Chrome浏览器的一个插件，自动帮你翻墙，免去你各种不便，<a href="http://honx.in/i/U6OB_YKo1wqCqIe9">安装地址</a></p>
+<h2 id="goagent">Goagent</h2>
+<p>这货我就不介绍了吧，大名鼎鼎，完全免费。<a href="https://code.google.com/p/goagent">项目地址</a>，里面的安装步骤写得很清楚，按着来就可以了。</p>
+    </div>
+    <div class="read-more">
+      <a href="/post/2014-06-21-gfw/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>
@@ -151,7 +299,7 @@
   <nav class="pagination">
     <a class="prev" href="/">
         <i class="iconfont icon-left"></i>
-        <span class="prev-text">Prev</span>
+        <span class="prev-text">上一页</span>
       </a>
     
   </nav>
@@ -164,18 +312,17 @@
     <footer id="footer" class="footer">
       <div class="social-links">
       <a href="mailto:hon9jin@gmail.com" class="iconfont icon-email" title="email"></a>
-      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
-      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
-      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
-      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
-      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
-      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
-      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://stackoverflow.com/users/1605724/hjking" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://twitter.com/hon9jin" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://www.facebook.com/kin9hom" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="https://www.linkedin.com/in/hjking" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="https://github.com/hjking" class="iconfont icon-github" title="github"></a>
+      <a href="http://weibo.com/hon9jin" class="iconfont icon-weibo" title="weibo"></a>
       <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
       <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
       <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
-      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
-      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://kinghom.tumblr.com" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://instagram.com/kinghom" class="iconfont icon-instagram" title="instagram"></a>
       <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
       <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
   <a href="/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
@@ -183,11 +330,11 @@
 
 <div class="copyright">
   <span class="power-by">
-    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
   </span>
   <span class="division">|</span>
   <span class="theme-info">
-    Theme - 
+    主题 - 
     <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
   </span>
 
@@ -195,7 +342,7 @@
 
   <span class="copyright-year">
     &copy; 
-    2017 - 
+    2014 - 
     2020
     <span class="heart">
       <i class="iconfont icon-heart"></i>
@@ -216,6 +363,17 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.css" integrity="sha384-6QbLKJMz5dS3adWSeINZe74uSydBGFbnzaAYmp+tKyq60S7H2p6V7g1TysM5lAaF" crossorigin="anonymous">
 <script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
 
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-6627086-2', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 
 

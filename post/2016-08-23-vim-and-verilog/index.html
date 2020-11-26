@@ -26,7 +26,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.64.0 with theme even" />
+<meta name="generator" content="Hugo 0.60.1 with theme even" />
 
 
 <link rel="canonical" href="/post/2016-08-23-vim-and-verilog/" />
@@ -159,10 +159,10 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#语法高亮">语法高亮</a></li>
-        <li><a href="#文件浏览">文件浏览</a></li>
-        <li><a href="#tag-跳转">tag 跳转</a></li>
-        <li><a href="#在module和endmodule间跳转">在module和endmodule间跳转</a></li>
+        <li><a href="#heading">语法高亮</a></li>
+        <li><a href="#heading1">文件浏览</a></li>
+        <li><a href="#tag-">tag 跳转</a></li>
+        <li><a href="#moduleendmodule">在module和endmodule间跳转</a></li>
       </ul>
     </li>
   </ul>
@@ -171,11 +171,11 @@
 </div>
     <div class="post-content">
       <p>由于 VIM 自身对 Verilog/SystemVerilog 的支持不是很完美，所以需要额外配置一下，本文记录了我在使用过程中一些常用的配置。其中用到了一些第三方插件和网上的代码片段。</p>
-<h3 id="语法高亮">语法高亮</h3>
+<h3 id="heading">语法高亮</h3>
 <p>使用插件 <a href="https://github.com/vhda/verilog_systemverilog.vim">verilog_systemverilog</a> 。增加了语法高亮等。</p>
-<h3 id="文件浏览">文件浏览</h3>
+<h3 id="heading1">文件浏览</h3>
 <p>安装插件<a href="https://github.com/scrooloose/nerdtree">nerdtree</a>，通过运行命令 <code>NERDTree</code> 可以在VIM中打开文件浏览，方便在文件间切换。</p>
-<h3 id="tag-跳转">tag 跳转</h3>
+<h3 id="tag-">tag 跳转</h3>
 <p>首先得利用 <code>ctags</code> 到生成 TAGS 文件。</p>
 <p>如果是使用 <a href="http://ctags.sourceforge.net/">exuberant-ctags</a>，默认是不识别 verilog 和 SystemVerilog 代码的。需要通过修改配置文件，增加语法识别。</p>
 <p>编辑 <code>~/.ctags</code>， 添加以下代码：</p>
@@ -264,7 +264,7 @@
 </span></code></pre></td></tr></table>
 </div>
 </div><p>以后在 VIM 中打开代码时，就可以通过 <code>CTRL-]</code> 跳转到当前光标处的变量/函数等的定义位置。</p>
-<h3 id="在module和endmodule间跳转">在module和endmodule间跳转</h3>
+<h3 id="moduleendmodule">在module和endmodule间跳转</h3>
 <p>在 VIM 中，可以通过 <code>%</code> 在匹配的 <code>( 与 ) ，{ 与 } ， [ 与 ]</code> 间跳转。增加以下配置后，可以实现在 module 与 endmodule，task 与 endtask等之间跳转。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">

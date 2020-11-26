@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.64.0 with theme even" />
+<meta name="generator" content="Hugo 0.60.1 with theme even" />
 
 
 <link rel="canonical" href="/post/2016-12-29-customizing-uvm-message-format/" />
@@ -142,22 +142,22 @@
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#默认格式">默认格式</a></li>
-    <li><a href="#自定义格式">自定义格式</a></li>
-    <li><a href="#如何使用自定义格式">如何使用自定义格式</a></li>
+    <li><a href="#heading">默认格式</a></li>
+    <li><a href="#heading1">自定义格式</a></li>
+    <li><a href="#heading2">如何使用自定义格式</a></li>
   </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      <h2 id="默认格式">默认格式</h2>
+      <h2 id="heading">默认格式</h2>
 <p>默认情况下，当我们调用 `uvm_info 宏时，打印信息格式如下:</p>
 <blockquote>
 <p>UVM_INFO my_uvm_report.sv(83) @ 0: reporter [top] This is a message from top.</p>
 <p>UVM_INFO my_uvm_report.sv(68) @ 0: uvm_test_top [my_test] This is a message from my_test.</p>
 <p>UVM_INFO my_uvm_report.sv(39) @ 0: uvm_test_top.my_env_h [my_env] This is a message from my_env.</p>
 </blockquote>
-<h2 id="自定义格式">自定义格式</h2>
+<h2 id="heading1">自定义格式</h2>
 <p>通过重载 <code>uvm_report_server</code> 类的 <code>compose_message</code> 函数可以达到目的。 首先创建一个继承自 <code>uvm_report_server</code> 的 <code>my_report_server</code> 类，在类中实现 <code>compose_message</code> 函数。 需要注意的是对 <code>uvm_severity</code> 类型的 severity 做了强制转换为 <code>uvm_severity_type</code>，为的是显示打印类型。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -189,7 +189,7 @@
 <span class="nl">endclass:</span> <span class="n">my_report_server</span>
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="如何使用自定义格式">如何使用自定义格式</h2>
+</div><h2 id="heading2">如何使用自定义格式</h2>
 <p>使用 <code>my_report_server</code> 替换 <code>uvm_report_server</code>。 <code>uvm_report_server</code> 是一个全局 server，处理由 <code>uvm_report_handler</code> 句柄产生的打印信息。</p>
 <p>首先, 实例化 <code>my_report_server</code>。 然后，通过 <code>uvm_report_server</code> 的静态函数 <code>set_server()</code> 设置 <code>my_server</code> 为全局。这里，我们在 testcase 的 <code>start_of_simulation()</code> 函数中做以上处理。</p>
 <div class="highlight"><div class="chroma">

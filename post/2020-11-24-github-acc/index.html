@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>加速 GitHub 的访问速度 - HJKing</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="HJKing" /><meta name="description" content="作为身在国内的孩纸，上网是件容易的事儿，但是要想自由的上网，那还真是个难事儿。以下列出几个上网必备技能，供大家交流学习。(Keep Updating)
+GitHub 镜像访问   https://github.com.cnpmjs.org
+  https://hub.fastgit.org
+  也就是说上面的镜像就是一个克隆版的 GitHub，你可以访问上面的镜像网站，网站的内容跟 GitHub 是完整同步的镜像，然后在这个网站里面进行下载克隆等操作。
+GitHub 下载文件加速 利用 Cloudflare Workers 对 github release 、archive 以及项目文件进行加速，部署无需服务器且自带CDN.
+  https://gh.api.99988866.xyz
+  https://g.ioiox.com
+  以上网站为演示站点，如无法打开可以查看开源项目：gh-proxy-GitHub 文件加速自行部署。
+Github 加速下载 只需要复制当前 GitHub 地址粘贴到输入框中就可以代理加速下载！ 地址：http://toolwa.com/github/
+" /><meta name="keywords" content="ASIC, UVM, SV" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.60.1 with theme even" />
+
+
+<link rel="canonical" href="/post/2020-11-24-github-acc/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+<link rel="stylesheet" href="/css/fontawesome/font-awesome.min.css">
+
+
+<meta property="og:title" content="加速 GitHub 的访问速度" />
+<meta property="og:description" content="作为身在国内的孩纸，上网是件容易的事儿，但是要想自由的上网，那还真是个难事儿。以下列出几个上网必备技能，供大家交流学习。(Keep Updating)
+GitHub 镜像访问
+
+
+https://github.com.cnpmjs.org
+
+
+https://hub.fastgit.org
+
+
+也就是说上面的镜像就是一个克隆版的 GitHub，你可以访问上面的镜像网站，网站的内容跟 GitHub 是完整同步的镜像，然后在这个网站里面进行下载克隆等操作。
+GitHub 下载文件加速
+利用 Cloudflare Workers 对 github release 、archive 以及项目文件进行加速，部署无需服务器且自带CDN.
+
+
+https://gh.api.99988866.xyz
+
+
+https://g.ioiox.com
+
+
+以上网站为演示站点，如无法打开可以查看开源项目：gh-proxy-GitHub 文件加速自行部署。
+Github 加速下载
+只需要复制当前 GitHub 地址粘贴到输入框中就可以代理加速下载！
+地址：http://toolwa.com/github/" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/2020-11-24-github-acc/" />
+<meta property="article:published_time" content="2020-11-24T18:52:02+08:00" />
+<meta property="article:modified_time" content="2020-11-24T18:52:02+08:00" />
+<meta itemprop="name" content="加速 GitHub 的访问速度">
+<meta itemprop="description" content="作为身在国内的孩纸，上网是件容易的事儿，但是要想自由的上网，那还真是个难事儿。以下列出几个上网必备技能，供大家交流学习。(Keep Updating)
+GitHub 镜像访问
+
+
+https://github.com.cnpmjs.org
+
+
+https://hub.fastgit.org
+
+
+也就是说上面的镜像就是一个克隆版的 GitHub，你可以访问上面的镜像网站，网站的内容跟 GitHub 是完整同步的镜像，然后在这个网站里面进行下载克隆等操作。
+GitHub 下载文件加速
+利用 Cloudflare Workers 对 github release 、archive 以及项目文件进行加速，部署无需服务器且自带CDN.
+
+
+https://gh.api.99988866.xyz
+
+
+https://g.ioiox.com
+
+
+以上网站为演示站点，如无法打开可以查看开源项目：gh-proxy-GitHub 文件加速自行部署。
+Github 加速下载
+只需要复制当前 GitHub 地址粘贴到输入框中就可以代理加速下载！
+地址：http://toolwa.com/github/">
+<meta itemprop="datePublished" content="2020-11-24T18:52:02&#43;08:00" />
+<meta itemprop="dateModified" content="2020-11-24T18:52:02&#43;08:00" />
+<meta itemprop="wordCount" content="888">
+
+
+
+<meta itemprop="keywords" content="github," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="加速 GitHub 的访问速度"/>
+<meta name="twitter:description" content="作为身在国内的孩纸，上网是件容易的事儿，但是要想自由的上网，那还真是个难事儿。以下列出几个上网必备技能，供大家交流学习。(Keep Updating)
+GitHub 镜像访问
+
+
+https://github.com.cnpmjs.org
+
+
+https://hub.fastgit.org
+
+
+也就是说上面的镜像就是一个克隆版的 GitHub，你可以访问上面的镜像网站，网站的内容跟 GitHub 是完整同步的镜像，然后在这个网站里面进行下载克隆等操作。
+GitHub 下载文件加速
+利用 Cloudflare Workers 对 github release 、archive 以及项目文件进行加速，部署无需服务器且自带CDN.
+
+
+https://gh.api.99988866.xyz
+
+
+https://g.ioiox.com
+
+
+以上网站为演示站点，如无法打开可以查看开源项目：gh-proxy-GitHub 文件加速自行部署。
+Github 加速下载
+只需要复制当前 GitHub 地址粘贴到输入框中就可以代理加速下载！
+地址：http://toolwa.com/github/"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">HJKing</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/ref/">
+        <li class="mobile-menu-item">Reference</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">HJKing</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/ref/">Reference</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">加速 GitHub 的访问速度</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-11-24 18:52 </span>
+        <div class="post-category">
+            <a href="/categories/tool/"> tool </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#github-">GitHub 镜像访问</a></li>
+    <li><a href="#github-1">GitHub 下载文件加速</a></li>
+    <li><a href="#github-2">Github 加速下载</a></li>
+    <li><a href="#-github">加速你的 Github</a></li>
+    <li><a href="#-github-">谷歌浏览器 GitHub 加速插件(推荐)</a></li>
+    <li><a href="#github-raw-">GitHub raw 加速</a></li>
+    <li><a href="#-gitee--fork-">通过 Gitee 中转 fork 仓库下载</a></li>
+    <li><a href="#-hosts-">通过修改 HOSTS 文件进行加速</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>作为身在国内的孩纸，上网是件容易的事儿，但是要想自由的上网，那还真是个难事儿。以下列出几个上网必备技能，供大家交流学习。<strong>(Keep Updating)</strong></p>
+<h2 id="github-">GitHub 镜像访问</h2>
+<ul>
+<li>
+<p><a href="https://github.com.cnpmjs.org">https://github.com.cnpmjs.org</a></p>
+</li>
+<li>
+<p><a href="https://hub.fastgit.org">https://hub.fastgit.org</a></p>
+</li>
+</ul>
+<p>也就是说上面的镜像就是一个克隆版的 GitHub，你可以访问上面的镜像网站，网站的内容跟 GitHub 是完整同步的镜像，然后在这个网站里面进行下载克隆等操作。</p>
+<h2 id="github-1">GitHub 下载文件加速</h2>
+<p>利用 Cloudflare Workers 对 github release 、archive 以及项目文件进行加速，部署无需服务器且自带CDN.</p>
+<ul>
+<li>
+<p><a href="https://gh.api.99988866.xyz">https://gh.api.99988866.xyz</a></p>
+</li>
+<li>
+<p><a href="https://g.ioiox.com">https://g.ioiox.com</a></p>
+</li>
+</ul>
+<p>以上网站为演示站点，如无法打开可以查看开源项目：<a href="https://hunsh.net/archives/23/">gh-proxy-GitHub</a> 文件加速自行部署。</p>
+<h2 id="github-2">Github 加速下载</h2>
+<p>只需要复制当前 GitHub 地址粘贴到输入框中就可以代理加速下载！
+地址：http://toolwa.com/github/</p>
+<h2 id="-github">加速你的 Github</h2>
+<ul>
+<li><a href="https://github.zhlh6.cn">https://github.zhlh6.cn</a></li>
+</ul>
+<p>输入 Github 仓库地址，使用生成的地址进行 git ssh 等操作</p>
+<h2 id="-github-">谷歌浏览器 GitHub 加速插件(推荐)</h2>
+<ul>
+<li><a href="https://chrome.google.com/webstore/detail/github%E5%8A%A0%E9%80%9F/mfnkflidjnladnkldfonnaicljppahpg/related">GitHub加速</a></li>
+</ul>
+<h2 id="github-raw-">GitHub raw 加速</h2>
+<p>GitHub raw 域名并非 github.com 而是 raw.githubusercontent.com，上方的 GitHub 加速如果不能加速这个域名，那么可以使用 Static CDN 提供的反代服务。
+将 raw.githubusercontent.com 替换为 raw.staticdn.net 即可加速。</p>
+<h2 id="-gitee--fork-">通过 Gitee 中转 fork 仓库下载</h2>
+<p>访问 gitee 网站：https://gitee.com/ 并登录，在顶部选择“从 GitHub/GitLab 导入仓库” ，在导入页面中粘贴你的Github仓库地址，点击导入即可。等待导入操作完成，然后在导入的仓库中下载浏览对应的该 GitHub 仓库代码，你也可以点击仓库顶部的“刷新”按钮进行 Github 代码仓库的同步。</p>
+<h2 id="-hosts-">通过修改 HOSTS 文件进行加速</h2>
+<p>手动把cdn和ip地址绑定。</p>
+<ul>
+<li>
+<p>第一步：获取 github 的 global.ssl.fastly 地址</p>
+<p>访问：http://github.global.ssl.fastly.net.ipaddress.com/#ipinfo 获取cdn和ip域名。得到：199.232.69.194 <a href="https://github.global.ssl.fastly.net">https://github.global.ssl.fastly.net</a></p>
+</li>
+<li>
+<p>第二步：获取github.com地址</p>
+<p>访问：https://github.com.ipaddress.com/#ipinfo 获取cdn和ip，得到：140.82.114.4 <a href="http://github.com">http://github.com</a>。</p>
+</li>
+<li>
+<p>第三步：修改 host 文件映射上面查找到的 IP</p>
+<p>windows系统：修改C:\Windows\System32\drivers\etc\hosts文件，在末尾处添加以下内容：</p>
+<blockquote>
+<p>199.232.69.194 github.global.ssl.fastly.net</p>
+</blockquote>
+<blockquote>
+<p>140.82.114.4 github.com</p>
+</blockquote>
+</li>
+</ul>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">HJKing</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2020-11-24 18:52
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/github/">github</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/even-test/">
+            <span class="next-text nav-default">Even Test</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="hjking/hjking.github.io"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:hon9jin@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://stackoverflow.com/users/1605724/hjking" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="https://twitter.com/hon9jin" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://www.facebook.com/kin9hom" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="https://www.linkedin.com/in/hjking" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="https://github.com/hjking" class="iconfont icon-github" title="github"></a>
+      <a href="http://weibo.com/hon9jin" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://kinghom.tumblr.com" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://instagram.com/kinghom" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2014 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">HJKing</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/raphael@2.2.7/raphael.min.js" integrity="sha256-67By+NpOtm9ka1R6xpUefeGOY8kWWHHRAKlvaTJ7ONI=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/flowchart.js@1.8.0/release/flowchart.min.js" integrity="sha256-zNGWjubXoY6rb5MnmpBNefO0RgoVYfle9p0tvOQM+6k=" crossorigin="anonymous"></script><script></script><script src="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js" integrity="sha256-4O4pS1SH31ZqrSO2A/2QJTVjTPqVe+jnYgOWUVr7EEc=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/snapsvg@0.5.1/dist/snap.svg-min.js" integrity="sha256-oI+elz+sIm+jpn8F/qEspKoKveTc5uKeFHNNVexe6d8=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/npm/underscore@1.8.3/underscore-min.js" integrity="sha256-obZACiHd7gkOk9iIL/pimWMTJ4W/pBsKu+oZnSeBIek=" crossorigin="anonymous"></script> <script src="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.js" integrity="sha384-8748Vn52gHJYJI0XEuPB2QlPVNUkJlJn9tHqKec6J3q2r9l8fvRxrgn/E5ZHV0sP" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bramp/js-sequence-diagrams@2.0.1/dist/sequence-diagram-min.css" integrity="sha384-6QbLKJMz5dS3adWSeINZe74uSydBGFbnzaAYmp+tKyq60S7H2p6V7g1TysM5lAaF" crossorigin="anonymous">
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-6627086-2', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+</body>
+</html>
